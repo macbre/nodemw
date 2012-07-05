@@ -9,14 +9,18 @@ MediaWiki API client written in node.js
 
 ## Instalation
 
-`git clone https://github.com/macbre/nodemw.git`
+``` bash
+  $ git clone https://github.com/macbre/nodemw.git`
+```
 
 ## First script
 
 An example script can be found in `/examples` directory.
 
-``cd examples
-node pagesInCategory.js``
+``` bash
+  $ cd examples
+  $ node pagesInCategory.js
+```
 
 ## API
 
@@ -25,13 +29,19 @@ when the requested action is done.
 
 ### Creating a bot instance
 
-``var bot = require('./lib/bot').bot;
+``` js
+  var bot = require('./lib/bot').bot;
 
-var client = new bot({
-	server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
-	path: '/w',                  // path to api.php script
-	debug: false                 // is more verbose when set to true
-});``
+  var client = new bot({
+      server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
+      path: '/w',                  // path to api.php script
+      debug: false                 // is more verbose when set to true
+  });
+
+  client.getArticle('foo', function(data) {
+      // ...
+  });
+```
 
 ### logIn
 
