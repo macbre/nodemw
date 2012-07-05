@@ -15,27 +15,23 @@ MediaWiki API client written in node.js
 
 An example script can be found in `/examples` directory.
 
-``
-cd examples
-node pagesInCategory.js
-``
+``cd examples
+node pagesInCategory.js``
 
 ## API
 
 The last parameter of each function in nodemw API is a callback which will be fired
-when requested action is done.
+when the requested action is done.
 
 ### Creating a bot instance
 
-``
-var bot = require('./lib/bot').bot;
+``var bot = require('./lib/bot').bot;
 
 var client = new bot({
-	server: 'en.wikipedia.org',
-	path: '/w',
-	debug: false
-});
-``
+	server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
+	path: '/w',                  // path to api.php script
+	debug: false                 // is more verbose when set to true
+});``
 
 ### logIn
 
@@ -45,13 +41,13 @@ Log-in using given credentials.
 
 ### getPagesInCategory
 
-Gets the list of pages in given category
+Gets the list of pages in a given category
 
 `bot.getPagesInCategory(category, callback)`
 
 ### getArticle
 
-Gets article content and meta data
+Gets article content and its meta data
 
 `bot.getArticle(title, callback)`
 
@@ -63,7 +59,7 @@ Creates / edits an article
 
 ### delete
 
-Deletes and article
+Deletes an article
 
 `bot.delete(title, reason, callback)`
 
