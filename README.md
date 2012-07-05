@@ -13,17 +13,34 @@ MediaWiki API client written in node.js
 
 ## First script
 
-An example script can be found in examples directory.
+An example script can be found in `/examples` directory.
 
 `cd examples`
 `node pagesInCategory.js`
 
 ## API
 
-### bot.logIn(username, password, callback)
+The last parameter of each function in nodemw API is a callback which will be fired
+when requested action is done.
 
-### bot.getPagesInCategory(category, callback)
+### Log-in
 
-### bot.getArticle(title, callback)
+`bot.logIn(username, password, callback)`
 
-### bot.edit(title, content, summary, callback)
+### Getting the list of pages in given category
+
+`bot.getPagesInCategory(category, callback)`
+
+### Getting article content and meta data
+
+`bot.getArticle(title, callback)`
+
+### Creating and editing article
+
+`bot.edit(title, content, summary, callback)`
+
+## TODO
+
+* Use promise pattern instead of callbacks.
+* Make a queue of requested actions and configure delays to avoid flooding the server with HTTP requests.
+* Log to a file.
