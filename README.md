@@ -10,7 +10,7 @@ MediaWiki API client written in node.js
 ## Instalation
 
 ``` bash
-  $ git clone https://github.com/macbre/nodemw.git`
+git clone https://github.com/macbre/nodemw.git
 ```
 
 ## First script
@@ -18,8 +18,8 @@ MediaWiki API client written in node.js
 An example script can be found in `/examples` directory.
 
 ``` bash
-  $ cd examples
-  $ node pagesInCategory.js
+cd examples
+node pagesInCategory.js
 ```
 
 ## API
