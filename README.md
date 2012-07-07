@@ -43,42 +43,29 @@ when the requested action is done.
   });
 ```
 
-### logIn
+### bot.logIn(username, password, callback)
 
 Log-in using given credentials.
 
-`bot.logIn(username, password, callback)`
-
-### getPagesInCategory
+### bot.getPagesInCategory(category, callback)
 
 Gets the list of pages in a given category
 
-`bot.getPagesInCategory(category, callback)`
-
-### getArticle
+### bot.getArticle(title, callback)
 
 Gets article content and its meta data
 
-`bot.getArticle(title, callback)`
-
-### edit
+### bot.edit(title, content, summary, callback)
 
 Creates / edits an article
 
-`bot.edit(title, content, summary, callback)`
-
-### delete
+### bot.delete(title, reason, callback)
 
 Deletes an article
 
-`bot.delete(title, reason, callback)`
-
-### token
+### bot.token(title, action, callback)
 
 Returns token required for a number of MediaWiki API operations
-
-`bot.token(title, action, callback)`
-
 
 ## TODO
 
