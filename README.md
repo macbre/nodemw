@@ -45,23 +45,23 @@ when the requested action is done.
 
 ### bot.logIn(username, password, callback)
 
-Log-in using given credentials - (read more)[http://www.mediawiki.org/wiki/API:Login]
+Log-in using given credentials - [read more](http://www.mediawiki.org/wiki/API:Login)
 
 ### bot.getPagesInCategory(category, callback)
 
-Gets the list of pages in a given category - (read more)[http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv]
+Gets the list of pages in a given category - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
 
 ### bot.getArticle(title, callback)
 
-Gets article content and its meta data - (read more)[http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv]
+Gets article content and its meta data - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
 
 ### bot.edit(title, content, summary, callback)
 
-Creates / edits an article - (read more)[http://www.mediawiki.org/wiki/API:Edit]
+Creates / edits an article - [read more](http://www.mediawiki.org/wiki/API:Edit)
 
 ### bot.delete(title, reason, callback)
 
-Deletes an article - (read more)[http://www.mediawiki.org/wiki/API:Delete]
+Deletes an article - [read more](http://www.mediawiki.org/wiki/API:Delete)
 
 ### bot.token(title, action, callback)
 
@@ -72,5 +72,5 @@ Returns token required for a number of MediaWiki API operations
 * Use promise pattern instead of callbacks.
 * Make a queue of requested actions and configure delays to avoid flooding the server with HTTP requests.
 * Log to a file.
-* Support (move action)[http://www.mediawiki.org/wiki/API:Move].
-* Set (proper User Agent)[http://meta.wikimedia.org/wiki/User-Agent_policy]
+* Add support for [move action](http://www.mediawiki.org/wiki/API:Move).
+* Set [proper User Agent](http://meta.wikimedia.org/wiki/User-Agent_policy).
