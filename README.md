@@ -32,15 +32,37 @@ when the requested action is done.
 ``` js
   var bot = require('./lib/bot').bot;
 
+  // pass configuration object
   var client = new bot({
       server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
       path: '/w',                  // path to api.php script
-      debug: false                 // is more verbose when set to true
+      debug: false                // is more verbose when set to true
   });
 
   client.getArticle('foo', function(data) {
       // ...
   });
+```
+
+#### Config file
+
+nodemw can use config files as well as objects directly provided to ``bot`` object constructor.
+
+``` js
+ // read config from external file
+ var client = new bot('config.js');
+```
+
+Config file is a JSON-encoded object with the following fields (see ``/examples/config-DIST.js`` file):
+
+``` js
+{
+      server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
+      path: '/w',                  // path to api.php script
+      debug: false,                // is more verbose when set to true
+      username: 'foo',             // account to be used when logIn is called (optional)
+      password: 'bar'              // password to be used when logIn is called (optional)
+}
 ```
 
 ### bot.logIn(username, password, callback)
