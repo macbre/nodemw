@@ -6,12 +6,11 @@
 
 var bot = require('../lib/bot').bot;
 
-var client = new bot({
-	server: 'en.wikipedia.org',
- 	path: '/w',
-	debug: false
-});
+var client = new bot('config.js');
 
-client.whoami(function(userData) {
-	console.log(JSON.stringify(userData, null, '\t'));
+client.logIn(function() {
+	// get current account information
+	client.whoami(function(userData) {
+		console.log(JSON.stringify(userData, null, '\t'));
+	});
 });
