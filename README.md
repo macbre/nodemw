@@ -13,6 +13,10 @@ MediaWiki API client written in node.js
 git clone https://github.com/macbre/nodemw.git
 ```
 
+## Where it's used
+
+* Over 4000 edits on [Poznań Wiki](http://poznan.wikia.com) as [Pyrabot](http://poznan.wikia.com/wiki/Specjalna:Wkład/Pyrabot)
+
 ## First script
 
 An example script can be found in `/examples` directory.
