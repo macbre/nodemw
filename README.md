@@ -67,6 +67,10 @@ Deletes an article - [read more](http://www.mediawiki.org/wiki/API:Delete)
 
 Returns token required for a number of MediaWiki API operations
 
+### bot.whoami(callback)
+
+Gets information about current bot's user (including rights and rate limits) - [read more](http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui)
+
 ## TODO
 
 * Use promise pattern instead of callbacks.
