@@ -8,6 +8,19 @@ var bot = require('../lib/bot').bot;
 
 var client = new bot('config.js');
 
-client.getImages(function(data) {
-	console.log(JSON.stringify(data, null, '\t'));
-});
+var imageArray = [];
+
+function getBatch(start) {
+	client.getImages(start, function(data, next) {
+		imageArray = imageArray.concat(data);
+		if (next) {
+			getBatch(next);
+		}
+		else {
+			console.log(JSON.stringify(imageArray, null, '\t'));
+			console.log('Image count: ' + imageArray.length);
+		}
+	});
+}
+
+getBatch(false);
