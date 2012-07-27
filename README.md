@@ -73,6 +73,10 @@ Config file is a JSON-encoded object with the following fields (see ``/examples/
 
 Log-in using given credentials - [read more](http://www.mediawiki.org/wiki/API:Login)
 
+### bot.getCategories(prefix, callback)
+
+Gets the list of all categories on a wiki
+
 ### bot.getPagesInCategory(category, callback)
 
 Gets the list of pages in a given category - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
@@ -96,6 +100,14 @@ Returns token required for a number of MediaWiki API operations
 ### bot.whoami(callback)
 
 Gets information about current bot's user (including rights and rate limits) - [read more](http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui)
+
+### bot.move(from, to, summary, callback)
+
+Moves (aka renames) given article - [read more](http://www.mediawiki.org/wiki/API:Move)
+
+### bot.getImages(callback)
+
+Gets list of all images on a wiki
 
 ## TODO
 
