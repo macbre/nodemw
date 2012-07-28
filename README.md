@@ -114,5 +114,4 @@ Gets list of all images on a wiki
 * Use promise pattern instead of callbacks.
 * Make a queue of requested actions and configure delays to avoid flooding the server with HTTP requests.
 * Log to a file.
-* Add support for [move action](http://www.mediawiki.org/wiki/API:Move).
 * Set [proper User Agent](http://meta.wikimedia.org/wiki/User-Agent_policy).
