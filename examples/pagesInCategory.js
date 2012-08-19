@@ -10,9 +10,15 @@ var bot = require('../lib/bot').bot;
 var client = new bot({
 	server: 'en.wikipedia.org',
  	path: '/w',
-	debug: false
+	debug: true
 });
 
 client.getPagesInCategory('Bosons', function(pages) {
 	console.log(JSON.stringify(pages, null, '\t'));
+
+	pages.forEach(function(page) {
+		client.getToken(page.title, 'edit', function(token) {
+			console.log(page.title + ': edit token = ' + token);
+		});
+	});
 });
