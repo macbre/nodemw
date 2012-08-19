@@ -13,6 +13,10 @@ MediaWiki API client written in node.js
 git clone https://github.com/macbre/nodemw.git
 ```
 
+## Features
+
+* HTTP requests are stored in queue and performed in serial, there's no risk of flooding the server
+
 ## Where it's used
 
 * Over 4000 edits on [Poznań Wiki](http://poznan.wikia.com) as [Pyrabot](http://poznan.wikia.com/wiki/Specjalna:Wkład/Pyrabot)
@@ -112,6 +116,5 @@ Gets list of all images on a wiki
 ## TODO
 
 * Use promise pattern instead of callbacks.
-* Make a queue of requested actions and configure delays to avoid flooding the server with HTTP requests.
 * Log to a file.
 * Set [proper User Agent](http://meta.wikimedia.org/wiki/User-Agent_policy).
