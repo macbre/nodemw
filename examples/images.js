@@ -23,4 +23,4 @@ function getBatch(start) {
 	});
 }
 
-getBatch(false);
+getBatch(0);
