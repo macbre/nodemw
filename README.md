@@ -113,6 +113,14 @@ Moves (aka renames) given article - [read more](http://www.mediawiki.org/wiki/AP
 
 Gets list of all images on a wiki
 
+### bot.getImageUsage(filename, callback)
+
+Gets list of all articles using given image
+
+### bot.getImageInfo(filename, callback)
+
+Gets metadata (including uploader, size, dimensions and EXIF data) of given image
+
 ## TODO
 
 * Use promise pattern instead of callbacks.
