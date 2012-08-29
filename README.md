@@ -126,3 +126,4 @@ Gets metadata (including uploader, size, dimensions and EXIF data) of given imag
 * Use promise pattern instead of callbacks.
 * Log to a file.
 * Set [proper User Agent](http://meta.wikimedia.org/wiki/User-Agent_policy).
+* Basic wikitext parsing and modifications (reading/replacing/adding template parameters)
