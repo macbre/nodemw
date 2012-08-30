@@ -121,6 +121,10 @@ Gets list of all articles using given image
 
 Gets metadata (including uploader, size, dimensions and EXIF data) of given image
 
+### bot.expandTemplates(content, title, callback)
+
+Returns XML with preprocessed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#expandtemplates)
+
 ## TODO
 
 * Use promise pattern instead of callbacks.
