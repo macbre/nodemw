@@ -14,6 +14,7 @@ function getBatch(start) {
 	client.getImages(start, function(data, next) {
 		imageArray = imageArray.concat(data);
 		if (next) {
+			console.log('Getting next batch #' + next + '...');
 			getBatch(next);
 		}
 		else {

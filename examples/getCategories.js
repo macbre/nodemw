@@ -13,11 +13,12 @@ var client = new bot({
 	debug: false
 });
 
-client.getCategories(function(cat) {
-	console.log(cat);
+client.getCategories(function(cats) {
+	console.log('All categories:');
+	console.log(JSON.stringify(cats));
 });
 
-
-client.getCategories('K', function(cat) {
-	console.log(cat);
+client.getCategories('K', function(cats) {
+	console.log('All categories starting with K:');
+	console.log(JSON.stringify(cats));
 });
