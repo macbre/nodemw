@@ -16,6 +16,7 @@ git clone https://github.com/macbre/nodemw.git
 ## Features
 
 * HTTP requests are stored in queue and performed in serial, there's no risk of flooding the server
+* nodemw core uses promise pattern powered by [deffered-js library](https://github.com/heavylifters/deferred-js)
 
 ## Where it's used
 
