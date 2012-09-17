@@ -126,6 +126,10 @@ Gets metadata (including uploader, size, dimensions and EXIF data) of given imag
 
 Returns XML with preprocessed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#expandtemplates)
 
+### bot.fetchUrl(url, callback)
+
+Makes a GET request to provided resource and returns its content.
+
 ## TODO
 
 * Use promise pattern instead of callbacks.
