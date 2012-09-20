@@ -130,6 +130,10 @@ Returns XML with preprocessed wikitext - [read more](https://www.mediawiki.org/w
 
 Makes a GET request to provided resource and returns its content.
 
+### bot.getRecentChanges(start, callback)
+
+Returns entries from recent changes (starting from a given point)
+
 ## TODO
 
 * Use promise pattern instead of callbacks.
