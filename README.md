@@ -140,3 +140,4 @@ Returns entries from recent changes (starting from a given point)
 * Log to a file.
 * Set [proper User Agent](http://meta.wikimedia.org/wiki/User-Agent_policy).
 * Basic wikitext parsing and modifications (reading/replacing/adding template parameters)
+* File uploads
