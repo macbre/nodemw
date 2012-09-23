@@ -12,7 +12,6 @@ var url = 'http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png',
 	summary = 'Testing upload...';
 
 client.logIn(function() {
-
 	console.log('Uploading ' + url + '...');
 
 	client.uploadByUrl(fileName, url, summary, function(res) {
