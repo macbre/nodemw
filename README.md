@@ -17,6 +17,7 @@ git clone https://github.com/macbre/nodemw.git
 
 * HTTP requests are stored in queue and performed in serial, there's no risk of flooding the server
 * nodemw core uses promise pattern powered by [deffered-js library](https://github.com/heavylifters/deferred-js)
+* nodemw supports articles creation / edit / move / delete, file uploads (using given content or via provided URL)
 
 ## Where it's used
 
@@ -134,10 +135,22 @@ Makes a GET request to provided resource and returns its content.
 
 Returns entries from recent changes (starting from a given point)
 
+### bot.getRecentChanges(start, callback)
+
+Returns entries from recent changes (starting from a given point)
+
+### bot.upload(filename, content, summary, callback)
+
+Uploads a given raw content as a File:[filename] - [read more](http://www.mediawiki.org/wiki/API:Upload)
+
+### bot.uploadByUrl(filename, url, summary, callback) 
+
+Uploads a given external resource as a File:[filename]
+
 ## TODO
 
 * Use promise pattern instead of callbacks.
 * Log to a file.
 * Set [proper User Agent](http://meta.wikimedia.org/wiki/User-Agent_policy).
 * Basic wikitext parsing and modifications (reading/replacing/adding template parameters)
-* [File uploads](https://www.mediawiki.org/wiki/API:Upload)
+* --[File uploads](https://www.mediawiki.org/wiki/API:Upload)--
