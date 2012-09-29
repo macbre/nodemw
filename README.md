@@ -147,6 +147,10 @@ Uploads a given raw content as a File:[filename] - [read more](http://www.mediaw
 
 Uploads a given external resource as a File:[filename]
 
+### bot.getTemplateParamFromXml(tmplXml, paramName)
+
+Gets a value of a given template parameter from article's preparsed content (see expandTemplates)
+
 ## TODO
 
 * Use promise pattern instead of callbacks.
