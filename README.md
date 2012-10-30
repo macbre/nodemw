@@ -155,6 +155,10 @@ Uploads a given external resource as a File:[filename]
 
 Gets a value of a given template parameter from article's preparsed content (see expandTemplates)
 
+### bot.getExternalLinks(title, callback)
+
+Gets all external links used in article
+
 ## TODO
 
 * Use promise pattern instead of callbacks.
