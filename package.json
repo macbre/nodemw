@@ -1,0 +1,21 @@
+{
+  "name": "nodemw",
+  "version": "0.3.4",
+  "author": "macbre <maciej.brencz@gmail.com>",
+  "description": "MediaWiki API client written in node.js",
+  "main": "./lib/bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macbre/nodemw.git"
+  },
+  "keywords": [
+    "mediawiki",
+    "wiki",
+    "api",
+    "nodejs"
+  ],
+  "license": "BSD",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
