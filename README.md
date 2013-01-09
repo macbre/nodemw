@@ -48,7 +48,7 @@ when the requested action is done.
       path: '/w',                  // path to api.php script
       debug: false,                // is more verbose when set to true
       onError: function(err) {     // optional function to handle API errors
-        // do something smart with the error
+        // ...
       }
   });
 
