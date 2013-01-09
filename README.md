@@ -46,7 +46,10 @@ when the requested action is done.
   var client = new bot({
       server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
       path: '/w',                  // path to api.php script
-      debug: false                // is more verbose when set to true
+      debug: false,                // is more verbose when set to true
+      onError: function(err) {     // optional function to handle API errors
+        // do something smart with the error
+      }
   });
 
   client.getArticle('foo', function(data) {
