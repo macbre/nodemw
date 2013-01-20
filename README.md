@@ -13,6 +13,8 @@ MediaWiki API client written in node.js
 git clone https://github.com/macbre/nodemw.git
 ```
 
+Or [download the latest stable version](https://github.com/macbre/nodemw/tags).
+
 ## Features
 
 * HTTP requests are stored in queue and performed in serial, there's no risk of flooding the server
