@@ -9,11 +9,19 @@ MediaWiki API client written in node.js
 
 ## Instalation
 
+### Using npm
+
+``` bash
+npm install nodemw
+```
+
+Or [Download the latest stable version](https://github.com/macbre/nodemw/tags) via GitHub.
+
+### Development version
+
 ``` bash
 git clone https://github.com/macbre/nodemw.git
 ```
-
-Or [download the latest stable version](https://github.com/macbre/nodemw/tags).
 
 ## Features
 
