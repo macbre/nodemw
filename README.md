@@ -133,7 +133,7 @@ Gets list of all images on a wiki
 
 Gets list of all articles using given image
 
-## bot.getImagesFromArticle(title, callback)
+### bot.getImagesFromArticle(title, callback)
 
 Get list of all images that are used on a given page - [read more](http://www.mediawiki.org/wiki/API:Properties#images_.2F_im)
 
