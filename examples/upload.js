@@ -4,7 +4,7 @@
  * @see http://www.mediawiki.org/wiki/API:Upload
  */
 
-var bot = require('../lib/bot').bot,
+var bot = require('../lib/bot'),
 	client = new bot('config.js');
 
 var url = 'http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png',

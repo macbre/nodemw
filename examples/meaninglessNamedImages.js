@@ -1,12 +1,11 @@
-var bot = require('../lib/bot').bot;
-
-var client = new bot({
-    server: 'poznan.wikia.com',
-    path: '',
-    "username": "",
-    "password": "",
-    debug: false
-});
+var bot = require('../lib/bot'),
+	client = new bot({
+	    server: 'poznan.wikia.com',
+	    path: '',
+	    "username": "",
+	    "password": "",
+	    debug: false
+	});
 
 client.logIn(function(){
     var imagesToDo = [];

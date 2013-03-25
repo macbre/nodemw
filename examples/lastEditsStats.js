@@ -3,7 +3,7 @@
  *  - most active editors
  *  - most actively edited articles
  */
-var bot = require('../lib/bot').bot,
+var bot = require('../lib/bot'),
 	client = new bot('config.js');
 
 var LIMIT = 500;
