@@ -50,7 +50,7 @@ when the requested action is done.
 ### Creating a bot instance
 
 ``` js
-  var bot = require('./lib/bot').bot;
+  var bot = require('nodemw');
 
   // pass configuration object
   var client = new bot({
