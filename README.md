@@ -42,10 +42,7 @@ cd examples
 node pagesInCategory.js
 ```
 
-## API
-
-The last parameter of each function in nodemw API is a callback which will be fired
-when the requested action is done.
+## How to use it?
 
 ### Creating a bot instance
 
@@ -84,6 +81,29 @@ Config file is a JSON-encoded object with the following fields (see ``/examples/
       password: 'bar'              // password to be used when logIn is called (optional)
 }
 ```
+## Making direct API calls
+
+nodemw allows you make direct calls to MediaWiki API ([example querying Semantic MediaWiki API](https://github.com/macbre/nodemw/blob/master/examples/smw.js)):
+
+``` js
+var bot = require('nodemw'),
+  client = new bot({
+		server: 'semantic-mediawiki.org',
+		path: '/w'
+	}),
+	params = {
+		action: 'ask',
+		query: '[[Modification date::+]]|?Modification date|sort=Modification date|order=desc'
+	};
+
+client.api.call(params /* api.php parameters */, function(info /* processed query result */, next, data /* raw data */) {
+	console.log(data && data.query && data.query.results);
+});
+```
+
+## Bot methods
+
+The last parameter of each function in nodemw API is a callback which will be fired when the requested action is done.
 
 ### bot.logIn(username, password, callback)
 
