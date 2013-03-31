@@ -7,6 +7,10 @@ MediaWiki API client written in node.js
 
 * nodejs
 
+## Dependencies
+
+* [vows](http://vowsjs.org/)
+
 ## Instalation
 
 ### Using npm
@@ -41,6 +45,18 @@ An example script can be found in `/examples` directory.
 cd examples
 node pagesInCategory.js
 ```
+
+## Running unit tests
+
+```bash
+./run-tests.sh
+```
+
+or
+
+``bash
+vows --spec
+``
 
 ## How to use it?
 
