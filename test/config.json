@@ -1,4 +1,5 @@
 {
 	"server": "pl.wikipedia.org",
-	"path": "/w"
+	"path": "/w",
+	"goo": 123
 }

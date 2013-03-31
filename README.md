@@ -54,9 +54,9 @@ node pagesInCategory.js
 
 or
 
-``bash
+```bash
 vows --spec
-``
+```
 
 ## How to use it?
 
@@ -208,6 +208,16 @@ Gets a value of a given template parameter from article's preparsed content (see
 ### bot.getExternalLinks(title, callback)
 
 Gets all external links used in article
+
+## Helpers
+
+### bot.getConfig(key, def)
+
+Gets config entry value (returns ``def`` value if not found)
+
+### bot.setConfig(key, val)
+
+Sets config entry value
 
 ## TODO
 
