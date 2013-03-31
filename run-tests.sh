@@ -1,0 +1,2 @@
+#!/bin/sh
+vows --spec
