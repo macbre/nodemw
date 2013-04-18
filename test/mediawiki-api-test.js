@@ -8,13 +8,25 @@ var client = new bot({
 	}),
 	ARTICLE = 'Albert Einstein';
 
+/**
+ * this.callback wrapper for asynchronous topics
+ * wovs assumes the first callback argument to be an error
+ *
+ * @see https://github.com/cloudhead/vows/issues/187
+ */
+function callback() {
+	var scope = this;
+	return function() {
+		var args = Array.prototype.slice.apply(arguments);
+		args.unshift(null);
+		scope.callback.apply(scope, args);
+	};
+}
+
 vows.describe('Mediawiki API').addBatch({
 	'getArticle()': {
 		topic: function() {
-			var self = this;
-			client.getArticle(ARTICLE, function(res) {
-				self.callback(null, res);
-			});
+			client.getArticle(ARTICLE, callback.apply(this));
 		},
 		'string is passed to callback': function(e, res) {
 			assert.isString(res);
