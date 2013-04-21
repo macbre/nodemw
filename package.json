@@ -19,7 +19,8 @@
     "node": ">=0.6"
   },
   "dependencies": [
-    "vows"
+    "vows",
+    "request"
   ],
   "devDependencies": {},
   "optionalDependencies": {}
