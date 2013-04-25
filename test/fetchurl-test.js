@@ -19,5 +19,17 @@ vows.describe('URL fetching').addBatch({
 			assert.isString(res);
 			assert.isTrue(res.indexOf('<h1>Example Domain</h1>') !== false);
 		}
+	},
+	'binary data': {
+		topic: function() {
+			var self = this;
+			client.api.fetchUrl('http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png', 'binary').then(function(res) {
+				self.callback(null, res);
+			});
+		},
+		'buffer with raw data is passed to callback': function(e, res) {
+			assert.isTrue(res instanceof Buffer);
+			assert.equal(19670, res.length);
+		}
 	}
 }).export(module);
