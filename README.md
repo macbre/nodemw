@@ -90,11 +90,11 @@ Config file is a JSON-encoded object with the following fields (see ``/examples/
 
 ``` js
 {
-      server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
-      path: '/w',                  // path to api.php script
-      debug: false,                // is more verbose when set to true
-      username: 'foo',             // account to be used when logIn is called (optional)
-      password: 'bar'              // password to be used when logIn is called (optional)
+      "server": "en.wikipedia.org",  // host name of MediaWiki-powered site
+      "path": "/w",                  // path to api.php script
+      "debug": false,                // is more verbose when set to true
+      "username": "foo",             // account to be used when logIn is called (optional)
+      "password": "bar"              // password to be used when logIn is called (optional)
 }
 ```
 ## Making direct API calls
