@@ -10,6 +10,7 @@ MediaWiki API client written in node.js
 ## Dependencies
 
 * [vows](http://vowsjs.org/)
+* [request](https://github.com/mikeal/request)
 
 ## Instalation
 
@@ -35,7 +36,7 @@ git clone https://github.com/macbre/nodemw.git
 
 ## Where it's used
 
-* 5000 edits on [Poznań Wiki](http://poznan.wikia.com) as [Pyrabot](http://poznan.wikia.com/wiki/Specjalna:Wkład/Pyrabot) - [scripts repository](https://github.com/macbre/pyrabot)
+* Over 10k edits on [Poznań Wiki](http://poznan.wikia.com) as [Pyrabot](http://poznan.wikia.com/wiki/Specjalna:Wkład/Pyrabot) - [scripts repository](https://github.com/macbre/pyrabot)
 
 ## First script
 
