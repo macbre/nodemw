@@ -210,6 +210,10 @@ Gets a value of a given template parameter from article's preparsed content (see
 
 Gets all external links used in article
 
+### bot.getBacklinks(title, callback)
+
+Gets all aricles that links to given article
+
 ## Helpers
 
 ### bot.getConfig(key, def)
