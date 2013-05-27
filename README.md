@@ -212,7 +212,7 @@ Gets all external links used in article
 
 ### bot.getBacklinks(title, callback)
 
-Gets all aricles that links to given article
+Gets all articles that links to given article
 
 ## Helpers
 
