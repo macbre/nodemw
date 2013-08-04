@@ -1,10 +1,10 @@
 var bot = require('../lib/bot'),
 	client = new bot({
-	    server: 'poznan.wikia.com',
-	    path: '',
-	    "username": "",
-	    "password": "",
-	    debug: false
+		server: 'poznan.wikia.com',
+		path: '',
+		"username": "",
+		"password": "",
+		debug: false
 	});
 
 client.logIn(function(){
@@ -17,29 +17,27 @@ client.logIn(function(){
                 getBatch(next);
             }
             else {
-
                 imageArray.forEach(function(item){
-
-                    if (item.name.match(/^[0-9]+\.$/i)){
-                        imagesToDo.push(item.name);
-                        //rename(item.name);
-                    }
-                    if (item.name.match(/^P[0-9]+/)){
-                        imagesToDo.push(item.name);
-                       // rename(item.name);
-                    }
-                    if (item.name.match(/^IMG/i)){
-                        imagesToDo.push(item.name);
-                        //rename(item.name);
-                    }
-                    if (item.name.match(/^DSC/i)){
-                        imagesToDo.push(item.name);
-                       // rename(item.name);
-                    }
-                    if (item.name.match(/^jpeg/i)){
-                        imagesToDo.push(item.name);
-                       // rename(item.name);
-                    }
+			if (item.name.match(/^[0-9]+\.$/i)){
+				imagesToDo.push(item.name);
+				//rename(item.name);
+			}
+			if (item.name.match(/^P[0-9]+/)){
+				imagesToDo.push(item.name);
+				// rename(item.name);
+			}
+			if (item.name.match(/^IMG/i)){
+				imagesToDo.push(item.name);
+				//rename(item.name);
+			}
+			if (item.name.match(/^DSC/i)){
+				imagesToDo.push(item.name);
+				// rename(item.name);
+			}
+			if (item.name.match(/^jpeg/i)){
+				imagesToDo.push(item.name);
+				// rename(item.name);
+			}
                 });
                 var i = 0;
                 imagesToDo.forEach(function(item){
@@ -57,14 +55,14 @@ client.logIn(function(){
 
     function rename(filename){
         client.getImageUsage("Plik:" + filename, function(img){
-            if (img[0] != null){
+            if (img[0] !== null){
                 var extension = filename.match(/\.\D+$/i)[0];
                 extension = extension.toLowerCase();
                 changeName(filename, img[0].title, extension);
             }
             else{
                 client.getArticle("File_talk:" + filename, function(content){
-                    if (content.match(/Obraz sierota/gi) == null){
+                    if (content.match(/Obraz sierota/gi) === null){
                         content = "{{Obraz sierota}}\n" + content;
                         client.edit("File_talk:" + filename, content, "[[Użytkownik:OzgaBot|OzgaBot]] wstawia szablon 'Obraz sierota'", function(){
                             console.log(filename + " został oznaczony jako obraz sierota");
@@ -78,7 +76,7 @@ client.logIn(function(){
     function changeName(filename, title, extension){
         console.log(title + " changename");
         client.getArticle("Plik:" + title + extension, function(content){
-            if (content == null){
+            if (content === null){
                 client.move(
                     "Plik:" + filename,
                     "Plik:" + title + extension,
@@ -97,14 +95,14 @@ client.logIn(function(){
                 changeNameWithNumber(filename, title, extension, 0);
 
             }
-        })
+        });
     }
 
     function changeNameWithNumber(filename, title, extension, number){
         var title1 = title + " " + number;
         console.log(title1);
         client.getArticle("Plik:" + title1 + extension, function(content){
-            if (content == null){
+            if (content === null){
                 client.move(
                     "Plik:" + filename,
                     "Plik:" + title1 + extension,
@@ -126,4 +124,4 @@ client.logIn(function(){
             }
         });
     }
-})
+});

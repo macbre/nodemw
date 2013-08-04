@@ -74,8 +74,8 @@ client.getRecentChanges(false, function(data, next) {
 				usersItem.created++;
 				break;
 
-			case 'edit':
 			default:
+			case 'edit':
 				usersItem.edits++;
 		}
 
