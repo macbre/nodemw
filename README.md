@@ -50,13 +50,7 @@ node pagesInCategory.js
 ## Running unit tests
 
 ```bash
-./run-tests.sh
-```
-
-or
-
-```bash
-vows --spec
+npm test
 ```
 
 ## How to use it?
