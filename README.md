@@ -194,6 +194,10 @@ Returns entries from recent changes (starting from a given point)
 
 Returns entries from recent changes (starting from a given point)
 
+### client.getQueryPage(queryPage, callback)
+
+Returns entries from [QueryPage-based special pages](http://www.mediawiki.org/wiki/API:Querypage)
+
 ### bot.upload(filename, content, summary, callback)
 
 Uploads a given raw content as a File:[filename] - [read more](http://www.mediawiki.org/wiki/API:Upload)
