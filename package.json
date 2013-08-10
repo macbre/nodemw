@@ -23,6 +23,7 @@
     "request"
   ],
   "scripts": {
-    "test": "vows --spec"
+    "test": "vows --spec",
+    "lint": "jshint lib/api.js lib/bot.js examples/* test/*"
   }
 }
