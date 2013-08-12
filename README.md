@@ -12,7 +12,7 @@ MediaWiki API client written in node.js
 * [vows](http://vowsjs.org/)
 * [request](https://github.com/mikeal/request)
 
-## Instalation
+## Installation
 
 ### Using npm
 
@@ -31,7 +31,7 @@ git clone https://github.com/macbre/nodemw.git
 ## Features
 
 * HTTP requests are stored in queue and performed in serial, there's no risk of flooding the server
-* nodemw core uses promise pattern powered by [deffered-js library](https://github.com/heavylifters/deferred-js)
+* nodemw core uses promise pattern powered by [deferred-js library](https://github.com/heavylifters/deferred-js)
 * nodemw supports articles creation / edit / move / delete, file uploads (using given content or via provided URL)
 
 ## Where it's used
