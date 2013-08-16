@@ -192,11 +192,11 @@ Returns entries from recent changes (starting from a given point)
 
 Returns entries from [QueryPage-based special pages](http://www.mediawiki.org/wiki/API:Querypage)
 
-### bot.upload(filename, content, summary, callback)
+### bot.upload(filename, content, summary _/* or extraParams */_, callback)
 
 Uploads a given raw content as a File:[filename] - [read more](http://www.mediawiki.org/wiki/API:Upload)
 
-### bot.uploadByUrl(filename, url, summary, callback) 
+### bot.uploadByUrl(filename, url, summary _/* or extraParams */_, callback)
 
 Uploads a given external resource as a File:[filename]
 
