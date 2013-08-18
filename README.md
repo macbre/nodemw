@@ -223,11 +223,3 @@ Gets config entry value (returns ``def`` value if not found)
 ### bot.setConfig(key, val)
 
 Sets config entry value
-
-## TODO
-
-* Use promise pattern instead of callbacks.
-* Log to a file.
-* Set [proper User Agent](http://meta.wikimedia.org/wiki/User-Agent_policy).
-* Basic wikitext parsing and modifications (reading/replacing/adding template parameters)
-* --[File uploads](https://www.mediawiki.org/wiki/API:Upload)--
