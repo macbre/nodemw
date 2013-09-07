@@ -7,19 +7,17 @@
 
 var bot = require('../lib/bot'),
 	client = new bot({
-		server: 'pl.wikipedia.org',
+		server: 'en.wikipedia.org',
 		path: '/w',
 		debug: !true
 	});
 
-client.getPagesInCategory('Polskie_ofiary_represji_stalinowskich', function(pages) {
+client.getPagesInCategory('Bosons', function(pages) {
 	console.log(JSON.stringify(pages, null, '\t'));
 
 	pages.forEach(function(page) {
 		client.getArticle(page.title, function(content) {
-			if (content.indexOf('Poznan') > -1) {
-				console.log('* [[wikipedia:pl:' + page.title.replace(/ /g, '_') + '|' + page.title + ']]');
-			}
+			console.log(page.title + ': ' + content.substr(0, 75).replace(/\n/g, ' '));
 		});
 	});
 });
