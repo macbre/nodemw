@@ -13,11 +13,12 @@ var bot = require('../lib/bot'),
 	});
 
 client.getPagesInCategory('Bosons', function(pages) {
-	console.log(JSON.stringify(pages, null, '\t'));
+	client.log('Pages in category');
+	client.logData(pages);
 
 	pages.forEach(function(page) {
 		client.getArticle(page.title, function(content) {
-			console.log(page.title + ': ' + content.substr(0, 75).replace(/\n/g, ' '));
+			client.log('%s: %s', page.title, content.substr(0, 75).replace(/\n/g, ' '));
 		});
 	});
 });
