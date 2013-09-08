@@ -9,7 +9,7 @@ var bot = require('../lib/bot'),
 	client = new bot({
 		server: 'en.wikipedia.org',
 		path: '/w',
-		debug: !true
+		debug: true
 	});
 
 client.getPagesInCategory('Bosons', function(pages) {
