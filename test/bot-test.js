@@ -7,7 +7,8 @@ vows.describe('bot class').addBatch({
 		topic: function() {
 			return new bot({
 				server: 'pl.wikipedia.org',
-				path: '/w'
+				path: '/w',
+				silent: true
 			});
 		},
 		'server is properly passed': function(client) {

@@ -1,5 +1,6 @@
 {
 	"server": "pl.wikipedia.org",
 	"path": "/w",
-	"goo": 123
+	"goo": 123,
+	"silent": true
 }
