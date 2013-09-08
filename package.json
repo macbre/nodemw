@@ -19,8 +19,9 @@
     "node": ">=0.6"
   },
   "dependencies": [
+    "request",
     "vows",
-    "request"
+    "winston"
   ],
   "scripts": {
     "test": "vows --spec",
