@@ -1,5 +1,0 @@
-{
-	"node": true,
-	"-W030": false, // allow callback && callback(foo) shortcuts
-	"-W084": false  // allow while(foo = bar) shortcuts
-}
