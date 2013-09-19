@@ -3,6 +3,9 @@ nodemw
 
 MediaWiki API client written in node.js
 
+[![NPM version](https://badge.fury.io/js/nodemw.png)](http://badge.fury.io/js/nodemw)
+[![Build Status](https://secure.travis-ci.org/macbre/nodemw.png)](http://travis-ci.org/macbre/nodemw)
+
 ## Requirements
 
 * nodejs
@@ -15,8 +18,6 @@ MediaWiki API client written in node.js
 ## Installation
 
 ### Using npm
-
-[![NPM version](https://badge.fury.io/js/nodemw.png)](http://badge.fury.io/js/nodemw)
 
 ``` bash
 npm install nodemw
