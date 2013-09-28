@@ -16,9 +16,37 @@ vows.describe('URL fetching').addBatch({
 				self.callback(null, res);
 			});
 		},
-		'page content is passed to callback': function(e, res) {
+		'should pass page content to a callback': function(e, res) {
 			assert.isString(res);
-			assert.isTrue(res.indexOf('<h1>Example Domain</h1>') !== false);
+			assert.isTrue(res.indexOf('<h1>Example Domain</h1>') > -1);
+		}
+	},
+	'client,fetchUrl() when successful': {
+		topic: function() {
+			var self = this;
+			client.fetchUrl('http://example.com').then(function(res) {
+				self.callback(null, res);
+			});
+		},
+		'should resolve a promise': function(e, res) {
+			assert.isString(res);
+		},
+		'should pass page content': function(e, res) {
+			assert.isTrue(res.indexOf('<h1>Example Domain</h1>') > -1);
+		}
+	},
+	'client,fetchUrl() when failed': {
+		topic: function() {
+			var self = this;
+			client.fetchUrl('foo://bar').fail(function(res) {
+				self.callback(null, res);
+			});
+		},
+		'should reject a promise': function(e, res) {
+			assert.isObject(res.value);
+		},
+		'should pass error details': function(e, res) {
+			assert.isTrue(res.value.err.indexOf('fetchUrl failed with') > -1);
 		}
 	},
 	'binary data': {
@@ -28,7 +56,7 @@ vows.describe('URL fetching').addBatch({
 				self.callback(null, res);
 			});
 		},
-		'buffer with raw data is passed to callback': function(e, res) {
+		'should be passed to a callback in raw form': function(e, res) {
 			assert.isTrue(res instanceof Buffer);
 			assert.equal(19670, res.length);
 		}
