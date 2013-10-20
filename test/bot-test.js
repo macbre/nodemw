@@ -54,5 +54,17 @@ vows.describe('bot class').addBatch({
 			assert.equal(client.getConfig('foo'), 'bar');
 			assert.equal(client.getConfig('foo', 123), 'bar');
 		}
+	},
+	'user agent': {
+		topic: function() {
+			return new bot({
+				userAgent: 'Custom UA',
+				silent: true
+			});
+		},
+		'can be customized': function(client) {
+			assert.equal(client.api.userAgent, 'Custom UA');
+		}
 	}
+
 }).export(module);
