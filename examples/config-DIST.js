@@ -3,5 +3,7 @@
 	"path": "/w",
 	"debug": false,
 	"username": "foo",
-	"password": "bar"
+	"password": "bar",
+	"userAgent": "foo/bar.net",
+	"concurrency": 5
 }
