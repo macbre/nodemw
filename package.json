@@ -18,15 +18,15 @@
   "engines": {
     "node": ">=0.6"
   },
-  "dependencies": [
-    "async",
-    "request",
-    "vows",
-    "winston"
-  ],
-  "devDependencies": [
-    "jshint"
-  ],
+  "dependencies": {
+    "async": "~0.2.9",
+    "vows": "~0.7.0",
+    "winston": "~0.7.2",
+    "request": "~2.30.0"
+  },
+  "devDependencies": {
+    "jshint": "~2.4.0"
+  },
   "scripts": {
     "test": "vows --spec",
     "lint": "jshint lib/api.js lib/bot.js examples/ test/"
@@ -35,6 +35,6 @@
     "node": true,
     "-W030": false,
     "-W084": false,
-     "strict": true
- }
+    "strict": true
+  }
 }
