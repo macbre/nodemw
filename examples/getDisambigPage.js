@@ -1,6 +1,7 @@
 /**
  * Example script preparing ship disambig pages for translation
  */
+'use strict';
 
 var bot = require('../lib/bot'),
 	client = new bot({

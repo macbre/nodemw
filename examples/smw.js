@@ -3,6 +3,7 @@
  *
  * @see http://semantic-mediawiki.org/wiki/Ask_API
  */
+'use strict';
 
 var bot = require('../lib/bot'),
 	client = new bot({

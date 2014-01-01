@@ -3,6 +3,8 @@
  *  - most active editors
  *  - most actively edited articles
  */
+'use strict';
+
 var bot = require('../lib/bot'),
 	client = new bot('config.js');
 

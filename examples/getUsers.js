@@ -4,6 +4,7 @@
  * @see http://en.wikipedia.org/wiki/Category:Bosons
  * @see http://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Category%3ABosons&cmlimit=500&format=json
  */
+'use strict';
 
 var bot = require('../lib/bot'),
 	client = new bot({

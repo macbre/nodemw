@@ -29,11 +29,12 @@
   ],
   "scripts": {
     "test": "vows --spec",
-    "lint": "jshint lib/api.js lib/bot.js examples/* test/*"
+    "lint": "jshint lib/api.js lib/bot.js examples/ test/"
   },
   "jshintConfig": {
     "node": true,
     "-W030": false,
-    "-W084": false
-  }
+    "-W084": false,
+     "strict": true
+ }
 }

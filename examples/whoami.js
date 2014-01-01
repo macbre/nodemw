@@ -3,6 +3,7 @@
  *
  * @see http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui
  */
+'use strict';
 
 var bot = require('../lib/bot'),
 	client = new bot('config.js');

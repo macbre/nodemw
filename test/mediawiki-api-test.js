@@ -1,3 +1,5 @@
+'use strict';
+
 var vows = require('vows'),
 	assert = require('assert'),
 	bot = require('../lib/bot');
@@ -16,6 +18,7 @@ var client = new bot({
  * @see https://github.com/cloudhead/vows/issues/187
  */
 function callback() {
+	/*jshint validthis: true */
 	var scope = this;
 	return function() {
 		var args = Array.prototype.slice.apply(arguments);

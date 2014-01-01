@@ -1,3 +1,5 @@
+'use strict';
+
 var bot = require('../lib/bot'),
 	client = new bot({
 		server: 'poznan.wikia.com',
@@ -82,7 +84,7 @@ client.logIn(function(){
                     "Plik:" + title + extension,
                     "",
                     function(){
-                        client.getArticle("Plik:" + title1 + extension, function(content2){
+                        client.getArticle("Plik:" + title + extension, function(content2){
                             content = content + "\n[[Kategoria:" + title + "]]";
                             client.edit("Plik:" + title + extension, content, "[[Użytkownik:OzgaBot|OzgaBot]] dodaje plik do kategorii " + title, function(){
                                 console.log(title + extension + " another one bites the dust xD");

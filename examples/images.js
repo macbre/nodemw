@@ -3,6 +3,7 @@
  *
  * @see http://www.mediawiki.org/wiki/API:Query
  */
+'use strict';
 
 var bot = require('../lib/bot').bot;
 
