@@ -20,12 +20,13 @@
   },
   "dependencies": {
     "async": "~0.2.9",
-    "vows": "~0.7.0",
-    "winston": "~0.7.2",
-    "request": "~2.30.0"
+    "request": "~2.30.0",
+    "winston": "~0.7.2"
   },
   "devDependencies": {
-    "jshint": "~2.4.0"
+    "csv-string": "~2.1.1",
+    "jshint": "~2.4.0",
+    "vows": "~0.7.0"
   },
   "scripts": {
     "test": "vows --spec",

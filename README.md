@@ -177,6 +177,10 @@ Get list of all images that are used on a given page - [read more](http://www.me
 
 Gets metadata (including uploader, size, dimensions and EXIF data) of given image
 
+### bot.getLog(type, start, callback)
+
+Get entries form Special:Log - [read more](http://www.mediawiki.org/wiki/API:Logevents)
+
 ### bot.expandTemplates(content, title, callback)
 
 Returns XML with preprocessed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#expandtemplates)
