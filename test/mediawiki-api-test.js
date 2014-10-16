@@ -6,8 +6,7 @@ var vows = require('vows'),
 
 var client = new bot({
 		server: 'en.wikipedia.org',
-		path: '/w',
-		silent: true
+		path: '/w'
 	}),
 	ARTICLE = 'Albert Einstein';
 

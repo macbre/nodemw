@@ -9,8 +9,7 @@ vows.describe('bot class').addBatch({
 		topic: function() {
 			return new bot({
 				server: 'pl.wikipedia.org',
-				path: '/w',
-				silent: true
+				path: '/w'
 			});
 		},
 		'server is properly passed': function(client) {
@@ -60,8 +59,7 @@ vows.describe('bot class').addBatch({
 	'user agent': {
 		topic: function() {
 			return new bot({
-				userAgent: 'Custom UA',
-				silent: true
+				userAgent: 'Custom UA'
 			});
 		},
 		'can be customized': function(client) {
