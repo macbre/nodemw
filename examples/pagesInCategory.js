@@ -9,8 +9,7 @@
 var bot = require('../lib/bot'),
 	client = new bot({
 		server: 'en.wikipedia.org',
-		path: '/w',
-		debug: true
+		path: '/w'
 	});
 
 client.getPagesInCategory('Bosons', function(pages) {
@@ -19,7 +18,7 @@ client.getPagesInCategory('Bosons', function(pages) {
 
 	pages.forEach(function(page) {
 		client.getArticle(page.title, function(content) {
-			client.log('%s: %s', page.title, content.substr(0, 75).replace(/\n/g, ' '));
+			console.log('%s: %s', page.title, content.substr(0, 75).replace(/\n/g, ' '));
 		});
 	});
 });
