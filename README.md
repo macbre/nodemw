@@ -1,19 +1,16 @@
 nodemw
 ======
 
-MediaWiki API client written in node.js
+[MediaWiki API](http://www.mediawiki.org/wiki/API:Main_page) client written in node.js
 
 [![NPM version](https://badge.fury.io/js/nodemw.png)](http://badge.fury.io/js/nodemw)
 [![Build Status](https://secure.travis-ci.org/macbre/nodemw.png)](http://travis-ci.org/macbre/nodemw)
 
+[![Download stats](https://nodei.co/npm/nodemw.png?downloads=true&downloadRank=true)](https://nodei.co/npm/nodemw/)
+
 ## Requirements
 
 * nodejs
-
-## Dependencies
-
-* [vows](http://vowsjs.org/)
-* [request](https://github.com/mikeal/request)
 
 ## Installation
 
@@ -33,7 +30,7 @@ git clone https://github.com/macbre/nodemw.git
 
 ## Features
 
-* HTTP requests are stored in queue and performed in serial, there's no risk of flooding the server
+* HTTP requests are stored in the queue and performed in parallel with limited number of "threads" (i.e. there's no risk of flooding the server)
 * nodemw core uses promise pattern powered by [deferred-js library](https://github.com/heavylifters/deferred-js)
 * nodemw supports articles creation / edit / move / delete, file uploads (using given content or via provided URL)
 
