@@ -221,6 +221,10 @@ Gets all external links used in article
 
 Gets all articles that links to given article
 
+### bot.search(query, callback)
+
+Performs a search
+
 ## Helpers
 
 ### bot.getConfig(key, def)

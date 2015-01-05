@@ -2,7 +2,7 @@
 
 var vows = require('vows'),
 	assert = require('assert'),
-	bot = require('../lib/bot');
+	bot = require('..');
 
 var client = new bot({
 		server: 'en.wikipedia.org',
@@ -12,7 +12,7 @@ var client = new bot({
 
 /**
  * this.callback wrapper for asynchronous topics
- * wovs assumes the first callback argument to be an error
+ * wovs assumes the first callback argument to be an error (aka NodeJS-style)
  *
  * @see https://github.com/cloudhead/vows/issues/187
  */
@@ -92,5 +92,19 @@ vows.describe('Mediawiki API').addBatch({
 
 			assert.isString(firstItem['*']);
 		}
+	},
+	'search()': {
+		topic: function() {
+			client.search(ARTICLE, callback.apply(this));
+		},
+		'array is passed to callback': function(e, res) {
+			assert.isArray(res);
+		},
+		'the required item is in th results': function(e, res) {
+			var firstItem = res[0];
+
+			assert.isTrue(firstItem.ns === 0);
+			assert.isTrue(firstItem.title.indexOf('Albert Einstein') > -1);
+		},
 	}
 }).export(module);
