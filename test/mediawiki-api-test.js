@@ -10,24 +10,8 @@ var client = new bot({
 	}),
 	ARTICLE = 'Albert Einstein';
 
-/**
- * this.callback wrapper for asynchronous topics
- * wovs assumes the first callback argument to be an error (aka NodeJS-style)
- *
- * @see https://github.com/cloudhead/vows/issues/187
- */
-function callback() {
-	/*jshint validthis: true */
-	var scope = this;
-	return function() {
-		var args = Array.prototype.slice.apply(arguments);
-		args.unshift(null);
-		scope.callback.apply(scope, args);
-	};
-}
-
 vows.describe('Mediawiki API').addBatch({
-	'client,api.call()': {
+	'client.api.call()': {
 		topic: function() {
 			// http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json
 			var params = {
@@ -36,7 +20,7 @@ vows.describe('Mediawiki API').addBatch({
 				siprop: 'namespaces'
 			};
 
-			client.api.call(params, callback.apply(this));
+			client.api.call(params, this.callback);
 		},
 		'correct arguments are passed to callback': function(e, info /* processed query result */, next, data /* raw data */) {
 			assert.isObject(info);
@@ -55,9 +39,26 @@ vows.describe('Mediawiki API').addBatch({
 			assert.isObject(data.query.namespaces[0]);
 		}
 	},
+	'client,api.call() fails': {
+		topic: function() {
+			// http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json
+			var params = {
+				action: 'foo'
+			};
+
+			// we need to push the "real" error one position to the right
+			// to satisfy vows
+			client.api.call(params, function(err) {
+				this.callback(null, err);
+			}.bind(this));
+		},
+		'raise an error': function(_fake, err) {
+			assert.isTrue(err !== null);
+		}
+	},
 	'getArticle()': {
 		topic: function() {
-			client.getArticle(ARTICLE, callback.apply(this));
+			client.getArticle(ARTICLE, this.callback);
 		},
 		'string is passed to callback': function(e, res) {
 			assert.isString(res);
@@ -68,7 +69,7 @@ vows.describe('Mediawiki API').addBatch({
 	},
 	'getImagesFromArticle()': {
 		topic: function() {
-			client.getImagesFromArticle(ARTICLE, callback.apply(this));
+			client.getImagesFromArticle(ARTICLE, this.callback);
 		},
 		'array is passed to callback': function(e, res) {
 			assert.isArray(res);
@@ -82,7 +83,7 @@ vows.describe('Mediawiki API').addBatch({
 	},
 	'getExternalLinks()': {
 		topic: function() {
-			client.getExternalLinks(ARTICLE, callback.apply(this));
+			client.getExternalLinks(ARTICLE, this.callback);
 		},
 		'array is passed to callback': function(e, res) {
 			assert.isArray(res);
@@ -95,7 +96,7 @@ vows.describe('Mediawiki API').addBatch({
 	},
 	'search()': {
 		topic: function() {
-			client.search(ARTICLE, callback.apply(this));
+			client.search(ARTICLE, this.callback);
 		},
 		'array is passed to callback': function(e, res) {
 			assert.isArray(res);
