@@ -5,7 +5,7 @@
  */
 'use strict';
 
-var bot = require('../lib/bot'),
+var bot = require('..'),
 	client = new bot({
 		server: 'semantic-mediawiki.org',
 		path: '/w'
@@ -15,6 +15,6 @@ var bot = require('../lib/bot'),
 		query: '[[Modification date::+]]|?Modification date|sort=Modification date|order=desc'
 	};
 
-client.api.call(params, function(info, next, data) {
+client.api.call(params, function(err, info, next, data) {
 	console.log(data && data.query && data.query.results);
 });

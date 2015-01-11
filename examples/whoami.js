@@ -5,12 +5,22 @@
  */
 'use strict';
 
-var bot = require('../lib/bot'),
+var bot = require('..'),
 	client = new bot('config.js');
 
-client.logIn(function() {
+client.logIn(function(err) {
+	if (err) {
+		console.log(err);
+		return;
+	}
+
 	// get current account information
-	client.whoami(function(userData) {
+	client.whoami(function(err, userData) {
+		if (err) {
+			console.log(err);
+			return;
+		}
+
 		console.log(JSON.stringify(userData, null, '\t'));
 	});
 });

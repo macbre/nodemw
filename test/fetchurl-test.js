@@ -6,56 +6,48 @@ var vows = require('vows'),
 
 var client = new bot({
 		server: 'en.wikipedia.org',
-		path: '/w',
+		path: '/w'
 	});
 
 vows.describe('URL fetching').addBatch({
-	'client,fetchUrl()': {
+	'client.fetchUrl()': {
 		topic: function() {
-			var self = this;
-			client.fetchUrl('http://example.com', function(res) {
-				self.callback(null, res);
-			});
+			client.fetchUrl('http://example.com', this.callback);
 		},
 		'should pass page content to a callback': function(e, res) {
 			assert.isString(res);
 			assert.isTrue(res.indexOf('<h1>Example Domain</h1>') > -1);
 		}
 	},
-	'client,fetchUrl() when successful': {
+	'client.fetchUrl() when not found': {
 		topic: function() {
-			var self = this;
-			client.fetchUrl('http://example.com').then(function(res) {
-				self.callback(null, res);
-			});
+			client.fetchUrl('http://example.com/barNotFound', function(e) {
+				this.callback(null, e);
+			}.bind(this));
 		},
-		'should resolve a promise': function(e, res) {
-			assert.isString(res);
+		'should pass an Error to the callback': function(fake, err) {
+			assert.isTrue(err instanceof Error);
 		},
-		'should pass page content': function(e, res) {
-			assert.isTrue(res.indexOf('<h1>Example Domain</h1>') > -1);
+		'should pass error details': function(fake, err) {
+			assert.isTrue(err.message.indexOf('HTTP status 404') > -1);
 		}
 	},
-	'client,fetchUrl() when failed': {
+	'client.fetchUrl() when failed': {
 		topic: function() {
-			var self = this;
-			client.fetchUrl('foo://bar').fail(function(res) {
-				self.callback(null, res);
-			});
+			client.fetchUrl('foo://bar', function(e) {
+				this.callback(null, e);
+			}.bind(this));
 		},
-		'should reject a promise': function(e, res) {
-			assert.isObject(res.value);
+		'should pass an Error to the callback': function(fake, err) {
+			assert.isTrue(err instanceof Error);
 		},
-		'should pass error details': function(e, res) {
-			assert.isTrue(res.value.err.indexOf('fetchUrl failed with') > -1);
+		'should pass error details': function(fake, err) {
+			assert.isTrue(err.message.indexOf('Invalid protocol') > -1);
 		}
 	},
 	'binary data': {
 		topic: function() {
-			var self = this;
-			client.api.fetchUrl('http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png', 'binary').then(function(res) {
-				self.callback(null, res);
-			});
+			client.fetchUrl('http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png', this.callback, 'binary');
 		},
 		'should be passed to a callback in raw form': function(e, res) {
 			assert.isTrue(res instanceof Buffer);

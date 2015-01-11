@@ -10,7 +10,7 @@ nodemw
 
 ## Requirements
 
-* nodejs
+* node.js
 
 ## Installation
 
@@ -31,8 +31,11 @@ git clone https://github.com/macbre/nodemw.git
 ## Features
 
 * HTTP requests are stored in the queue and performed in parallel with limited number of "threads" (i.e. there's no risk of flooding the server)
-* nodemw core uses promise pattern powered by [deferred-js library](https://github.com/heavylifters/deferred-js)
-* nodemw supports articles creation / edit / move / delete, file uploads (using given content or via provided URL)
+* articles creation / edit / move / delete
+* file uploads (using given content or via provided URL)
+* Special:Log processing
+* listing articles in categories
+* and much more
 
 ## Where it's used
 
@@ -62,13 +65,19 @@ npm test
 
   // pass configuration object
   var client = new bot({
-      server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
-      path: '/w',                  // path to api.php script
-      debug: false                // is more verbose when set to true
+    server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
+    path: '/w',                  // path to api.php script
+    debug: false                 // is more verbose when set to true
   });
 
-  client.getArticle('foo', function(data) {
-      // ...
+  client.getArticle('foo', function(err, data) {
+    // error handling
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    // ...
   });
 ```
 
@@ -109,7 +118,7 @@ var bot = require('nodemw'),
 		query: '[[Modification date::+]]|?Modification date|sort=Modification date|order=desc'
 	};
 
-client.api.call(params /* api.php parameters */, function(info /* processed query result */, next, data /* raw data */) {
+client.api.call(params /* api.php parameters */, function(err /* Error instance or null */, info /* processed query result */, next /* more results? */, data /* raw data */) {
 	console.log(data && data.query && data.query.results);
 });
 ```
@@ -117,6 +126,8 @@ client.api.call(params /* api.php parameters */, function(info /* processed quer
 ## Bot methods
 
 The last parameter of each function in nodemw API is a callback which will be fired when the requested action is done.
+
+**Callbacks use node.js style** - ``err`` is always passed as the first argument.
 
 ### bot.logIn(username, password, callback)
 

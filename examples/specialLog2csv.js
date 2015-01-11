@@ -8,7 +8,8 @@ var async = require('async'),
 	bot = require('..'),
 	client = new bot({
 		server: 'pl.wikipedia.org',
-		path: '/w'
+		path: '/w',
+		debug: true
 	}),
 	logType = 'thanks';
 
@@ -24,7 +25,7 @@ async.whilst(
 	function(callback) {
 		console.error('Getting %s logs since %s...', logType, start);
 
-		client.getLog(logType, start, function(data, next) {
+		client.getLog(logType, start, function(err, data, next) {
 			logEntries = logEntries.concat(data);
 
 			// next time get next batch
