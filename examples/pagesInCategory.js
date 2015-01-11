@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var bot = require('../lib/bot'),
+var bot = require('..'),
 	client = new bot({
 		server: 'en.wikipedia.org',
 		path: '/w'

@@ -5,12 +5,12 @@
  */
 'use strict';
 
-var bot = require('../lib/bot'),
+var bot = require('..'),
 	client = new bot('config.js');
 
 var LIMIT = 500;
 
-client.getRecentChanges(false, function(data, next) {
+client.getRecentChanges(false, function(err, data, next) {
 	var usersStats = {},
 		pagesStats = {},
 		count = 0,
@@ -112,8 +112,8 @@ client.getRecentChanges(false, function(data, next) {
 	// emit results
 	console.log('Stats for the last ' + count + ' recent changes (from ' + from + ' back to ' + to + ')...');
 
-	console.log('Pages statistcs:');
-	console.log(pages);
+	//console.log('Pages statistcs:');
+	//console.log(pages);
 
 	console.log('Users statistcs:');
 	console.log(users);

@@ -5,7 +5,7 @@
  */
 'use strict';
 
-var bot = require('../lib/bot'),
+var bot = require('..'),
 	client = new bot('config.js');
 
 client.logIn(function() {

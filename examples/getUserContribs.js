@@ -3,13 +3,18 @@
  */
 'use strict';
 
-var bot = require('../lib/bot'),
+var bot = require('..'),
 	client = new bot({
 		server: 'poznan.wikia.com'
 	});
 
 client.getUserContribs({
 	user: 'Pyrabot'
-}, function(data, next) {
-	console.log(data);
+}, function(err, data) {
+	if (err) {
+		console.error(err);
+	}
+	else {
+		console.log(data);
+	}
 });

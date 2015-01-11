@@ -5,17 +5,16 @@
  */
 'use strict';
 
-var bot = require('../lib/bot').bot;
-
-var client = new bot('config.js');
+var bot = require('..'),
+	client = new bot('config.js');
 
 var imageArray = [];
 
 function getBatch(start) {
-	client.getImages(start, function(data, next) {
+	client.getImages(start, function(err, data, next) {
 		imageArray = imageArray.concat(data);
 		if (next) {
-			console.log('Getting next batch #' + next + '...');
+			console.log('Getting next batch (starting from ' + next + ')...');
 			getBatch(next);
 		}
 		else {

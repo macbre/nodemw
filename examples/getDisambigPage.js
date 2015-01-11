@@ -3,7 +3,7 @@
  */
 'use strict';
 
-var bot = require('../lib/bot'),
+var bot = require('..'),
 	client = new bot({
 		server: 'en.wikipedia.org',
 		path: '/w',
@@ -26,7 +26,12 @@ var template = "== USS $1 ==\n" +
 
 titles.forEach(function(title) {
 
-	client.getArticle('USS ' + title, function(content) {
+	client.getArticle('USS ' + title, function(err, content) {
+		if (err) {
+			console.error(err);
+			return;
+		}
+
 		//console.log(content);
 
 		var items = content.match(/\*(.*)\n/g);
