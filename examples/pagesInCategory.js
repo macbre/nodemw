@@ -12,12 +12,12 @@ var bot = require('../lib/bot'),
 		path: '/w'
 	});
 
-client.getPagesInCategory('Bosons', function(pages) {
+client.getPagesInCategory('Bosons', function(err, pages) {
 	client.log('Pages in category');
 	client.logData(pages);
 
 	pages.forEach(function(page) {
-		client.getArticle(page.title, function(content) {
+		client.getArticle(page.title, function(err, content) {
 			console.log('%s: %s', page.title, content.substr(0, 75).replace(/\n/g, ' '));
 		});
 	});
