@@ -248,3 +248,7 @@ Gets config entry value (returns ``def`` value if not found)
 ### bot.setConfig(key, val)
 
 Sets config entry value
+
+### bot.diff(old, current)
+
+Returns a diff colored using ANSI colors (powered by [diff](https://www.npmjs.com/package/diff))
