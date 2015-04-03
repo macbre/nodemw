@@ -50,6 +50,12 @@ cd examples
 node pagesInCategory.js
 ```
 
+You can enter debug mode by setting `DEBUG` enviromental variable:
+
+```bash
+DEBUG=1 node examples/pagesInCategory.js
+```
+
 ## Running unit tests
 
 ```bash
