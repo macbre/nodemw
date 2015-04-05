@@ -65,6 +65,23 @@ vows.describe('bot class').addBatch({
 		'can be customized': function(client) {
 			assert.equal(client.api.userAgent, 'Custom UA');
 		}
+	},
+	'dry run mode': {
+		topic: function() {
+			var client = new bot({
+				server: 'pl.wikipedia.org',
+				path: '/w',
+				dryRun: true
+			});
+
+			client.edit('Page', 'Content', 'Summary', function(e) {
+				this.callback(null, e);
+			}.bind(this));
+		},
+		'is correctly handled by edit()': function(fake, err) {
+			assert.isTrue(err instanceof Error);
+			assert.equal('In dry-run mode', err.message);
+		}
 	}
 
 }).export(module);
