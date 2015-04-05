@@ -50,10 +50,16 @@ cd examples
 node pagesInCategory.js
 ```
 
-You can enter debug mode by setting `DEBUG` enviromental variable:
+You can enter **debug mode** by setting `DEBUG` enviromental variable:
 
 ```bash
 DEBUG=1 node examples/pagesInCategory.js
+```
+
+You can enter **dry-run mode** (all "write" operations like edits and uploads will be disabled) by setting `DRY_RUN` environmental variable (or `dryRun` entry in the config):
+
+```bash
+DRY_RUN=1 node examples/pagesInCategory.js
 ```
 
 ## Running unit tests
