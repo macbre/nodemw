@@ -149,6 +149,10 @@ Log-in using given credentials - [read more](http://www.mediawiki.org/wiki/API:L
 
 Gets the list of all categories on a wiki
 
+### bot.getAllPages(callback)
+
+Gets the list of all pages from the main namespace (excludes redirects) - [read more](https://www.mediawiki.org/wiki/API:Allpages)
+
 ### bot.getPagesInCategory(category, callback)
 
 Gets the list of pages in a given category - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
@@ -160,6 +164,10 @@ Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org
 ### bot.getArticle(title, callback)
 
 Gets article content and its meta data - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
+
+### bot.getArticleRevisions(title, callback)
+
+Gets all revisions of a given article - [read more](http://www.mediawiki.org/wiki/API:Revisions)
 
 ### bot.edit(title, content, summary, callback)
 
