@@ -149,6 +149,10 @@ Log-in using given credentials - [read more](http://www.mediawiki.org/wiki/API:L
 
 Gets the list of all categories on a wiki
 
+### bot.getAllPages(callback)
+
+Gets the list of all pages from the main namespace (excludes redirects)
+
 ### bot.getPagesInCategory(category, callback)
 
 Gets the list of pages in a given category - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
