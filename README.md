@@ -229,6 +229,14 @@ Returns entries from recent changes (starting from a given point)
 
 Returns entries from recent changes (starting from a given point)
 
+### bot.getSiteInfo(props, callback)
+
+Returns site information entries - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
+
+### bot.getSiteStats(props, callback)
+
+Returns site statistics (number of articles, edits etc) - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
+
 ### client.getQueryPage(queryPage, callback)
 
 Returns entries from [QueryPage-based special pages](http://www.mediawiki.org/wiki/API:Querypage)
