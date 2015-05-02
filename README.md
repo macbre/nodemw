@@ -169,6 +169,10 @@ Gets article content and its meta data - [read more](http://www.mediawiki.org/wi
 
 Gets all revisions of a given article - [read more](http://www.mediawiki.org/wiki/API:Revisions)
 
+### bot.getArticleCategories(title, callback)
+
+Gets all categories a given article is in - [read more](http://www.mediawiki.org/wiki/API:Property/Categories)
+
 ### bot.edit(title, content, summary, callback)
 
 Creates / edits an article - [read more](http://www.mediawiki.org/wiki/API:Edit)
