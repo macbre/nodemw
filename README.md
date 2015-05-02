@@ -169,6 +169,10 @@ Gets article content and its meta data - [read more](http://www.mediawiki.org/wi
 
 Gets all revisions of a given article - [read more](http://www.mediawiki.org/wiki/API:Revisions)
 
+### bot.getArticleCategories(title, callback)
+
+Gets all categories a given article is in - [read more](http://www.mediawiki.org/wiki/API:Property/Categories)
+
 ### bot.edit(title, content, summary, callback)
 
 Creates / edits an article - [read more](http://www.mediawiki.org/wiki/API:Edit)
@@ -224,6 +228,14 @@ Returns entries from recent changes (starting from a given point)
 ### bot.getRecentChanges(start, callback)
 
 Returns entries from recent changes (starting from a given point)
+
+### bot.getSiteInfo(props, callback)
+
+Returns site information entries - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
+
+### bot.getSiteStats(props, callback)
+
+Returns site statistics (number of articles, edits etc) - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
 
 ### client.getQueryPage(queryPage, callback)
 
