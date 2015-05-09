@@ -12,7 +12,8 @@
     "mediawiki",
     "wiki",
     "api",
-    "nodejs"
+    "nodejs",
+    "wikia"
   ],
   "license": "BSD",
   "engines": {
