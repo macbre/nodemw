@@ -278,3 +278,19 @@ Sets config entry value
 ### bot.diff(old, current)
 
 Returns a diff colored using ANSI colors (powered by [diff](https://www.npmjs.com/package/diff))
+
+## [Wikia-specific](http://www.wikia.com/api/v1) bot methods
+
+> They're grouped in `bot.wikia` "namespace".
+
+### bot.wikia.getWikiVariables(callback)
+
+Get wiki-specific settings (like ThemeDesigner colors and hubs).
+
+### bot.wikia.getUser(userId, callback)
+
+Get information (avatar, number of edits) about a given user
+
+### bot.wikia.getUsers(userIds, callback)
+
+Get information (avatar, number of edits) about a given set of users (by their IDs)
