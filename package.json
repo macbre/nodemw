@@ -20,6 +20,7 @@
     "node": ">=0.6"
   },
   "dependencies": {
+    "ansicolors": "0.3.x",
     "async": "1.2.x",
     "diff": "1.4.x",
     "request": "2.57.x",

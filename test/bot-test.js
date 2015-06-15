@@ -82,6 +82,18 @@ vows.describe('bot class').addBatch({
 			assert.isTrue(err instanceof Error);
 			assert.equal('In dry-run mode', err.message);
 		}
-	}
+	},
+	'client.diff': {
+		topic: function() {
+			var client = new bot(__dirname + '/config.json'),
+				prev = 'foo 123 bar',
+				current = '[[foo]] bar';
 
+			return client.diff(prev, current);
+		},
+		'is correctly generated': function(diff) {
+			assert.equal(true, diff.indexOf('foo') > -1);
+			assert.equal(true, diff.indexOf('bar') > -1);
+		}
+	}
 }).export(module);
