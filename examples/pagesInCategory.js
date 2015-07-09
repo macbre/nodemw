@@ -12,8 +12,8 @@ var bot = require('..'),
 		path: '/w'
 	});
 
-client.getPagesInCategory('Bosons', function(err, pages) {
-	client.log('Pages in category');
+client.getPagesInCategory('Sports_cars', function(err, pages) {
+	client.log('Pages in category: %d', pages.length);
 	client.logData(pages);
 
 	pages.forEach(function(page) {
