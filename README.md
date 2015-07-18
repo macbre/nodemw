@@ -157,6 +157,10 @@ Gets the list of all pages from the main namespace (excludes redirects) - [read 
 
 Gets the list of pages in a given category - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
 
+### bot.getPagesInNamespace(namespace, callback)
+
+Gets the list of pages in a given namespace - [read more](http://www.mediawiki.org/wiki/API:Allpages)
+
 ### bot.getPagesByPrefix(prefix, callback)
 
 Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org/wiki/API:Allpages)
