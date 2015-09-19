@@ -14,7 +14,7 @@ nodemw
 
 ## Installation
 
-### Using npm
+### Using npm.p
 
 ``` bash
 npm install nodemw
@@ -185,11 +185,11 @@ Creates / edits an article - [read more](http://www.mediawiki.org/wiki/API:Edit)
 
 Deletes an article - [read more](http://www.mediawiki.org/wiki/API:Delete)
 
-## bot.purge(titles, callback)
+### bot.purge(titles, callback)
 
 Purge a given list of articles (titles or page IDs can be provided) - [read more](https://www.mediawiki.org/wiki/API:Purge)
 
-By providing `Category:Foo` as `titles` argument you can purge all pages in a given category (available since MW [1.21](https://github.com/wikimedia/mediawiki/commit/62216932c197f1c248ca2d95bc230f87a79ccd71))
+> By providing `Category:Foo` as `titles` argument you can purge all pages in a given category (available since [MW 1.21](https://github.com/wikimedia/mediawiki/commit/62216932c197f1c248ca2d95bc230f87a79ccd71))
 
 ### bot.token(title, action, callback)
 
