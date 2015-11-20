@@ -217,6 +217,10 @@ Get entries form Special:Log - [read more](http://www.mediawiki.org/wiki/API:Log
 
 Returns XML with preprocessed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#expandtemplates)
 
+### bot.parse(content, title, callback)
+
+Returns parsed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#parse)
+
 ### bot.fetchUrl(url, callback)
 
 Makes a GET request to provided resource and returns its content.
