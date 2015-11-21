@@ -14,7 +14,7 @@ nodemw
 
 ## Installation
 
-### Using npm
+### Using npm.p
 
 ``` bash
 npm install nodemw
@@ -157,6 +157,10 @@ Gets the list of all pages from the main namespace (excludes redirects) - [read 
 
 Gets the list of pages in a given category - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
 
+### bot.getPagesInNamespace(namespace, callback)
+
+Gets the list of pages in a given namespace - [read more](http://www.mediawiki.org/wiki/API:Allpages)
+
 ### bot.getPagesByPrefix(prefix, callback)
 
 Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org/wiki/API:Allpages)
@@ -180,6 +184,12 @@ Creates / edits an article - [read more](http://www.mediawiki.org/wiki/API:Edit)
 ### bot.delete(title, reason, callback)
 
 Deletes an article - [read more](http://www.mediawiki.org/wiki/API:Delete)
+
+### bot.purge(titles, callback)
+
+Purge a given list of articles (titles or page IDs can be provided) - [read more](https://www.mediawiki.org/wiki/API:Purge)
+
+> By providing `Category:Foo` as `titles` argument you can purge all pages in a given category (available since [MW 1.21](https://github.com/wikimedia/mediawiki/commit/62216932c197f1c248ca2d95bc230f87a79ccd71))
 
 ### bot.token(title, action, callback)
 
