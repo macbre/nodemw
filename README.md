@@ -191,6 +191,10 @@ Purge a given list of articles (titles or page IDs can be provided) - [read more
 
 > By providing `Category:Foo` as `titles` argument you can purge all pages in a given category (available since [MW 1.21](https://github.com/wikimedia/mediawiki/commit/62216932c197f1c248ca2d95bc230f87a79ccd71))
 
+### bot.sendEmail(username, subject, text, callback)
+
+Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
+
 ### bot.token(title, action, callback)
 
 Returns token required for a number of MediaWiki API operations
@@ -198,6 +202,14 @@ Returns token required for a number of MediaWiki API operations
 ### bot.whoami(callback)
 
 Gets information about current bot's user (including rights and rate limits) - [read more](http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui)
+
+### bot.whois(username, callback)
+
+Gets information about a specific user (including rights, current block, groups) - [read more](https://www.mediawiki.org/wiki/API:Users)
+
+### bot.whoare(usernames, callback)
+
+Gets information about specific users (including rights, current block, groups) - [read more](https://www.mediawiki.org/wiki/API:Users)
 
 ### bot.move(from, to, summary, callback)
 
