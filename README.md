@@ -165,6 +165,10 @@ Gets the list of pages in a given namespace - [read more](http://www.mediawiki.o
 
 Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org/wiki/API:Allpages)
 
+### bot.getPagesTranscludedBy(page, callback)
+
+Gets the list of pages that are transcluded by the given page - [read more](https://www.mediawiki.org/wiki/API:Transcludedin)
+
 ### bot.getArticle(title, callback)
 
 Gets article content and its meta data - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
