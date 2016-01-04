@@ -167,7 +167,7 @@ Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org
 
 ### bot.getPagesTranscludedBy(page, callback)
 
-Gets the list of pages that are transcluded by the given page - [read more](https://www.mediawiki.org/wiki/API:Transcludedin)
+Gets the list of pages that transclude the given pages - [read more](https://www.mediawiki.org/wiki/API:Transcludedin)
 
 ### bot.getArticle(title, callback)
 
