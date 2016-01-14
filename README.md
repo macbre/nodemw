@@ -165,7 +165,7 @@ Gets the list of pages in a given namespace - [read more](http://www.mediawiki.o
 
 Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org/wiki/API:Allpages)
 
-### bot.getPagesTranscludedBy(page, callback)
+### bot.getPagesTranscluding(page, callback)
 
 Gets the list of pages that transclude the given pages - [read more](https://www.mediawiki.org/wiki/API:Transcludedin)
 
