@@ -106,6 +106,7 @@ Config file is a JSON-encoded object with the following fields (see ``/examples/
 
 ``` js
 {
+      "protocol": "https",  // default to 'http'
       "server": "en.wikipedia.org",  // host name of MediaWiki-powered site
       "path": "/w",                  // path to api.php script
       "debug": false,                // is more verbose when set to true
@@ -195,7 +196,7 @@ Purge a given list of articles (titles or page IDs can be provided) - [read more
 
 Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
 
-### bot.token(title, action, callback)
+### bot.getToken(title, action, callback)
 
 Returns token required for a number of MediaWiki API operations
 
