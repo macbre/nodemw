@@ -74,7 +74,7 @@ vows.describe('bot class').addBatch({
 				dryRun: true
 			});
 
-			client.edit('Page', 'Content', 'Summary', function(e) {
+			client.edit('Page', 'Content', 'Summary', false, function(e) {
 				this.callback(null, e);
 			}.bind(this));
 		},

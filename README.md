@@ -182,9 +182,9 @@ Gets all revisions of a given article - [read more](http://www.mediawiki.org/wik
 
 Gets all categories a given article is in - [read more](http://www.mediawiki.org/wiki/API:Property/Categories)
 
-### bot.edit(title, content, summary, callback)
+### bot.edit(title, content, summary, minor, callback)
 
-Creates / edits an article - [read more](http://www.mediawiki.org/wiki/API:Edit)
+Creates / edits an article (and mark the edit as minor if *minor* is set to true) - [read more](http://www.mediawiki.org/wiki/API:Edit)
 
 ### bot.delete(title, reason, callback)
 
