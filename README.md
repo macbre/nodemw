@@ -202,7 +202,7 @@ Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
 
 ### bot.getToken(title, action, callback)
 
-Returns token required for a number of MediaWiki API operations
+Returns token required for a number of MediaWiki API operations - [read more](https://www.mediawiki.org/wiki/API:Tokens_(action)) / [for MW 1.24+](https://www.mediawiki.org/wiki/API:Tokens)
 
 ### bot.whoami(callback)
 
