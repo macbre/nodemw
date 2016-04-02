@@ -268,6 +268,10 @@ Returns site information entries - [read more](http://www.mediawiki.org/wiki/API
 
 Returns site statistics (number of articles, edits etc) - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
 
+### bot.getMediaWikiVersion(callback)
+
+Returns the version of MediaWiki given site uses - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
+
 ### client.getQueryPage(queryPage, callback)
 
 Returns entries from [QueryPage-based special pages](http://www.mediawiki.org/wiki/API:Querypage)
