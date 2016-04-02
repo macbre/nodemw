@@ -24,6 +24,7 @@
     "async": "^2.0.0-rc.2",
     "diff": "^2.2.2",
     "jshint": "^2.9.1",
+    "node-version-compare": "^1.0.1",
     "request": "^2.69.0",
     "underscore": "1.8.x",
     "winston": "^2.2.0"
