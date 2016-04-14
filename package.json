@@ -43,7 +43,6 @@
     "node": true,
     "esversion": 6,
     "-W030": false,
-    "-W084": false,
-    "strict": true
+    "-W084": false
   }
 }

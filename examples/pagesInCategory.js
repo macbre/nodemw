@@ -4,9 +4,8 @@
  * @see http://en.wikipedia.org/wiki/Category:Bosons
  * @see http://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Category%3ABosons&cmlimit=500&format=json
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot({
 		server: 'en.wikipedia.org',
 		path: '/w'
