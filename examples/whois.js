@@ -3,9 +3,8 @@
  *
  * @see https://www.mediawiki.org/wiki/API:Users
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot('config.js');
 
 	// get current account information

@@ -3,9 +3,8 @@
  *
  * @see http://semantic-mediawiki.org/wiki/Ask_API
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot({
 		server: 'semantic-mediawiki.org',
 		path: '/w'
