@@ -4,11 +4,12 @@
  */
 'use strict';
 
+const async = require('async');
+const bot = require('..');
+
 class WikiData {
 
 	constructor() {
-		const bot = require('..');
-
 		this.bot = new bot({
 			protocol: 'https',
 			server: 'www.wikidata.org',
@@ -71,17 +72,23 @@ data.getEntities(
 	[
 		'Denmark',
 		'Faroe Islands',
+		'Finland',
 		'France',
 		'Germany',
 		'Iceland',
+		'Italy',
+		//'Luxembourg',
 		'Norway',
 		'Poland',
+		'Sweden',
 		'Switzerland',
 	],
 	(err, claims) => {
 		//console.log(claims);
 
-		let tld = claims.map((item) => item.get('P297'));
+		let tld = claims.
+			map((item) => item.get('P297')).
+			map((tld) => tld.toLowerCase());
 
 		let population = claims.
 			map((item) => item.get('P1082') && item.get('P1082').amount || '').
@@ -89,5 +96,53 @@ data.getEntities(
 
 		data.bot.log('TLD', tld);
 		data.bot.log('Population', population);
+
+		// get wikis stats
+		async.map(
+			tld,
+			(tld, callback) => {
+				let client = new bot({
+					server: `${tld}.wikipedia.org`,
+					path: '/w',
+					debug: true
+				});
+
+				client.getSiteStats((err, data) => {
+					callback(err, data);
+				});
+			},
+			(err, stats) => {
+				//console.log(stats);
+
+				// calculate per country stats
+				claims.forEach((item, idx) => {
+					const stat = stats[idx],
+						pop = population[idx],
+						round = (val) => val.toFixed(6)
+
+					data.bot.log('Country', item.get('name'));
+					data.bot.log('Stats', JSON.stringify({
+						population: pop,
+						articles: stat.articles,
+						edits: stat.edits,
+						activeUsers: stat.activeusers,
+
+						articlesPerCapita: round(stat.articles / pop),
+						editsPerCapita: round(stat.edits / pop),
+						activeUsersPer1KCapita: round(stat.activeusers / pop * 1000),
+					}, null, ' '));
+				});
+
+				/**
+				let articlesPerCapita =    stats.map((stat, idx) => stat.articles / population[idx]);
+				let editsPerCapita =       stats.map((stat, idx) => stat.edits / population[idx]);
+				let activeUsersPerCapita = stats.map((stat, idx) => stat.activeusers / population[idx]);
+
+				data.bot.log('articlesPerCapita', articlesPerCapita);
+				data.bot.log('editsPerCapita', editsPerCapita);
+				data.bot.log('activeUsersPerCapita', activeUsersPerCapita);
+				**/
+			}
+		);
 	}
 );
