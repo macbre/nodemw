@@ -1,0 +1,93 @@
+#!/usr/bin/env node
+/**
+ * Example script showing how to access WikiData properties for selected titles.
+ */
+'use strict';
+
+class WikiData {
+
+	constructor() {
+		const bot = require('..');
+
+		this.bot = new bot({
+			protocol: 'https',
+			server: 'www.wikidata.org',
+			path: '/w',
+			debug: true
+		});
+	}
+
+	// get entities' claims for given set of titles
+	getEntities(titles, callback) {
+		// cast a single title (string) to an array
+		titles = Array.isArray(titles) ? titles : [titles];
+
+		this.bot.log('Getting claims for: ', titles);
+
+		// @see https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&titles=Pozna%C5%84&props=claims&format=json
+		const params = {
+			'action': 'wbgetentities',
+			'sites': 'enwiki',
+			'titles': titles.join('|'),
+			'props': 'claims'
+		};
+
+		this.bot.api.call(params, (err, info, next, raw) => {
+			if (err) {
+				callback(err);
+				return;
+			}
+
+			let entities = [];
+
+			Object.keys(raw.entities).forEach((key, idx) => {
+				let claims = new Map();
+
+				claims.set('id', key);
+				claims.set('name', titles[idx]);
+
+				this.bot.log(`Found entity for ${titles[idx]}: <https://www.wikidata.org/wiki/${key}>`);
+
+				Object.keys(raw.entities[key].claims).forEach((propertyId) => {
+					let claim = raw.entities[key].claims[propertyId][0];
+
+					if (claim.mainsnak.datavalue) {
+						// TODO: values casting
+						claims.set(propertyId, claim.mainsnak.datavalue.value);
+					}
+				});
+
+				entities.push(claims);
+			});
+
+			callback(null, entities);
+		});
+	}
+}
+
+const data = new WikiData();
+
+data.getEntities(
+	[
+		'Denmark',
+		'Faroe Islands',
+		'France',
+		'Germany',
+		'Iceland',
+		'Norway',
+		'Poland',
+		'Switzerland',
+	],
+	(err, claims) => {
+		//console.log(claims);
+
+		let tld = claims.map((item) => item.get('P297'));
+
+		let population = claims.
+			map((item) => item.get('P1082') && item.get('P1082').amount || '').
+			map((amount) => parseInt(amount.replace(/^\+/, ''), 10));
+
+		data.bot.log('TLD', tld);
+		data.bot.log('Population', population);
+	}
+);
