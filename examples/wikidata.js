@@ -71,15 +71,17 @@ const data = new WikiData();
 data.getEntities(
 	[
 		'Denmark',
+		'Estonia',
 		'Faroe Islands',
 		'Finland',
 		'France',
 		'Germany',
+		'Hungary',
 		'Iceland',
 		'Italy',
-		//'Luxembourg',
 		'Norway',
 		'Poland',
+		'Slovenia',
 		'Sweden',
 		'Switzerland',
 	],
@@ -118,30 +120,20 @@ data.getEntities(
 				claims.forEach((item, idx) => {
 					const stat = stats[idx],
 						pop = population[idx],
-						round = (val) => val.toFixed(6)
+						round = (val) => val.toFixed(6);
 
 					data.bot.log('Country', item.get('name'));
 					data.bot.log('Stats', JSON.stringify({
 						population: pop,
 						articles: stat.articles,
 						edits: stat.edits,
-						activeUsers: stat.activeusers,
+						activeUsers: stat.activeusers, // users who had some kind of activity within the last 30 days
 
 						articlesPerCapita: round(stat.articles / pop),
 						editsPerCapita: round(stat.edits / pop),
 						activeUsersPer1KCapita: round(stat.activeusers / pop * 1000),
 					}, null, ' '));
 				});
-
-				/**
-				let articlesPerCapita =    stats.map((stat, idx) => stat.articles / population[idx]);
-				let editsPerCapita =       stats.map((stat, idx) => stat.edits / population[idx]);
-				let activeUsersPerCapita = stats.map((stat, idx) => stat.activeusers / population[idx]);
-
-				data.bot.log('articlesPerCapita', articlesPerCapita);
-				data.bot.log('editsPerCapita', editsPerCapita);
-				data.bot.log('activeUsersPerCapita', activeUsersPerCapita);
-				**/
 			}
 		);
 	}
