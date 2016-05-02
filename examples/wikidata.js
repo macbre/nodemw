@@ -4,8 +4,9 @@
  */
 'use strict';
 
-const async = require('async');
-const bot = require('..');
+const async = require('async'),
+	bot = require('..'),
+	fs = require('fs');
 
 class WikiData {
 
@@ -116,14 +117,17 @@ data.getEntities(
 			(err, stats) => {
 				//console.log(stats);
 
+				// write to TSV file
+				const fd = fs.openSync('wikidata.tsv', 'w');
+
 				// calculate per country stats
 				claims.forEach((item, idx) => {
 					const stat = stats[idx],
 						pop = population[idx],
 						round = (val) => val.toFixed(6);
 
-					data.bot.log('Country', item.get('name'));
-					data.bot.log('Stats', JSON.stringify({
+					let itemStats = {
+						country: item.get('name'),
 						population: pop,
 						articles: stat.articles,
 						edits: stat.edits,
@@ -132,8 +136,20 @@ data.getEntities(
 						articlesPerCapita: round(stat.articles / pop),
 						editsPerCapita: round(stat.edits / pop),
 						activeUsersPer1KCapita: round(stat.activeusers / pop * 1000),
-					}, null, ' '));
+					};
+
+					data.bot.log('Country', item.get('name'));
+					data.bot.log('Stats', JSON.stringify(itemStats, null, ' '));
+
+					// write the header before the first row with data
+					if (idx === 0) {
+						fs.writeSync(fd, Object.keys(itemStats).join("\t") + "\n");
+					}
+
+					fs.writeSync(fd, Object.keys(itemStats).map((key) => itemStats[key]).join("\t") + "\n");
 				});
+
+				fs.closeSync(fd);
 			}
 		);
 	}
