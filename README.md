@@ -187,6 +187,14 @@ Gets all categories a given article is in - [read more](http://www.mediawiki.org
 
 Creates / edits an article (and mark the edit as minor if *minor* is set to true) - [read more](http://www.mediawiki.org/wiki/API:Edit)
 
+### bot.append(title, content, summary, callback)
+
+Adds given content to the end of the page - [read more](http://www.mediawiki.org/wiki/API:Edit)
+
+### bot.prepend(title, content, summary, callback)
+
+Adds given content to the beginning of the page - [read more](http://www.mediawiki.org/wiki/API:Edit)
+
 ### bot.delete(title, reason, callback)
 
 Deletes an article - [read more](http://www.mediawiki.org/wiki/API:Delete)
