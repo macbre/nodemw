@@ -171,7 +171,7 @@ Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org
 
 Gets the list of pages that transclude the given pages - [read more](https://www.mediawiki.org/wiki/API:Transcludedin)
 
-### bot.getArticle(title, callback)
+### bot.getArticle(title, [redirect,] callback)
 
 Gets article content and its meta data - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
 
