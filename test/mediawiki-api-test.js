@@ -67,6 +67,17 @@ vows.describe('Mediawiki API').addBatch({
 			assert.isTrue(res.indexOf("'''Albert Einstein'''") !== false);
 		}
 	},
+	'getArticle() with a redirect': {
+		topic: function() {
+			client.getArticle('Einstein', true, this.callback);
+		},
+		'string is passed to callback': function(e, res) {
+			assert.isString(res);
+		},
+		'valid content is passed to callback': function(e, res) {
+			assert.isTrue(res.indexOf("'''Albert Einstein'''") !== false);
+		}
+	},
 	'getImagesFromArticle()': {
 		topic: function() {
 			client.getImagesFromArticle(ARTICLE, this.callback);
