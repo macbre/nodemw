@@ -3,15 +3,14 @@
  *  - most active editors
  *  - most actively edited articles
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot('config.js');
 
-var LIMIT = 500;
+const LIMIT = 500;
 
 client.getRecentChanges(false, function(err, data, next) {
-	var usersStats = {},
+	let usersStats = {},
 		pagesStats = {},
 		count = 0,
 		from,
@@ -47,7 +46,7 @@ client.getRecentChanges(false, function(err, data, next) {
 			};
 		}
 
-		var pagesItem = pagesStats[entry.title];
+		const pagesItem = pagesStats[entry.title];
 		pagesItem.edits++;
 
 		if (pagesItem.editors.indexOf(entry.user) === -1) {
@@ -69,7 +68,7 @@ client.getRecentChanges(false, function(err, data, next) {
 			}
 		}
 
-		var usersItem = usersStats[entry.user];
+		const usersItem = usersStats[entry.user];
 
 		switch(entry.type) {
 			case 'new':
@@ -82,13 +81,13 @@ client.getRecentChanges(false, function(err, data, next) {
 		}
 
 		// edit size difference
-		var diff = entry.newlen - entry.oldlen;
+		const diff = entry.newlen - entry.oldlen;
 		pagesItem.diff += diff;
 		usersItem.diff += diff;
 	});
 
 	// generate an array of results
-	var key,
+	let key,
 		pages = [],
 		users = [];
 
@@ -101,16 +100,12 @@ client.getRecentChanges(false, function(err, data, next) {
 	}
 	
 	// sort them
-	pages.sort(function(a, b) {
-		return b.edits - a.edits;
-	});
+	pages.sort((a, b) => b.edits - a.edits);
 
-	users.sort(function(a, b) {
-		return b.diff - a.diff;
-	});
+	users.sort((a, b) => b.diff - a.diff);
 
 	// emit results
-	console.log('Stats for the last ' + count + ' recent changes (from ' + from + ' back to ' + to + ')...');
+	console.log(`Stats for the last ${count} recent changes (from ${from} back to ${to})...`);
 
 	//console.log('Pages statistcs:');
 	//console.log(pages);

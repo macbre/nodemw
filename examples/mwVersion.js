@@ -1,9 +1,8 @@
 /**
  * Example script getting MW version
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	wikia = new bot({
 		server: 'wikia.com',
 		path: '',

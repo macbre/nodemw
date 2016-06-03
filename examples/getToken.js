@@ -1,9 +1,8 @@
 /**
  * Example script getting the edit token
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	wikia = new bot({
 		server: 'nordycka.wikia.com',
 		path: '',

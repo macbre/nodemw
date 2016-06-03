@@ -1,6 +1,6 @@
 {
   "name": "nodemw",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
   "description": "MediaWiki API client written in node.js",
   "main": "./lib/bot",
@@ -21,17 +21,18 @@
   },
   "dependencies": {
     "ansicolors": "0.3.x",
-    "async": "^2.0.0-rc.2",
-    "diff": "^2.2.2",
+    "async": "^2.0.0-rc.5",
+    "diff": "^2.2.3",
     "jshint": "^2.9.1",
     "node-version-compare": "^1.0.1",
-    "request": "^2.69.0",
+    "request": "^2.72.0",
     "underscore": "1.8.x",
     "winston": "^2.2.0"
   },
   "devDependencies": {
     "csv-string": "2.3.x",
-    "jshint": "2.8.x",
+    "esnext": "^2.0.0",
+    "jshint": "^2.9.2",
     "vows": "0.8.x"
   },
   "scripts": {
@@ -40,8 +41,8 @@
   },
   "jshintConfig": {
     "node": true,
+    "esversion": 6,
     "-W030": false,
-    "-W084": false,
-    "strict": true
+    "-W084": false
   }
 }

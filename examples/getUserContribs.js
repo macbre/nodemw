@@ -1,9 +1,8 @@
 /**
  * Example script getting contributions done by Pyrabot
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot({
 		server: 'poznan.wikia.com'
 	});

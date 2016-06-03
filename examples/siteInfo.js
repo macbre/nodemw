@@ -1,9 +1,8 @@
 /**
  * Example script getting wiki information
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot({
 		server: '8bit.wikia.com',
 		path: '',

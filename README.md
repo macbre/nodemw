@@ -112,6 +112,7 @@ Config file is a JSON-encoded object with the following fields (see ``/examples/
       "debug": false,                // is more verbose when set to true
       "username": "foo",             // account to be used when logIn is called (optional)
       "password": "bar",             // password to be used when logIn is called (optional)
+      "domain" : "auth.bar.net",     // domain to be used when logIn is called (optional)
       "userAgent": "Custom UA",      // define custom bot's user agent
       "concurrency": 5               // how many API requests can be run in parallel (defaults to 3)
 }
@@ -170,7 +171,7 @@ Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org
 
 Gets the list of pages that transclude the given pages - [read more](https://www.mediawiki.org/wiki/API:Transcludedin)
 
-### bot.getArticle(title, callback)
+### bot.getArticle(title, [redirect,] callback)
 
 Gets article content and its meta data - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
 
@@ -185,6 +186,14 @@ Gets all categories a given article is in - [read more](http://www.mediawiki.org
 ### bot.edit(title, content, summary, minor, callback)
 
 Creates / edits an article (and mark the edit as minor if *minor* is set to true) - [read more](http://www.mediawiki.org/wiki/API:Edit)
+
+### bot.append(title, content, summary, callback)
+
+Adds given content to the end of the page - [read more](http://www.mediawiki.org/wiki/API:Edit)
+
+### bot.prepend(title, content, summary, callback)
+
+Adds given content to the beginning of the page - [read more](http://www.mediawiki.org/wiki/API:Edit)
 
 ### bot.delete(title, reason, callback)
 

@@ -2,16 +2,15 @@
 /**
  * Example script that parser given wikitext
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot({
 		server: 'en.wikipedia.org',
 		path: '/w',
 		debug: true
 	});
 
-var wikitext = [
+const wikitext = [
 	'== Foo ==',
 	'123 456',
 	'* abc',

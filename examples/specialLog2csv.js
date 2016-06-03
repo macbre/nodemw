@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
  * Example script generating CSV file from Special:Log entries
+ *
+ * @see https://pl.wikipedia.org/w/api.php?action=help&modules=query%2Blogevents
  */
-'use strict';
-
-var async = require('async'),
+const async = require('async'),
 	bot = require('..'),
 	client = new bot({
 		server: 'pl.wikipedia.org',
@@ -12,16 +12,14 @@ var async = require('async'),
 		debug: true
 	}),
 	logType = 'thanks';
+	//logType = 'review/approve';
 
 // @see https://github.com/caolan/async#whilsttest-fn-callback
 var start = '',
 	logEntries = [];
 
 async.whilst(
-	function() {
-		// run as long as there's more data
-		return true;
-	},
+	() => true, // run as long as there's more data
 	function(callback) {
 		console.error('Getting %s logs since %s...', logType, start);
 
@@ -34,7 +32,7 @@ async.whilst(
 		});
 	},
 	function(err) {
-		var csv = require('csv-string'),
+		const csv = require('csv-string'),
 			len = logEntries.length;
 
 		function writeCsvLine(data) {
