@@ -173,7 +173,7 @@ Gets the list of pages that transclude the given pages - [read more](https://www
 
 ### bot.getArticle(title, [redirect,] callback)
 
-Gets article content and its meta data - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
+Gets article content and redirect info - [read more](https://www.mediawiki.org/wiki/API:Query#Resolving_redirects)
 
 ### bot.getArticleRevisions(title, callback)
 
