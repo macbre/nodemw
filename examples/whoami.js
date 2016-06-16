@@ -3,9 +3,8 @@
  *
  * @see http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot('config.js');
 
 client.logIn(function(err) {

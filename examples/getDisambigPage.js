@@ -1,22 +1,21 @@
 /**
  * Example script preparing ship disambig pages for translation
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot({
 		server: 'en.wikipedia.org',
 		path: '/w',
 		debug: false
 	});
 
-var titles = [
+const titles = [
 	'Manta',
 	'Maple',
 	'Marathon'
 ];
 
-var template = "== USS $1 ==\n" +
+const template = "== USS $1 ==\n" +
 "{{s|disambig}}\n" +
 "[[Okręt]]y [[United States Navy|US Navy]] o nazwie '''[[Lista akronimów przed nazwami okrętów|USS]] \"$1\"'''\n" +
 "\n*Pierwszy\n*Drugi\n" +
@@ -26,7 +25,7 @@ var template = "== USS $1 ==\n" +
 
 titles.forEach(function(title) {
 
-	client.getArticle('USS ' + title, function(err, content) {
+	client.getArticle(`USS ${title}`, function(err, content) {
 		if (err) {
 			console.error(err);
 			return;
@@ -34,11 +33,11 @@ titles.forEach(function(title) {
 
 		//console.log(content);
 
-		var items = content.match(/\*(.*)\n/g);
+		const items = content.match(/\*(.*)\n/g);
 
 		//console.log(items);
 
-		var newContent = template.
+		const newContent = template.
 			replace(/\$1/g, title).
 			replace(/\$2/g, items.join(""));
 

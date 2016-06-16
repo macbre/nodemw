@@ -106,11 +106,13 @@ Config file is a JSON-encoded object with the following fields (see ``/examples/
 
 ``` js
 {
+      "protocol": "https",  // default to 'http'
       "server": "en.wikipedia.org",  // host name of MediaWiki-powered site
       "path": "/w",                  // path to api.php script
       "debug": false,                // is more verbose when set to true
       "username": "foo",             // account to be used when logIn is called (optional)
       "password": "bar",             // password to be used when logIn is called (optional)
+      "domain" : "auth.bar.net",     // domain to be used when logIn is called (optional)
       "userAgent": "Custom UA",      // define custom bot's user agent
       "concurrency": 5               // how many API requests can be run in parallel (defaults to 3)
 }
@@ -165,9 +167,13 @@ Gets the list of pages in a given namespace - [read more](http://www.mediawiki.o
 
 Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org/wiki/API:Allpages)
 
-### bot.getArticle(title, callback)
+### bot.getPagesTranscluding(page, callback)
 
-Gets article content and its meta data - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
+Gets the list of pages that transclude the given pages - [read more](https://www.mediawiki.org/wiki/API:Transcludedin)
+
+### bot.getArticle(title, [redirect,] callback)
+
+Gets article content and redirect info - [read more](https://www.mediawiki.org/wiki/API:Query#Resolving_redirects)
 
 ### bot.getArticleRevisions(title, callback)
 
@@ -177,9 +183,17 @@ Gets all revisions of a given article - [read more](http://www.mediawiki.org/wik
 
 Gets all categories a given article is in - [read more](http://www.mediawiki.org/wiki/API:Property/Categories)
 
-### bot.edit(title, content, summary, callback)
+### bot.edit(title, content, summary, minor, callback)
 
-Creates / edits an article - [read more](http://www.mediawiki.org/wiki/API:Edit)
+Creates / edits an article (and mark the edit as minor if *minor* is set to true) - [read more](http://www.mediawiki.org/wiki/API:Edit)
+
+### bot.append(title, content, summary, callback)
+
+Adds given content to the end of the page - [read more](http://www.mediawiki.org/wiki/API:Edit)
+
+### bot.prepend(title, content, summary, callback)
+
+Adds given content to the beginning of the page - [read more](http://www.mediawiki.org/wiki/API:Edit)
 
 ### bot.delete(title, reason, callback)
 
@@ -191,13 +205,25 @@ Purge a given list of articles (titles or page IDs can be provided) - [read more
 
 > By providing `Category:Foo` as `titles` argument you can purge all pages in a given category (available since [MW 1.21](https://github.com/wikimedia/mediawiki/commit/62216932c197f1c248ca2d95bc230f87a79ccd71))
 
-### bot.token(title, action, callback)
+### bot.sendEmail(username, subject, text, callback)
 
-Returns token required for a number of MediaWiki API operations
+Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
+
+### bot.getToken(title, action, callback)
+
+Returns token required for a number of MediaWiki API operations - [read more](https://www.mediawiki.org/wiki/API:Tokens_(action)) / [for MW 1.24+](https://www.mediawiki.org/wiki/API:Tokens)
 
 ### bot.whoami(callback)
 
 Gets information about current bot's user (including rights and rate limits) - [read more](http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui)
+
+### bot.whois(username, callback)
+
+Gets information about a specific user (including rights, current block, groups) - [read more](https://www.mediawiki.org/wiki/API:Users)
+
+### bot.whoare(usernames, callback)
+
+Gets information about specific users (including rights, current block, groups) - [read more](https://www.mediawiki.org/wiki/API:Users)
 
 ### bot.move(from, to, summary, callback)
 
@@ -227,6 +253,10 @@ Get entries form Special:Log - [read more](http://www.mediawiki.org/wiki/API:Log
 
 Returns XML with preprocessed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#expandtemplates)
 
+### bot.parse(content, title, callback)
+
+Returns parsed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#parse)
+
 ### bot.fetchUrl(url, callback)
 
 Makes a GET request to provided resource and returns its content.
@@ -246,6 +276,10 @@ Returns site information entries - [read more](http://www.mediawiki.org/wiki/API
 ### bot.getSiteStats(props, callback)
 
 Returns site statistics (number of articles, edits etc) - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
+
+### bot.getMediaWikiVersion(callback)
+
+Returns the version of MediaWiki given site uses - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
 
 ### client.getQueryPage(queryPage, callback)
 

@@ -4,9 +4,8 @@
  *
  * @see http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui
  */
-'use strict';
 
-var bot = require('..'),
+const bot = require('..'),
 	client = new bot({
 		server: 'poznan.wikia.com',
 		path: '',
@@ -28,13 +27,9 @@ client.purge('Category:Ratusz', function(err, data) {
 client.getPagesInCategory('Ratusz', function(err, pages) {
 	if (err) return;
 
-	var pageIds = pages.
-		filter(function(page) {
-			return page.ns === 0; // NS_MAIN
-		}).
-		map(function(page) {
-			return page.pageid;
-		});
+	const pageIds = pages.
+		filter(page => page.ns === 0).
+		map(page => page.pageid);
 
 	client.purge(pageIds, function(err, data) {
 		if (err) client.log(err);
