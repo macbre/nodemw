@@ -265,10 +265,6 @@ Makes a GET request to provided resource and returns its content.
 
 Returns entries from recent changes (starting from a given point)
 
-### bot.getRecentChanges(start, callback)
-
-Returns entries from recent changes (starting from a given point)
-
 ### bot.getSiteInfo(props, callback)
 
 Returns site information entries - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
