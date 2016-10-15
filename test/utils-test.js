@@ -21,5 +21,12 @@ vows.describe('utils.parseVideoUrl').addBatch({
 			assert.deepEqual(id, ['vimeo', '27986705']);
 		}
 	},
-
+	'unsupported URL': {
+		topic: function() {
+			return utils.parseVideoUrl('https://example.com');
+		},
+		'is properly handled': function(id) {
+			assert.equal(id, null);
+		}
+	}
 }).export(module);
