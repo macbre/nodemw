@@ -13,7 +13,8 @@
     "wiki",
     "api",
     "nodejs",
-    "wikia"
+    "wikia",
+    "fandom"
   ],
   "license": "BSD",
   "engines": {
