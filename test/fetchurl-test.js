@@ -21,7 +21,7 @@ vows.describe('URL fetching').addBatch({
 	},
 	'client.fetchUrl() when not found': {
 		topic: function() {
-			client.fetchUrl('http://example.com/barNotFound', function(e) {
+			client.fetchUrl('http://google.com/404', function(e) {
 				this.callback(null, e);
 			}.bind(this));
 		},
