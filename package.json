@@ -24,8 +24,6 @@
     "ansicolors": "0.3.x",
     "async": "^2.1.4",
     "diff": "^3.1.0",
-    "esnext": "^2.1.4",
-    "jshint": "^2.9.4",
     "node-version-compare": "^1.0.1",
     "request": "^2.79.0",
     "underscore": "1.8.x",
@@ -33,8 +31,8 @@
   },
   "devDependencies": {
     "csv-string": "2.3.x",
-    "esnext": "^2.0.0",
-    "jshint": "^2.9.2",
+    "esnext": "^3.0.8",
+    "jshint": "^2.9.4",
     "vows": "0.8.x"
   },
   "scripts": {
