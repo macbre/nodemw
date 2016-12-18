@@ -196,6 +196,10 @@ Adds given content to the end of the page - [read more](http://www.mediawiki.org
 
 Adds given content to the beginning of the page - [read more](http://www.mediawiki.org/wiki/API:Edit)
 
+### bot.addFlowTopic(title, topic, content, callback)
+
+Add a Flow topic - [read more](http://www.mediawiki.org/wiki/API:Flow)
+
 ### bot.delete(title, reason, callback)
 
 Deletes an article - [read more](http://www.mediawiki.org/wiki/API:Delete)
