@@ -14,7 +14,7 @@ nodemw
 
 ## Installation
 
-### Using npm.p
+### Using npm
 
 ``` bash
 npm install nodemw
