@@ -13,6 +13,14 @@ vows.describe('utils.parseVideoUrl').addBatch({
 			assert.deepEqual(id, ['youtube', '24X9FpeSASY']);
 		}
 	},
+	'YouTube URL with underscores': {
+		topic: function() {
+			return utils.parseVideoUrl('https://www.youtube.com/watch?v=o_QbyP6q0AQ');
+		},
+		'is properly parsed': function(id) {
+			assert.deepEqual(id, ['youtube', 'o_QbyP6q0AQ']);
+		}
+	},
 	'Vimeo URL': {
 		topic: function() {
 			return utils.parseVideoUrl('https://vimeo.com/27986705');
