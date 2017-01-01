@@ -103,7 +103,7 @@ nodemw can use config files as well as objects directly provided to ``bot`` obje
  var client = new bot('config.js');
 ```
 
-Config file is a JSON-encoded object with the following fields (see ``/examples/config-DIST.js`` file):
+Config file is a JSON-encoded object with the following fields (see ``/examples/config.js`` file):
 
 ``` js
 {
