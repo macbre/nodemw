@@ -230,6 +230,10 @@ Gets information about a specific user (including rights, current block, groups)
 
 Gets information about specific users (including rights, current block, groups) - [read more](https://www.mediawiki.org/wiki/API:Users)
 
+### bot.createAccount(username, password, callback)
+
+Create account using given credentials - [read more](https://www.mediawiki.org/wiki/API:Account_creation)
+
 ### bot.move(from, to, summary, callback)
 
 Moves (aka renames) given article - [read more](http://www.mediawiki.org/wiki/API:Move)
