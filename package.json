@@ -34,17 +34,10 @@
     "eslint": "^4.11.0",
     "eslint-config-wikimedia": "^0.5.0",
     "esnext": "^3.0.8",
-    "jshint": "^2.9.4",
     "vows": "0.8.x"
   },
   "scripts": {
     "test": "vows --spec",
     "lint": "jshint lib/api.js lib/bot.js examples/ test/"
   },
-  "jshintConfig": {
-    "node": true,
-    "esversion": 6,
-    "-W030": false,
-    "-W084": false
-  }
 }
