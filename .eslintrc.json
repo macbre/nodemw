@@ -1,3 +1,6 @@
 {
-    "extends": "wikimedia"
+    "extends": "wikimedia",
+    "parserOptions": {
+        "ecmaVersion": 6
+    }
 }
