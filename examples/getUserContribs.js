@@ -12,8 +12,7 @@ client.getUserContribs({
 }, function(err, data) {
 	if (err) {
 		console.error(err);
-	}
-	else {
+	} else {
 		console.log(data);
 	}
 });

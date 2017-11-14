@@ -15,8 +15,7 @@ function getBatch(start) {
 		if (next) {
 			console.log(`Getting next batch (starting from ${next})...`);
 			getBatch(next);
-		}
-		else {
+		} else {
 			console.log(JSON.stringify(imageArray, null, '\t'));
 			console.log(`Image count: ${imageArray.length}`);
 		}

@@ -13,8 +13,7 @@ const text = 'nodemw test http://clicky.pk/foo'; // https://github.com/macbre/no
 client.append('Project:Sandbox', '\n\n' + text + ' --~~~~', 'nodemw test edit', function(err, res) {
 	if (err) {
 		client.log('Sandbox edit failed: ' + JSON.stringify(err));
-	}
-	else {
+	} else {
 		client.log('Sandbox edited');
 		client.log(res);
 	}
