@@ -125,6 +125,6 @@ vows.describe('Mediawiki API').addBatch({
 
 			assert.isTrue(firstItem.ns === 0);
 			assert.isTrue(firstItem.title.indexOf('Albert Einstein') > -1);
-		},
+		}
 	}
 }).export(module);

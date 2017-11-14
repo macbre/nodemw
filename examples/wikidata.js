@@ -84,7 +84,7 @@ data.getEntities(
 		'Poland',
 		'Slovenia',
 		'Sweden',
-		'Switzerland',
+		'Switzerland'
 	],
 	(err, claims) => {
 		//console.log(claims);
@@ -135,7 +135,7 @@ data.getEntities(
 
 						articlesPerCapita: round(stat.articles / pop),
 						editsPerCapita: round(stat.edits / pop),
-						activeUsersPer1KCapita: round(stat.activeusers / pop * 1000),
+						activeUsersPer1KCapita: round(stat.activeusers / pop * 1000)
 					};
 
 					data.bot.log('Country', item.get('name'));
