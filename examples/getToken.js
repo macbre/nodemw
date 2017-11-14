@@ -15,11 +15,11 @@ const bot = require('..'),
 	});
 
 wikia.getToken('Main_page', 'edit', function(err, token) {
-	if (err) wikia.log(err);
+	if (err) {wikia.log(err);}
 	wikia.log('Wikia:', token);
 });
 
 wikipedia.getToken('Main_page', 'edit', function(err, token) {
-	if (err) wikipedia.log(err);
+	if (err) {wikipedia.log(err);}
 	wikipedia.log('Wikipedia:', token);
 });
