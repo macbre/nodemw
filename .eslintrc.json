@@ -3,5 +3,22 @@
     "env": {
         "node": true,
         "es6": true
+    },
+    "rules": {
+        "array-bracket-spacing": "off",
+        "block-spacing": "off",
+        "comma-spacing": "off",
+        "computed-property-spacing": "off",
+        "key-spacing": "off",
+        "keyword-spacing": "off",
+        "no-mixed-spaces-and-tabs": "off",
+        "no-multi-spaces": "off",
+        "no-trailing-spaces": "off",
+        "object-curly-spacing": "off",
+        "space-before-blocks": "off",
+        "space-before-function-paren": "off",
+        "space-in-parens": "off",
+        "space-infix-ops": "off",
+        "spaced-comment": "off"
     }
 }
