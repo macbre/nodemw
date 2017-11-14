@@ -1,4 +1,3 @@
-
 const bot = require('..'),
 	client = new bot({
 		server: '8bit.wikia.com',
@@ -17,4 +16,3 @@ client.getUsers({prefix: 'M'}, function(err, cat) {
 client.getUsers({witheditsonly: true}, function(err, cat) {
 	console.log(cat);
 });
-

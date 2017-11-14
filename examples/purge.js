@@ -36,4 +36,3 @@ client.getPagesInCategory('Ratusz', function(err, pages) {
 		console.log(data);
 	});
 });
-

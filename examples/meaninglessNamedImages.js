@@ -1,5 +1,3 @@
-
-
 const bot = require('..'),
 	client = new bot('config.js');
 
@@ -46,7 +44,6 @@ client.logIn(function(err){
     }
 
     getBatch(0);
-
 
     function rename(filename){
         client.getImageUsage(`Plik:${filename}`, function(err, img){

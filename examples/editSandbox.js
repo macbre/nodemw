@@ -18,4 +18,3 @@ client.append('Project:Sandbox', '\n\n' + text + ' --~~~~', 'nodemw test edit', 
 		client.log(res);
 	}
 });
-

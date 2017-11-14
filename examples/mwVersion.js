@@ -25,4 +25,3 @@ wikia.getMediaWikiVersion(function(err, version) {
 wikipedia.getMediaWikiVersion(function(err, version) {
 	wikipedia.log('Wikipedia:', version);
 });
-

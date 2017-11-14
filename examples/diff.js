@@ -17,4 +17,3 @@ const prev = 'foo 123 bar',
 console.log(`Old:  ${prev}`);
 console.log(`New:  ${current}`);
 console.log(`Diff: ${client.diff(prev, current)}`);
-

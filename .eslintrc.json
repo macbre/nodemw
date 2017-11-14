@@ -23,7 +23,6 @@
         "space-in-parens": "off",
         "space-infix-ops": "off",
         "spaced-comment": "off",
-        "no-multiple-empty-lines": "off",
         "no-underscore-dangle": "off",
         "no-unused-vars": "off",
         "no-use-before-define": "off",
