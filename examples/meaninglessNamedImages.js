@@ -55,8 +55,8 @@ client.logIn(function(err){
                 client.getArticle(`File_talk:${filename}`, function(err, content){
                     if (content.match(/Obraz sierota/gi) === null){
                         content = `{{Obraz sierota}}\n${content}`;
-                        client.edit(`File_talk:${filename}`, content, "[[Użytkownik:OzgaBot|OzgaBot]] wstawia szablon 'Obraz sierota'", function(){
-                            console.log(filename + " został oznaczony jako obraz sierota");
+                        client.edit(`File_talk:${filename}`, content, '[[Użytkownik:OzgaBot|OzgaBot]] wstawia szablon \'Obraz sierota\'', function(){
+                            console.log(filename + ' został oznaczony jako obraz sierota');
                         });
                     }
                 });
@@ -65,18 +65,18 @@ client.logIn(function(err){
     }
 
     function changeName(filename, title, extension){
-        console.log(title + " changename");
+        console.log(title + ' changename');
         client.getArticle(`Plik:${title}${extension}`, function(err, content){
             if (content === null){
                 client.move(
                     `Plik:${filename}`,
                     `Plik:${title}${extension}`,
-                    "",
+                    '',
                     function(){
                         client.getArticle(`Plik:${title}${extension}`, function(err, content2){
-                            content = content + "\n[[Kategoria:" + title + "]]";
+                            content = content + '\n[[Kategoria:' + title + ']]';
                             client.edit(`Plik:${title}${extension}`, content, `[[Użytkownik:OzgaBot|OzgaBot]] dodaje plik do kategorii ${title}`, function(){
-                                console.log(title + extension + " another one bites the dust xD");
+                                console.log(title + extension + ' another one bites the dust xD');
                             });
                         });
                     });
@@ -89,19 +89,19 @@ client.logIn(function(err){
     }
 
     function changeNameWithNumber(filename, title, extension, number){
-        const title1 = title + " " + number;
+        const title1 = title + ' ' + number;
         console.log(title1);
         client.getArticle(`Plik:${title1}${extension}`, function(err, content){
             if (content === null){
                 client.move(
                     `Plik:${filename}`,
                     `Plik:${title1}${extension}`,
-                    "",
+                    '',
                     function(){
                         client.getArticle(`Plik:${title1}${extension}`, function(err, content2){
-                            content2 = content2 + "\n[[Kategoria:" + title1 + "]]";
+                            content2 = content2 + '\n[[Kategoria:' + title1 + ']]';
                             client.edit(`Plik:${title1}${extension}`, content2, `[[Użytkownik:OzgaBot|OzgaBot]] dodaje plik do kategorii ${title}`, function(err){
-                                console.log(title1 + extension + " another one bites the dust xD");
+                                console.log(title1 + extension + ' another one bites the dust xD');
                             });
                         });
                     });

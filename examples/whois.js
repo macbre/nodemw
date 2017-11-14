@@ -8,7 +8,7 @@ const bot = require('..'),
 	client = new bot('config.js');
 
 	// get current account information
-	client.whois("Jimbo Wales", function(err, userData) {
+	client.whois('Jimbo Wales', function(err, userData) {
 		if (err) {
 			console.log(err);
 			return;

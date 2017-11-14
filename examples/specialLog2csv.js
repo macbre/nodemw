@@ -17,7 +17,7 @@ const async = require('async'),
 
 // @see https://www.npmjs.com/package/csv-string#stringifyinput--object-separator--string--string
 function writeCsvLine(data) {
-	process.stdout.write(csv.stringify(data, "\t"));
+	process.stdout.write(csv.stringify(data, '\t'));
 }
 
 // @see https://github.com/caolan/async#whilsttest-fn-callback

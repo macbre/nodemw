@@ -143,10 +143,10 @@ data.getEntities(
 
 					// write the header before the first row with data
 					if (idx === 0) {
-						fs.writeSync(fd, Object.keys(itemStats).join("\t") + "\n");
+						fs.writeSync(fd, Object.keys(itemStats).join('\t') + '\n');
 					}
 
-					fs.writeSync(fd, Object.keys(itemStats).map((key) => itemStats[key]).join("\t") + "\n");
+					fs.writeSync(fd, Object.keys(itemStats).map((key) => itemStats[key]).join('\t') + '\n');
 				});
 
 				fs.closeSync(fd);

@@ -28,7 +28,6 @@
         "no-use-before-define": "off",
         "no-useless-escape": "off",
         "one-var": "off",
-        "quotes": "off",
         "vars-on-top": "off"
     }
 }

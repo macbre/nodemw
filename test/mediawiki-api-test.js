@@ -64,7 +64,7 @@ vows.describe('Mediawiki API').addBatch({
 			assert.isString(res);
 		},
 		'valid content is passed to callback': function(e, res) {
-			assert.isTrue(res.indexOf("'''Albert Einstein'''") > -1);
+			assert.isTrue(res.indexOf('\'\'\'Albert Einstein\'\'\'') > -1);
 		}
 	},
 	'getArticle() with a redirect': {
@@ -75,7 +75,7 @@ vows.describe('Mediawiki API').addBatch({
 			assert.isString(res);
 		},
 		'valid content is passed to callback': function(e, res) {
-			assert.isTrue(res.indexOf("'''Albert Einstein'''") > -1);
+			assert.isTrue(res.indexOf('\'\'\'Albert Einstein\'\'\'') > -1);
 		},
 		'redirect info is passed to callback': function(e, res, redirectInfo) {
 			assert.isObject(redirectInfo);
@@ -97,7 +97,7 @@ vows.describe('Mediawiki API').addBatch({
 			var firstItem = res[0];
 
 			assert.isTrue(firstItem.ns === 6);
-			assert.isTrue(firstItem.title.indexOf("File:") === 0);
+			assert.isTrue(firstItem.title.indexOf('File:') === 0);
 		}
 	},
 	'getExternalLinks()': {
