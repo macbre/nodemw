@@ -28,10 +28,10 @@ class WikiData {
 
 		// @see https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&titles=Pozna%C5%84&props=claims&format=json
 		const params = {
-			'action': 'wbgetentities',
-			'sites': 'enwiki',
-			'titles': titles.join('|'),
-			'props': 'claims'
+			action: 'wbgetentities',
+			sites: 'enwiki',
+			titles: titles.join('|'),
+			props: 'claims'
 		};
 
 		this.bot.api.call(params, (err, info, next, raw) => {
