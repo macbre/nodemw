@@ -10,7 +10,7 @@ const bot = require('..'),
 	});
 
 client.getSiteInfo(['general', 'namespaces'], function(err, info) {
-	client.log('General:',    info.general);
+	client.log('General:', info.general);
 	client.log('Namespaces:', info.namespaces);
 });
 

@@ -13,7 +13,6 @@
         "keyword-spacing": "warn",
         "new-cap": "warn",
         "no-console": "warn",
-        "no-multi-spaces": "warn",
         "no-trailing-spaces": "warn",
         "no-underscore-dangle": "warn",
         "no-unused-vars": "warn",
