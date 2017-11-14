@@ -17,17 +17,17 @@
         "no-mixed-spaces-and-tabs": "off",
         "no-multi-spaces": "off",
         "no-trailing-spaces": "off",
+        "no-underscore-dangle": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "no-useless-escape": "off",
         "object-curly-spacing": "off",
+        "one-var": "off",
         "space-before-blocks": "off",
         "space-before-function-paren": "off",
         "space-in-parens": "off",
         "space-infix-ops": "off",
         "spaced-comment": "off",
-        "no-underscore-dangle": "off",
-        "no-unused-vars": "off",
-        "no-use-before-define": "off",
-        "no-useless-escape": "off",
-        "one-var": "off",
         "vars-on-top": "off"
     }
 }
