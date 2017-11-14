@@ -21,7 +21,6 @@
         "space-in-parens": "off",
         "space-infix-ops": "off",
         "spaced-comment": "off",
-        "linebreak-style": "off",
         "new-cap": "off",
         "no-console": "off",
         "no-multiple-empty-lines": "off",
