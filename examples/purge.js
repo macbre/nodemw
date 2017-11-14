@@ -27,9 +27,9 @@ client.purge('Category:Ratusz', function(err, data) {
 client.getPagesInCategory('Ratusz', function(err, pages) {
 	if (err) {return;}
 
-	const pageIds = pages.
-		filter(page => page.ns === 0).
-		map(page => page.pageid);
+	const pageIds = pages
+		.filter(page => page.ns === 0)
+		.map(page => page.pageid);
 
 	client.purge(pageIds, function(err, data) {
 		if (err) {client.log(err);}

@@ -20,7 +20,6 @@
         "space-in-parens": "off",
         "space-infix-ops": "off",
         "spaced-comment": "off",
-        "dot-location": "off",
         "dot-notation": "off",
         "indent": "off",
         "linebreak-style": "off",

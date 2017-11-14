@@ -37,9 +37,9 @@ titles.forEach(function(title) {
 
 		//console.log(items);
 
-		const newContent = template.
-			replace(/\$1/g, title).
-			replace(/\$2/g, items.join(""));
+		const newContent = template
+			.replace(/\$1/g, title)
+			.replace(/\$2/g, items.join(""));
 
 		//console.log('====');
 		console.log(newContent);
