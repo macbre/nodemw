@@ -98,7 +98,7 @@ client.getRecentChanges(false, function(err, data, next) {
 	for (key in usersStats) {
 		users.push(usersStats[key]);
 	}
-	
+
 	// sort them
 	pages.sort((a, b) => b.edits - a.edits);
 
