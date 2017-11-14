@@ -7,7 +7,6 @@
     "rules": {
         "array-bracket-spacing": "warn",
         "block-spacing": "warn",
-        "comma-spacing": "warn",
         "computed-property-spacing": "warn",
         "indent": "warn",
         "key-spacing": "warn",
