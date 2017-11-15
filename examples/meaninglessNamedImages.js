@@ -1,7 +1,7 @@
 const bot = require('..'),
 	client = new bot('config.js');
 
-client.logIn(function(err){
+client.logIn(function(){
     const imagesToDo = [];
     let imageArray = [];
 
@@ -17,7 +17,7 @@ client.logIn(function(err){
                     function(){
                         client.getArticle(`Plik:${title1}${extension}`, function(err, content2){
                             content2 = content2 + '\n[[Kategoria:' + title1 + ']]';
-                            client.edit(`Plik:${title1}${extension}`, content2, `[[Użytkownik:OzgaBot|OzgaBot]] dodaje plik do kategorii ${title}`, function(err){
+                            client.edit(`Plik:${title1}${extension}`, content2, `[[Użytkownik:OzgaBot|OzgaBot]] dodaje plik do kategorii ${title}`, function(){
                                 console.log(title1 + extension + ' another one bites the dust xD');
                             });
                         });
@@ -40,7 +40,7 @@ client.logIn(function(err){
                     `Plik:${title}${extension}`,
                     '',
                     function(){
-                        client.getArticle(`Plik:${title}${extension}`, function(err, content2){
+                        client.getArticle(`Plik:${title}${extension}`, function(){
                             content = content + '\n[[Kategoria:' + title + ']]';
                             client.edit(`Plik:${title}${extension}`, content, `[[Użytkownik:OzgaBot|OzgaBot]] dodaje plik do kategorii ${title}`, function(){
                                 console.log(title + extension + ' another one bites the dust xD');

@@ -6,8 +6,8 @@ var bot = require('..'),
 
 client.logIn(function() {
 
-	client.edit(title, '== foo bar ==\ntest', 'edit test', (err, data) => {
-		client.prepend(title, 'before', 'prepend', (err, data) => {});
-		client.append(title, 'after', 'append', (err, data) => {});
+	client.edit(title, '== foo bar ==\ntest', 'edit test', () => {
+		client.prepend(title, 'before', 'prepend', () => {});
+		client.append(title, 'after', 'append', () => {});
 	});
 });

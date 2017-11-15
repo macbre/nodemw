@@ -9,7 +9,7 @@ const bot = require('..'),
 
 const LIMIT = 500;
 
-client.getRecentChanges(false, function(err, data, next) {
+client.getRecentChanges(false, function(err, data) {
 	let usersStats = {},
 		pagesStats = {},
 		count = 0,

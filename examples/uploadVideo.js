@@ -10,7 +10,7 @@ const bot = require('..'),
 const url = 'https://www.youtube.com/watch?v=24X9FpeSASY',
 	fileName = 'VideoTest';
 
-client.logIn((err) => {
+client.logIn(() => {
 	client.log(`Uploading ${url}...`);
 
 	client.uploadVideo(fileName, url, (err, res) => {

@@ -27,7 +27,7 @@ vows.describe('Mediawiki API').addBatch({
 			assert.isUndefined(next); // no more pages
 			assert.isObject(data);
 		},
-		'valid processed data is passed to callback': function(e, info /* processed query result */, next, data /* raw data */) {
+		'valid processed data is passed to callback': function(e, info /* processed query result */) {
 			// processed data
 			assert.isObject(info.namespaces);
 			assert.isObject(info.namespaces[0]);
