@@ -12,7 +12,7 @@
         "key-spacing": "warn",
         "keyword-spacing": "warn",
         "new-cap": "warn",
-        "no-console": "warn",
+        "no-console": "off",
         "no-underscore-dangle": "warn",
         "no-unused-vars": "warn",
         "no-use-before-define": "warn",
