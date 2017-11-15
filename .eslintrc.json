@@ -15,7 +15,6 @@
         "no-console": "off",
         "no-underscore-dangle": "warn",
         "no-unused-vars": "warn",
-        "no-use-before-define": "warn",
         "object-curly-spacing": "warn",
         "one-var": "warn",
         "space-before-blocks": "warn",
