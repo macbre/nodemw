@@ -22,7 +22,6 @@
         "space-before-blocks": "warn",
         "space-before-function-paren": "warn",
         "space-in-parens": "warn",
-        "space-infix-ops": "warn",
-        "vars-on-top": "warn"
+        "space-infix-ops": "warn"
     }
 }

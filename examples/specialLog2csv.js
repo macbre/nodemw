@@ -15,13 +15,13 @@ const async = require('async'),
 	// logType = 'thanks';
 	logType = 'review/approve';
 
+// @see https://github.com/caolan/async#whilsttest-fn-callback
+var start = '';
+
 // @see https://www.npmjs.com/package/csv-string#stringifyinput--object-separator--string--string
 function writeCsvLine(data) {
 	process.stdout.write(csv.stringify(data, '\t'));
 }
-
-// @see https://github.com/caolan/async#whilsttest-fn-callback
-var start = '';
 
 async.whilst(
 	() => true, // run as long as there's more data
