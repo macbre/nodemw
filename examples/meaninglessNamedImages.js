@@ -13,7 +13,7 @@ client.logIn(function(err){
                 imageArray.forEach(function(item){
 			if (item.name.match(/^[0-9]+\.$/i)){
 				imagesToDo.push(item.name);
-				//rename(item.name);
+				// rename(item.name);
 			}
 			if (item.name.match(/^P[0-9]+/)){
 				imagesToDo.push(item.name);
@@ -21,7 +21,7 @@ client.logIn(function(err){
 			}
 			if (item.name.match(/^IMG/i)){
 				imagesToDo.push(item.name);
-				//rename(item.name);
+				// rename(item.name);
 			}
 			if (item.name.match(/^DSC/i)){
 				imagesToDo.push(item.name);

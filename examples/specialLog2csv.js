@@ -12,7 +12,7 @@ const async = require('async'),
 		path: '/w',
 		debug: true
 	}),
-	//logType = 'thanks';
+	// logType = 'thanks';
 	logType = 'review/approve';
 
 // @see https://www.npmjs.com/package/csv-string#stringifyinput--object-separator--string--string

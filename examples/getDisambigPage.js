@@ -31,17 +31,17 @@ titles.forEach(function(title) {
 			return;
 		}
 
-		//console.log(content);
+		// console.log(content);
 
 		const items = content.match(/\*(.*)\n/g);
 
-		//console.log(items);
+		// console.log(items);
 
 		const newContent = template
 			.replace(/\$1/g, title)
 			.replace(/\$2/g, items.join(''));
 
-		//console.log('====');
+		// console.log('====');
 		console.log(newContent);
 
 		console.log('\n\n\n\n');

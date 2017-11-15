@@ -87,7 +87,7 @@ data.getEntities(
 		'Switzerland'
 	],
 	(err, claims) => {
-		//console.log(claims);
+		// console.log(claims);
 
 		let tld = claims
 			.map((item) => item.get('P297'))
@@ -115,7 +115,7 @@ data.getEntities(
 				});
 			},
 			(err, stats) => {
-				//console.log(stats);
+				// console.log(stats);
 
 				// write to TSV file
 				const fd = fs.openSync('wikidata.tsv', 'w');

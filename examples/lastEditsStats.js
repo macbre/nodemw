@@ -34,7 +34,7 @@ client.getRecentChanges(false, function(err, data, next) {
 		}
 		to = entry.timestamp;
 
-		//console.log(JSON.stringify(entry));
+		// console.log(JSON.stringify(entry));
 
 		// register pages stats
 		if (!pagesStats[entry.title]) {
@@ -107,8 +107,8 @@ client.getRecentChanges(false, function(err, data, next) {
 	// emit results
 	console.log(`Stats for the last ${count} recent changes (from ${from} back to ${to})...`);
 
-	//console.log('Pages statistcs:');
-	//console.log(pages);
+	// console.log('Pages statistcs:');
+	// console.log(pages);
 
 	console.log('Users statistcs:');
 	console.log(users);
