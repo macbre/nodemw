@@ -10,7 +10,6 @@
         "no-underscore-dangle": "warn",
         "object-curly-spacing": "warn",
         "one-var": "warn",
-        "space-before-blocks": "warn",
         "space-before-function-paren": "warn",
         "space-in-parens": "warn",
         "space-infix-ops": "warn"
