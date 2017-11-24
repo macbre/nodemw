@@ -46,12 +46,12 @@ class WikiData {
 				let claims = new Map();
 
 				claims.set('id', key);
-				claims.set('name', titles[idx]);
+				claims.set('name', titles[ idx ]);
 
-				this.bot.log(`Found entity for ${titles[idx]}: <https://www.wikidata.org/wiki/${key}>`);
+				this.bot.log(`Found entity for ${titles[ idx ]}: <https://www.wikidata.org/wiki/${key}>`);
 
-				Object.keys(raw.entities[key].claims).forEach((propertyId) => {
-					let claim = raw.entities[key].claims[propertyId][0];
+				Object.keys(raw.entities[ key ].claims).forEach((propertyId) => {
+					let claim = raw.entities[ key ].claims[ propertyId ][ 0 ];
 
 					if (claim.mainsnak.datavalue) {
 						// TODO: values casting
@@ -122,8 +122,8 @@ data.getEntities(
 
 				// calculate per country stats
 				claims.forEach((item, idx) => {
-					const stat = stats[idx],
-						pop = population[idx],
+					const stat = stats[ idx ],
+						pop = population[ idx ],
 						round = (val) => val.toFixed(6);
 
 					let itemStats = {
@@ -146,7 +146,7 @@ data.getEntities(
 						fs.writeSync(fd, Object.keys(itemStats).join('\t') + '\n');
 					}
 
-					fs.writeSync(fd, Object.keys(itemStats).map((key) => itemStats[key]).join('\t') + '\n');
+					fs.writeSync(fd, Object.keys(itemStats).map((key) => itemStats[ key ]).join('\t') + '\n');
 				});
 
 				fs.closeSync(fd);

@@ -37,8 +37,8 @@ client.getRecentChanges(false, function(err, data) {
 		// console.log(JSON.stringify(entry));
 
 		// register pages stats
-		if (!pagesStats[entry.title]) {
-			pagesStats[entry.title] = {
+		if (!pagesStats[ entry.title ]) {
+			pagesStats[ entry.title ] = {
 				title: entry.title,
 				edits: 0,
 				editors: [],
@@ -46,7 +46,7 @@ client.getRecentChanges(false, function(err, data) {
 			};
 		}
 
-		const pagesItem = pagesStats[entry.title];
+		const pagesItem = pagesStats[ entry.title ];
 		pagesItem.edits++;
 
 		if (pagesItem.editors.indexOf(entry.user) === -1) {
@@ -54,8 +54,8 @@ client.getRecentChanges(false, function(err, data) {
 		}
 
 		// register users stats
-		if (!usersStats[entry.user]) {
-			usersStats[entry.user] = {
+		if (!usersStats[ entry.user ]) {
+			usersStats[ entry.user ] = {
 				user: entry.user,
 				edits: 0,
 				created: 0,
@@ -64,11 +64,11 @@ client.getRecentChanges(false, function(err, data) {
 
 			// mark bots
 			if (typeof entry.bot !== 'undefined') {
-				usersStats[entry.user].bot = true;
+				usersStats[ entry.user ].bot = true;
 			}
 		}
 
-		const usersItem = usersStats[entry.user];
+		const usersItem = usersStats[ entry.user ];
 
 		switch(entry.type) {
 			case 'new':
@@ -92,11 +92,11 @@ client.getRecentChanges(false, function(err, data) {
 		users = [];
 
 	for (key in pagesStats) {
-		pages.push(pagesStats[key]);
+		pages.push(pagesStats[ key ]);
 	}
 
 	for (key in usersStats) {
-		users.push(usersStats[key]);
+		users.push(usersStats[ key ]);
 	}
 
 	// sort them

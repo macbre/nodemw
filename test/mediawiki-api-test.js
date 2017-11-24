@@ -30,13 +30,13 @@ vows.describe('Mediawiki API').addBatch({
 		'valid processed data is passed to callback': function(e, info /* processed query result */) {
 			// processed data
 			assert.isObject(info.namespaces);
-			assert.isObject(info.namespaces[0]);
+			assert.isObject(info.namespaces[ 0 ]);
 		},
 		'valid raw data is passed to callback': function(e, info /* processed query result */, next, data /* raw data */) {
 			// raw data
 			assert.isObject(data.query);
 			assert.isObject(data.query.namespaces);
-			assert.isObject(data.query.namespaces[0]);
+			assert.isObject(data.query.namespaces[ 0 ]);
 		}
 	},
 	'client,api.call() fails': {
@@ -94,7 +94,7 @@ vows.describe('Mediawiki API').addBatch({
 			assert.isArray(res);
 		},
 		'valid list of images is passed to callback': function(e, res) {
-			var firstItem = res[0];
+			var firstItem = res[ 0 ];
 
 			assert.isTrue(firstItem.ns === 6);
 			assert.isTrue(firstItem.title.indexOf('File:') === 0);
@@ -108,9 +108,9 @@ vows.describe('Mediawiki API').addBatch({
 			assert.isArray(res);
 		},
 		'valid list of external links is passed to callback': function(e, res) {
-			var firstItem = res[0];
+			var firstItem = res[ 0 ];
 
-			assert.isString(firstItem['*']);
+			assert.isString(firstItem[ '*' ]);
 		}
 	},
 	'search()': {
@@ -121,7 +121,7 @@ vows.describe('Mediawiki API').addBatch({
 			assert.isArray(res);
 		},
 		'the required item is in th results': function(e, res) {
-			var firstItem = res[0];
+			var firstItem = res[ 0 ];
 
 			assert.isTrue(firstItem.ns === 0);
 			assert.isTrue(firstItem.title.indexOf('Albert Einstein') > -1);

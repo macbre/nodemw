@@ -57,10 +57,10 @@ client.logIn(function(){
 
     function rename(filename){
         client.getImageUsage(`Plik:${filename}`, function(err, img){
-            if (img[0] !== null){
-                let extension = filename.match(/\.\D+$/i)[0];
+            if (img[ 0 ] !== null){
+                let extension = filename.match(/\.\D+$/i)[ 0 ];
                 extension = extension.toLowerCase();
-                changeName(filename, img[0].title, extension);
+                changeName(filename, img[ 0 ].title, extension);
             } else{
                 client.getArticle(`File_talk:${filename}`, function(err, content){
                     if (content.match(/Obraz sierota/gi) === null){

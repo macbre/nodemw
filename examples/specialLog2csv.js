@@ -36,7 +36,7 @@ async.whilst(
 			if (len > 0) {
 				// it's our first batch of data - format CSV header
 				if (start === '') {
-					writeCsvLine(Object.keys(data[0]));
+					writeCsvLine(Object.keys(data[ 0 ]));
 				}
 
 				// print rows
