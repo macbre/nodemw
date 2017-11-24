@@ -49,7 +49,7 @@ async.whilst(
 		});
 	},
 	function(err) {
-		if (err) {throw err;}
+		if (err) { throw err; }
 
 		client.log('Done');
 	}

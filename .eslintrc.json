@@ -5,7 +5,6 @@
         "es6": true
     },
     "rules": {
-        "block-spacing": "warn",
         "computed-property-spacing": "warn",
         "indent": "warn",
         "key-spacing": "warn",
