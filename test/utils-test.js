@@ -10,7 +10,7 @@ vows.describe('utils.parseVideoUrl').addBatch({
 			return utils.parseVideoUrl('https://www.youtube.com/watch?v=24X9FpeSASY');
 		},
 		'is properly parsed': function(id) {
-			assert.deepEqual(id, ['youtube', '24X9FpeSASY']);
+			assert.deepEqual(id, [ 'youtube', '24X9FpeSASY' ]);
 		}
 	},
 	'YouTube URL with underscores': {
@@ -18,7 +18,7 @@ vows.describe('utils.parseVideoUrl').addBatch({
 			return utils.parseVideoUrl('https://www.youtube.com/watch?v=o_QbyP6q0AQ');
 		},
 		'is properly parsed': function(id) {
-			assert.deepEqual(id, ['youtube', 'o_QbyP6q0AQ']);
+			assert.deepEqual(id, [ 'youtube', 'o_QbyP6q0AQ' ]);
 		}
 	},
 	'Vimeo URL': {
@@ -26,7 +26,7 @@ vows.describe('utils.parseVideoUrl').addBatch({
 			return utils.parseVideoUrl('https://vimeo.com/27986705');
 		},
 		'is properly parsed': function(id) {
-			assert.deepEqual(id, ['vimeo', '27986705']);
+			assert.deepEqual(id, [ 'vimeo', '27986705' ]);
 		}
 	},
 	'unsupported URL': {

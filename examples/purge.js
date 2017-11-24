@@ -12,7 +12,7 @@ const bot = require('..'),
 		debug: true
 	});
 
-client.purge(['Pomnik_Bamberki', 'Ratusz'], function(err, data) {
+client.purge([ 'Pomnik_Bamberki', 'Ratusz' ], function(err, data) {
 	if (err) {client.log(err);}
 	console.log(data);
 });

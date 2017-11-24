@@ -9,7 +9,7 @@ const bot = require('..'),
 		debug: true
 	});
 
-client.getSiteInfo(['general', 'namespaces'], function(err, info) {
+client.getSiteInfo([ 'general', 'namespaces' ], function(err, info) {
 	client.log('General:', info.general);
 	client.log('Namespaces:', info.namespaces);
 });
@@ -24,7 +24,7 @@ client.wikia.getWikiVariables(function(err, vars) {
 	client.log('Theme:', vars.theme);
 });
 
-client.wikia.getUsers([2, 1, 16], function(err, users) {
+client.wikia.getUsers([ 2, 1, 16 ], function(err, users) {
 	console.log(users);
 });
 

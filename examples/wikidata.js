@@ -22,7 +22,7 @@ class WikiData {
 	// get entities' claims for given set of titles
 	getEntities(titles, callback) {
 		// cast a single title (string) to an array
-		titles = Array.isArray(titles) ? titles : [titles];
+		titles = Array.isArray(titles) ? titles : [ titles ];
 
 		this.bot.log('Getting claims for: ', titles);
 
