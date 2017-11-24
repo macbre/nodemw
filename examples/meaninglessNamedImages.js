@@ -23,7 +23,7 @@ client.logIn(function(){
 						});
 					});
 
-			} else{
+			} else {
 				console.log(`plik ${title1}${extension} już istnieje `);
 				const i = number + 1;
 				changeNameWithNumber(filename, title, extension, i);
@@ -47,7 +47,7 @@ client.logIn(function(){
 							});
 						});
 					});
-			} else{
+			} else {
 				console.log(`plik ${title}${extension} już istnieje `);
 				changeNameWithNumber(filename, title, extension, 0);
 
@@ -61,7 +61,7 @@ client.logIn(function(){
 				let extension = filename.match(/\.\D+$/i)[ 0 ];
 				extension = extension.toLowerCase();
 				changeName(filename, img[ 0 ].title, extension);
-			} else{
+			} else {
 				client.getArticle(`File_talk:${filename}`, function(err, content){
 					if (content.match(/Obraz sierota/gi) === null){
 						content = `{{Obraz sierota}}\n${content}`;

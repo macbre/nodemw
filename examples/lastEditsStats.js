@@ -70,7 +70,7 @@ client.getRecentChanges(false, function(err, data) {
 
 		const usersItem = usersStats[ entry.user ];
 
-		switch(entry.type) {
+		switch (entry.type) {
 			case 'new':
 				usersItem.created++;
 				break;
