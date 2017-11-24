@@ -14,6 +14,6 @@ const bot = require('..'),
 		query: '[[Modification date::+]]|?Modification date|sort=Modification date|order=desc'
 	};
 
-client.api.call(params, function(err, info, next, data) {
+client.api.call(params, function (err, info, next, data) {
 	console.log(data && data.query && data.query.results);
 });

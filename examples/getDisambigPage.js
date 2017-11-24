@@ -23,9 +23,9 @@ const template = '== USS $1 ==\n' +
 '[[:Kategoria:Nazwy okrętów amerykańskich|$1]]\n' +
 '[[:en:USS $1]]';
 
-titles.forEach(function(title) {
+titles.forEach(function (title) {
 
-	client.getArticle(`USS ${title}`, function(err, content) {
+	client.getArticle(`USS ${title}`, function (err, content) {
 		if (err) {
 			console.error(err);
 			return;

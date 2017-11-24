@@ -17,7 +17,7 @@ const wikitext = [
 	'* {{SITENAME}}'
 ].join('\n');
 
-client.parse(wikitext, 'Foo', function(err, html, images) {
+client.parse(wikitext, 'Foo', function (err, html, images) {
 	if (err) {
 		console.error(err);
 		return;

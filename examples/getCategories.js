@@ -9,7 +9,7 @@ const bot = require('..'),
 		debug: true
 	});
 
-client.getArticleCategories('Commodore 64', function(err, categories) {
+client.getArticleCategories('Commodore 64', function (err, categories) {
 	if (err) {
 		console.error(err);
 		return;
@@ -18,12 +18,12 @@ client.getArticleCategories('Commodore 64', function(err, categories) {
 	console.log(categories);
 });
 
-client.getCategories(function(err, cats) {
+client.getCategories(function (err, cats) {
 	console.log('All categories:');
 	console.log(JSON.stringify(cats));
 });
 
-client.getCategories('K', function(err, cats) {
+client.getCategories('K', function (err, cats) {
 	console.log('All categories starting with K:');
 	console.log(JSON.stringify(cats));
 });

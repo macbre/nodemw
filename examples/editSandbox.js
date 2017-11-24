@@ -10,7 +10,7 @@ const bot = require('..'),
 // const text = 'nodemw test';
 const text = 'nodemw test http://clicky.pk/foo'; // https://github.com/macbre/nodemw/issues/131
 
-client.append('Project:Sandbox', '\n\n' + text + ' --~~~~', 'nodemw test edit', function(err, res) {
+client.append('Project:Sandbox', '\n\n' + text + ' --~~~~', 'nodemw test edit', function (err, res) {
 	if (err) {
 		client.log('Sandbox edit failed: ' + JSON.stringify(err));
 	} else {

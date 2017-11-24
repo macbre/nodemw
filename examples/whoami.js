@@ -7,14 +7,14 @@
 const bot = require('..'),
 	client = new bot('config.js');
 
-client.logIn(function(err) {
+client.logIn(function (err) {
 	if (err) {
 		console.log(err);
 		return;
 	}
 
 	// get current account information
-	client.whoami(function(err, userData) {
+	client.whoami(function (err, userData) {
 		if (err) {
 			console.log(err);
 			return;

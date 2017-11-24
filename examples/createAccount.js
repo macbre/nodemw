@@ -8,7 +8,7 @@ const bot = require('..'),
 	client = new bot('config.js');
 
 	// create account
-client.createAccount('user123', 'password123', function(err, userData) {
+client.createAccount('user123', 'password123', function (err, userData) {
 	if (err) {
 		console.log(err);
 		return;

@@ -18,10 +18,10 @@ const bot = require('..'),
  * info:    Wikipedia: MediaWiki 1.27.0-wmf.19 -> 1.27.0
  * info:    Wikia: MediaWiki 1.19.24 -> 1.19.24
 */
-wikia.getMediaWikiVersion(function(err, version) {
+wikia.getMediaWikiVersion(function (err, version) {
 	wikia.log('Wikia:', version);
 });
 
-wikipedia.getMediaWikiVersion(function(err, version) {
+wikipedia.getMediaWikiVersion(function (err, version) {
 	wikipedia.log('Wikipedia:', version);
 });

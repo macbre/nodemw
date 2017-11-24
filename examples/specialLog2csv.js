@@ -25,10 +25,10 @@ function writeCsvLine(data) {
 
 async.whilst(
 	() => true, // run as long as there's more data
-	function(callback) {
+	function (callback) {
 		console.error('Getting %s logs since %s...', logType, start);
 
-		client.getLog(logType, start, function(err, data, next) {
+		client.getLog(logType, start, function (err, data, next) {
 			const len = data && data.length;
 
 			client.log('Got %s log entries', len);
@@ -48,7 +48,7 @@ async.whilst(
 			callback(next ? null : 'no more data');
 		});
 	},
-	function(err) {
+	function (err) {
 		if (err) { throw err; }
 
 		client.log('Done');

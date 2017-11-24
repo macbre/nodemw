@@ -12,7 +12,7 @@ var client = new bot({
 
 vows.describe('Mediawiki API').addBatch({
 	'client.api.call()': {
-		topic: function() {
+		topic: function () {
 			// http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json
 			var params = {
 				action: 'query',
@@ -22,17 +22,17 @@ vows.describe('Mediawiki API').addBatch({
 
 			client.api.call(params, this.callback);
 		},
-		'correct arguments are passed to callback': function(e, info /* processed query result */, next, data /* raw data */) {
+		'correct arguments are passed to callback': function (e, info /* processed query result */, next, data /* raw data */) {
 			assert.isObject(info);
 			assert.isUndefined(next); // no more pages
 			assert.isObject(data);
 		},
-		'valid processed data is passed to callback': function(e, info /* processed query result */) {
+		'valid processed data is passed to callback': function (e, info /* processed query result */) {
 			// processed data
 			assert.isObject(info.namespaces);
 			assert.isObject(info.namespaces[ 0 ]);
 		},
-		'valid raw data is passed to callback': function(e, info /* processed query result */, next, data /* raw data */) {
+		'valid raw data is passed to callback': function (e, info /* processed query result */, next, data /* raw data */) {
 			// raw data
 			assert.isObject(data.query);
 			assert.isObject(data.query.namespaces);
@@ -40,7 +40,7 @@ vows.describe('Mediawiki API').addBatch({
 		}
 	},
 	'client,api.call() fails': {
-		topic: function() {
+		topic: function () {
 			// http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json
 			var params = {
 				action: 'foo'
@@ -48,36 +48,36 @@ vows.describe('Mediawiki API').addBatch({
 
 			// we need to push the "real" error one position to the right
 			// to satisfy vows
-			client.api.call(params, function(err) {
+			client.api.call(params, function (err) {
 				this.callback(null, err);
 			}.bind(this));
 		},
-		'raise an error': function(_fake, err) {
+		'raise an error': function (_fake, err) {
 			assert.isTrue(err !== null);
 		}
 	},
 	'getArticle()': {
-		topic: function() {
+		topic: function () {
 			client.getArticle(ARTICLE, this.callback);
 		},
-		'string is passed to callback': function(e, res) {
+		'string is passed to callback': function (e, res) {
 			assert.isString(res);
 		},
-		'valid content is passed to callback': function(e, res) {
+		'valid content is passed to callback': function (e, res) {
 			assert.isTrue(res.indexOf('\'\'\'Albert Einstein\'\'\'') > -1);
 		}
 	},
 	'getArticle() with a redirect': {
-		topic: function() {
+		topic: function () {
 			client.getArticle('Einstein', true, this.callback);
 		},
-		'string is passed to callback': function(e, res) {
+		'string is passed to callback': function (e, res) {
 			assert.isString(res);
 		},
-		'valid content is passed to callback': function(e, res) {
+		'valid content is passed to callback': function (e, res) {
 			assert.isTrue(res.indexOf('\'\'\'Albert Einstein\'\'\'') > -1);
 		},
-		'redirect info is passed to callback': function(e, res, redirectInfo) {
+		'redirect info is passed to callback': function (e, res, redirectInfo) {
 			assert.isObject(redirectInfo);
 			assert.isString(redirectInfo.to);
 			assert.isString(redirectInfo.from);
@@ -87,13 +87,13 @@ vows.describe('Mediawiki API').addBatch({
 		}
 	},
 	'getImagesFromArticle()': {
-		topic: function() {
+		topic: function () {
 			client.getImagesFromArticle(ARTICLE, this.callback);
 		},
-		'array is passed to callback': function(e, res) {
+		'array is passed to callback': function (e, res) {
 			assert.isArray(res);
 		},
-		'valid list of images is passed to callback': function(e, res) {
+		'valid list of images is passed to callback': function (e, res) {
 			var firstItem = res[ 0 ];
 
 			assert.isTrue(firstItem.ns === 6);
@@ -101,26 +101,26 @@ vows.describe('Mediawiki API').addBatch({
 		}
 	},
 	'getExternalLinks()': {
-		topic: function() {
+		topic: function () {
 			client.getExternalLinks(ARTICLE, this.callback);
 		},
-		'array is passed to callback': function(e, res) {
+		'array is passed to callback': function (e, res) {
 			assert.isArray(res);
 		},
-		'valid list of external links is passed to callback': function(e, res) {
+		'valid list of external links is passed to callback': function (e, res) {
 			var firstItem = res[ 0 ];
 
 			assert.isString(firstItem[ '*' ]);
 		}
 	},
 	'search()': {
-		topic: function() {
+		topic: function () {
 			client.search(ARTICLE, this.callback);
 		},
-		'array is passed to callback': function(e, res) {
+		'array is passed to callback': function (e, res) {
 			assert.isArray(res);
 		},
-		'the required item is in th results': function(e, res) {
+		'the required item is in th results': function (e, res) {
 			var firstItem = res[ 0 ];
 
 			assert.isTrue(firstItem.ns === 0);

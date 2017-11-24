@@ -9,7 +9,7 @@ const bot = require('..'),
 
 client.getUserContribs({
 	user: 'Pyrabot'
-}, function(err, data) {
+}, function (err, data) {
 	if (err) {
 		console.error(err);
 	} else {

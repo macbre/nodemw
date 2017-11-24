@@ -7,9 +7,9 @@
 const bot = require('..'),
 	client = new bot('config.js');
 
-client.logIn(function() {
+client.logIn(function () {
 	// move the page
-	client.move('newnewmtestmarcin', 'newnewnewmtestmarcin', 'test summary', function(userData) {
+	client.move('newnewmtestmarcin', 'newnewnewmtestmarcin', 'test summary', function (userData) {
 		console.log(JSON.stringify(userData, null, '\t'));
 	});
 });

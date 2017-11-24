@@ -9,14 +9,14 @@ const bot = require('..'),
 
 const LIMIT = 500;
 
-client.getRecentChanges(false, function(err, data) {
+client.getRecentChanges(false, function (err, data) {
 	let usersStats = {},
 		pagesStats = {},
 		count = 0,
 		from,
 		to;
 
-	data.forEach(function(entry) {
+	data.forEach(function (entry) {
 		if (count >= LIMIT) {
 			return;
 		}

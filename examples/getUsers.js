@@ -5,14 +5,14 @@ const bot = require('..'),
 		debug: true
 	});
 
-client.getUsers(function(err, cat) {
+client.getUsers(function (err, cat) {
 	console.log(cat);
 });
 
-client.getUsers({ prefix: 'M' }, function(err, cat) {
+client.getUsers({ prefix: 'M' }, function (err, cat) {
 	console.log(cat);
 });
 
-client.getUsers({ witheditsonly: true }, function(err, cat) {
+client.getUsers({ witheditsonly: true }, function (err, cat) {
 	console.log(cat);
 });

@@ -14,12 +14,12 @@ const bot = require('..'),
 		debug: true
 	});
 
-wikia.getToken('Main_page', 'edit', function(err, token) {
+wikia.getToken('Main_page', 'edit', function (err, token) {
 	if (err) { wikia.log(err); }
 	wikia.log('Wikia:', token);
 });
 
-wikipedia.getToken('Main_page', 'edit', function(err, token) {
+wikipedia.getToken('Main_page', 'edit', function (err, token) {
 	if (err) { wikipedia.log(err); }
 	wikipedia.log('Wikipedia:', token);
 });

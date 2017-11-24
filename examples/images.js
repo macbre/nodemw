@@ -10,7 +10,7 @@ const bot = require('..'),
 let imageArray = [];
 
 function getBatch(start) {
-	client.getImages(start, function(err, data, next) {
+	client.getImages(start, function (err, data, next) {
 		imageArray = imageArray.concat(data);
 		if (next) {
 			console.log(`Getting next batch (starting from ${next})...`);
