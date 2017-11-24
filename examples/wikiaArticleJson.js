@@ -16,7 +16,7 @@ const bot = require('..'),
 	PAGE_ID = 379; // @see http://poznan.wikia.com/wiki/Katedra
 
 // get current account information
-client.wikia.call('/Articles/AsSimpleJson', {id: PAGE_ID}, (err, data) => {
+client.wikia.call('/Articles/AsSimpleJson', { id: PAGE_ID }, (err, data) => {
 	if (err) {
 		console.log(err);
 		return;
