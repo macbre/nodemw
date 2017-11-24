@@ -5,9 +5,9 @@ var vows = require('vows'),
 	bot = require('../lib/bot');
 
 var client = new bot({
-		server: 'en.wikipedia.org',
-		path: '/w'
-	});
+	server: 'en.wikipedia.org',
+	path: '/w'
+});
 
 vows.describe('URL fetching').addBatch({
 	'client.fetchUrl()': {
