@@ -104,7 +104,7 @@ client.logIn(function () {
 				});
 				let i = 0;
 				imagesToDo.forEach(function (item) {
-					setTimeout(function () { rename(item); }, 10000*i);
+					setTimeout(function () { rename(item); }, 10000 * i);
 					i++;
 				});
 				console.log(`do przerobienia: ${i}`);
