@@ -5,7 +5,6 @@
         "es6": true
     },
     "rules": {
-        "key-spacing": "warn",
         "keyword-spacing": "warn",
         "new-cap": "warn",
         "no-console": "off",
