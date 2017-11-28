@@ -1,5 +1,5 @@
-const bot = require('..'),
-	client = new bot({
+const Bot = require('..'),
+	client = new Bot({
 		server: '8bit.wikia.com',
 		path: '',
 		debug: true

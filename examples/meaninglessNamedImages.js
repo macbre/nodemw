@@ -1,5 +1,5 @@
-const bot = require('..'),
-	client = new bot('config.js');
+const Bot = require('..'),
+	client = new Bot('config.js');
 
 client.logIn(function () {
 	const imagesToDo = [];

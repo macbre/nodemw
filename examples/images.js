@@ -4,8 +4,8 @@
  * @see http://www.mediawiki.org/wiki/API:Query
  */
 
-const bot = require('..'),
-	client = new bot('config.js');
+const Bot = require('..'),
+	client = new Bot('config.js');
 
 let imageArray = [];
 

@@ -5,8 +5,8 @@
  * @see http://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Category%3ABosons&cmlimit=500&format=json
  */
 
-const bot = require('..'),
-	client = new bot({
+const Bot = require('..'),
+	client = new Bot({
 		server: 'en.wikipedia.org',
 		path: '/w'
 	});

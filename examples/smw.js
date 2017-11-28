@@ -4,8 +4,8 @@
  * @see http://semantic-mediawiki.org/wiki/Ask_API
  */
 
-const bot = require('..'),
-	client = new bot({
+const Bot = require('..'),
+	client = new Bot({
 		server: 'semantic-mediawiki.org',
 		path: '/w'
 	}),

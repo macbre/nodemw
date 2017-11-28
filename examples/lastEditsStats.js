@@ -4,8 +4,8 @@
  *  - most actively edited articles
  */
 
-const bot = require('..'),
-	client = new bot('config.js');
+const Bot = require('..'),
+	client = new Bot('config.js');
 
 const LIMIT = 500;
 

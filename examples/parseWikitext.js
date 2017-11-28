@@ -3,8 +3,8 @@
  * Example script that parser given wikitext
  */
 
-const bot = require('..'),
-	client = new bot({
+const Bot = require('..'),
+	client = new Bot({
 		server: 'en.wikipedia.org',
 		path: '/w',
 		debug: true

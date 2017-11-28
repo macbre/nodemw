@@ -5,13 +5,13 @@
 'use strict';
 
 const async = require('async'),
-	bot = require('..'),
+	Bot = require('..'),
 	fs = require('fs');
 
 class WikiData {
 
 	constructor() {
-		this.bot = new bot({
+		this.bot = new Bot({
 			protocol: 'https',
 			server: 'www.wikidata.org',
 			path: '/w',
@@ -104,7 +104,7 @@ data.getEntities(
 		async.map(
 			tld,
 			(tld, callback) => {
-				let client = new bot({
+				let client = new Bot({
 					server: `${tld}.wikipedia.org`,
 					path: '/w',
 					debug: true

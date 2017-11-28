@@ -2,12 +2,12 @@
 
 var vows = require('vows'),
 	assert = require('assert'),
-	bot = require('../lib/bot');
+	Bot = require('../lib/bot');
 
 vows.describe('bot class').addBatch({
 	'supports config object': {
 		topic: function () {
-			return new bot({
+			return new Bot({
 				server: 'pl.wikipedia.org',
 				path: '/w'
 			});
@@ -21,7 +21,7 @@ vows.describe('bot class').addBatch({
 	},
 	'supports config file': {
 		topic: function () {
-			return new bot(__dirname + '/config.json');
+			return new Bot(__dirname + '/config.json');
 		},
 		'server is properly passed': function (client) {
 			assert.equal(client.api.server, 'pl.wikipedia.org');
@@ -32,7 +32,7 @@ vows.describe('bot class').addBatch({
 	},
 	'getConfig()': {
 		topic: function () {
-			return new bot(__dirname + '/config.json');
+			return new Bot(__dirname + '/config.json');
 		},
 		'gets a correct value': function (client) {
 			assert.equal(client.getConfig('server'), 'pl.wikipedia.org');
@@ -45,7 +45,7 @@ vows.describe('bot class').addBatch({
 	},
 	'setConfig()': {
 		topic: function () {
-			return new bot(__dirname + '/config.json');
+			return new Bot(__dirname + '/config.json');
 		},
 		'sets a value': function (client) {
 			assert.isUndefined(client.getConfig('foo'));
@@ -58,7 +58,7 @@ vows.describe('bot class').addBatch({
 	},
 	'user agent': {
 		topic: function () {
-			return new bot({
+			return new Bot({
 				userAgent: 'Custom UA'
 			});
 		},
@@ -68,7 +68,7 @@ vows.describe('bot class').addBatch({
 	},
 	'dry run mode': {
 		topic: function () {
-			var client = new bot({
+			var client = new Bot({
 				server: 'pl.wikipedia.org',
 				path: '/w',
 				dryRun: true
@@ -85,7 +85,7 @@ vows.describe('bot class').addBatch({
 	},
 	'client.diff': {
 		topic: function () {
-			var client = new bot(__dirname + '/config.json'),
+			var client = new Bot(__dirname + '/config.json'),
 				prev = 'foo 123 bar',
 				current = '[[foo]] bar';
 

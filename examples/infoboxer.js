@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-var bot = require('..'),
-	client = new bot('../config.js'),
+var Bot = require('..'),
+	client = new Bot('../config.js'),
 	title = 'User:Pyrabot/brudnopis';
 
 client.logIn(function () {

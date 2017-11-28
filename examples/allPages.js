@@ -2,8 +2,8 @@
  * Example script getting the list of all pages
  */
 
-const bot = require('..'),
-	client = new bot({
+const Bot = require('..'),
+	client = new Bot({
 		server: 'poznan.wikia.com',
 		path: '',
 		debug: true

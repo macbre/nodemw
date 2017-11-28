@@ -5,9 +5,9 @@
  * @see https://pl.wikipedia.org/w/api.php?action=help&modules=query%2Blogevents
  */
 const async = require('async'),
-	bot = require('..'),
+	Bot = require('..'),
 	csv = require('csv-string'),
-	client = new bot({
+	client = new Bot({
 		server: 'pl.wikipedia.org',
 		path: '/w',
 		debug: true

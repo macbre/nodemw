@@ -7,8 +7,8 @@
  */
 'use strict';
 
-const bot = require('..'),
-	client = new bot({
+const Bot = require('..'),
+	client = new Bot({
 		server: 'poznan.wikia.com',
 		path: '',
 		debug: true

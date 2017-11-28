@@ -2,13 +2,13 @@
  * Example script getting MW version
  */
 
-const bot = require('..'),
-	wikia = new bot({
+const Bot = require('..'),
+	wikia = new Bot({
 		server: 'wikia.com',
 		path: '',
 		debug: true
 	}),
-	wikipedia = new bot({
+	wikipedia = new Bot({
 		server: 'pl.wikipedia.org',
 		path: '/w',
 		debug: true

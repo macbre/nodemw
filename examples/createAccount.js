@@ -4,8 +4,8 @@
  * @see https://www.mediawiki.org/wiki/API:Account_creation
  */
 
-const bot = require('..'),
-	client = new bot('config.js');
+const Bot = require('..'),
+	client = new Bot('config.js');
 
 	// create account
 client.createAccount('user123', 'password123', function (err, userData) {

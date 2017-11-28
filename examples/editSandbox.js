@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const bot = require('..'),
-	client = new bot({
+const Bot = require('..'),
+	client = new Bot({
 		protocol: 'https',
 		server: 'www.mediawiki.org',
 		path: '/w',
