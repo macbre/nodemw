@@ -2,12 +2,11 @@
 
 var vows = require('vows'),
 	assert = require('assert'),
-	Bot = require('../lib/bot');
-
-var client = new Bot({
-	server: 'en.wikipedia.org',
-	path: '/w'
-});
+	Bot = require('../lib/bot'),
+	client = new Bot({
+		server: 'en.wikipedia.org',
+		path: '/w'
+	});
 
 vows.describe('URL fetching').addBatch({
 	'client.fetchUrl()': {

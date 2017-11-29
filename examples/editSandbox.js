@@ -5,10 +5,9 @@ const Bot = require('..'),
 		server: 'www.mediawiki.org',
 		path: '/w',
 		debug: true
-	});
-
-// const text = 'nodemw test';
-const text = 'nodemw test http://clicky.pk/foo'; // https://github.com/macbre/nodemw/issues/131
+	}),
+	// text = 'nodemw test';
+	text = 'nodemw test http://clicky.pk/foo'; // https://github.com/macbre/nodemw/issues/131
 
 client.append('Project:Sandbox', '\n\n' + text + ' --~~~~', 'nodemw test edit', function (err, res) {
 	if (err) {

@@ -25,17 +25,16 @@ client.wikia.call('/Articles/AsSimpleJson', { id: PAGE_ID }, (err, data) => {
 	// extract the first paragraph
 	let excerpt = data.sections
 		// get content entries of type "paragraph"
-		.map((section) => section.content.filter((content) => content.type === 'paragraph'))
-		// filter out empty sections
-		.filter((section) => section.length > 0)
-		// extract the text value
-		.shift().shift().text;
+			.map((section) => section.content.filter((content) => content.type === 'paragraph'))
+			// filter out empty sections
+			.filter((section) => section.length > 0)
+			// extract the text value
+			.shift().shift().text,
+		images = [];
 
 	client.log('Excerpt:', excerpt);
 
 	// extract images
-	let images = [];
-
 	data.sections
 		// get images' src attribute
 		.map((section) => section.images.map((image) => image.src))

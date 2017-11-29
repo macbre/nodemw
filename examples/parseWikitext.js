@@ -8,14 +8,13 @@ const Bot = require('..'),
 		server: 'en.wikipedia.org',
 		path: '/w',
 		debug: true
-	});
-
-const wikitext = [
-	'== Foo ==',
-	'123 456',
-	'* abc',
-	'* {{SITENAME}}'
-].join('\n');
+	}),
+	wikitext = [
+		'== Foo ==',
+		'123 456',
+		'* abc',
+		'* {{SITENAME}}'
+	].join('\n');
 
 client.parse(wikitext, 'Foo', function (err, html, images) {
 	if (err) {

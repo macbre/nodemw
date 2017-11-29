@@ -5,9 +5,8 @@
  * @see /index.php?title=Special:WikiaVideoAdd&action=submit
  */
 const Bot = require('..'),
-	client = new Bot('config.js');
-
-const url = 'https://www.youtube.com/watch?v=24X9FpeSASY',
+	client = new Bot('config.js'),
+	url = 'https://www.youtube.com/watch?v=24X9FpeSASY',
 	fileName = 'VideoTest';
 
 client.logIn(() => {

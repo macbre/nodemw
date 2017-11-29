@@ -2,9 +2,8 @@
 
 var vows = require('vows'),
 	assert = require('assert'),
-	Bot = require('..');
-
-var client = new Bot({
+	Bot = require('..'),
+	client = new Bot({
 		server: 'en.wikipedia.org',
 		path: '/w'
 	}),

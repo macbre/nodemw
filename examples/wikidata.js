@@ -67,7 +67,7 @@ class WikiData {
 	}
 }
 
-const data = new WikiData();
+const data = new WikiData(); // eslint-disable-line one-var
 
 data.getEntities(
 	[
@@ -90,12 +90,11 @@ data.getEntities(
 		// console.log(claims);
 
 		let tld = claims
-			.map((item) => item.get('P297'))
-			.map((tld) => tld.toLowerCase());
-
-		let population = claims
-			.map((item) => item.get('P1082') && item.get('P1082').amount || '')
-			.map((amount) => parseInt(amount.replace(/^\+/, ''), 10));
+				.map((item) => item.get('P297'))
+				.map((tld) => tld.toLowerCase()),
+			population = claims
+				.map((item) => item.get('P1082') && item.get('P1082').amount || '')
+				.map((amount) => parseInt(amount.replace(/^\+/, ''), 10));
 
 		data.bot.log('TLD', tld);
 		data.bot.log('Population', population);

@@ -9,9 +9,8 @@ const Bot = require('..'),
 	client = new Bot({
 		server: '8bit.wikia.com',
 		path: ''
-	});
-
-const prev = 'foo 123 bar',
+	}),
+	prev = 'foo 123 bar',
 	current = '[[foo]] bar';
 
 console.log(`Old:  ${prev}`);

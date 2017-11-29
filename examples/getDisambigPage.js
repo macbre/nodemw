@@ -7,15 +7,13 @@ const Bot = require('..'),
 		server: 'en.wikipedia.org',
 		path: '/w',
 		debug: false
-	});
-
-const titles = [
-	'Manta',
-	'Maple',
-	'Marathon'
-];
-
-const template = '== USS $1 ==\n' +
+	}),
+	titles = [
+		'Manta',
+		'Maple',
+		'Marathon'
+	],
+	template = '== USS $1 ==\n' +
 '{{s|disambig}}\n' +
 '[[Okręt]]y [[United States Navy|US Navy]] o nazwie \'\'\'[[Lista akronimów przed nazwami okrętów|USS]] "$1"\'\'\'\n' +
 '\n*Pierwszy\n*Drugi\n' +
@@ -33,14 +31,12 @@ titles.forEach(function (title) {
 
 		// console.log(content);
 
-		const items = content.match(/\*(.*)\n/g);
+		const items = content.match(/\*(.*)\n/g),
+			newContent = template
+				.replace(/\$1/g, title)
+				.replace(/\$2/g, items.join(''));
 
 		// console.log(items);
-
-		const newContent = template
-			.replace(/\$1/g, title)
-			.replace(/\$2/g, items.join(''));
-
 		// console.log('====');
 		console.log(newContent);
 

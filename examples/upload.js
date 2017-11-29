@@ -5,9 +5,8 @@
  */
 
 const Bot = require('..'),
-	client = new Bot('config.js');
-
-const url = 'http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png',
+	client = new Bot('config.js'),
+	url = 'http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png',
 	fileName = 'UploadTest.png',
 	summary = 'Testing upload ąęź...';
 

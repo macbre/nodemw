@@ -5,16 +5,18 @@
  */
 
 const Bot = require('..'),
-	client = new Bot('config.js');
-
-const LIMIT = 500;
+	client = new Bot('config.js'),
+	LIMIT = 500;
 
 client.getRecentChanges(false, function (err, data) {
 	let usersStats = {},
 		pagesStats = {},
 		count = 0,
 		from,
-		to;
+		to,
+		key,
+		pages = [],
+		users = [];
 
 	data.forEach(function (entry) {
 		if (count >= LIMIT) {
@@ -46,7 +48,10 @@ client.getRecentChanges(false, function (err, data) {
 			};
 		}
 
-		const pagesItem = pagesStats[ entry.title ];
+		const pagesItem = pagesStats[ entry.title ],
+			usersItem = usersStats[ entry.user ],
+			diff = entry.newlen - entry.oldlen;
+
 		pagesItem.edits++;
 
 		if (pagesItem.editors.indexOf(entry.user) === -1) {
@@ -68,8 +73,6 @@ client.getRecentChanges(false, function (err, data) {
 			}
 		}
 
-		const usersItem = usersStats[ entry.user ];
-
 		switch (entry.type) {
 			case 'new':
 				usersItem.created++;
@@ -81,16 +84,11 @@ client.getRecentChanges(false, function (err, data) {
 		}
 
 		// edit size difference
-		const diff = entry.newlen - entry.oldlen;
 		pagesItem.diff += diff;
 		usersItem.diff += diff;
 	});
 
 	// generate an array of results
-	let key,
-		pages = [],
-		users = [];
-
 	for (key in pagesStats) {
 		pages.push(pagesStats[ key ]);
 	}
