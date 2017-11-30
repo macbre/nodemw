@@ -4,11 +4,11 @@
  *  - most actively edited articles
  */
 
-const Bot = require('..'),
-	client = new Bot('config.js'),
+const Bot = require( '..' ),
+	client = new Bot( 'config.js' ),
 	LIMIT = 500;
 
-client.getRecentChanges(false, function (err, data) {
+client.getRecentChanges( false, function ( err, data ) {
 	let usersStats = {},
 		pagesStats = {},
 		count = 0,
@@ -18,20 +18,20 @@ client.getRecentChanges(false, function (err, data) {
 		pages = [],
 		users = [];
 
-	data.forEach(function (entry) {
-		if (count >= LIMIT) {
+	data.forEach( function ( entry ) {
+		if ( count >= LIMIT ) {
 			return;
 		}
 
 		count++;
 
 		// only main namespace
-		if (entry.ns !== 0) {
+		if ( entry.ns !== 0 ) {
 			return;
 		}
 
 		// register timestamp
-		if (!from) {
+		if ( !from ) {
 			from = entry.timestamp;
 		}
 		to = entry.timestamp;
@@ -39,7 +39,7 @@ client.getRecentChanges(false, function (err, data) {
 		// console.log(JSON.stringify(entry));
 
 		// register pages stats
-		if (!pagesStats[ entry.title ]) {
+		if ( !pagesStats[ entry.title ] ) {
 			pagesStats[ entry.title ] = {
 				title: entry.title,
 				edits: 0,
@@ -54,12 +54,12 @@ client.getRecentChanges(false, function (err, data) {
 
 		pagesItem.edits++;
 
-		if (pagesItem.editors.indexOf(entry.user) === -1) {
-			pagesItem.editors.push(entry.user);
+		if ( pagesItem.editors.indexOf( entry.user ) === -1 ) {
+			pagesItem.editors.push( entry.user );
 		}
 
 		// register users stats
-		if (!usersStats[ entry.user ]) {
+		if ( !usersStats[ entry.user ] ) {
 			usersStats[ entry.user ] = {
 				user: entry.user,
 				edits: 0,
@@ -68,12 +68,12 @@ client.getRecentChanges(false, function (err, data) {
 			};
 
 			// mark bots
-			if (typeof entry.bot !== 'undefined') {
+			if ( typeof entry.bot !== 'undefined' ) {
 				usersStats[ entry.user ].bot = true;
 			}
 		}
 
-		switch (entry.type) {
+		switch ( entry.type ) {
 			case 'new':
 				usersItem.created++;
 				break;
@@ -86,28 +86,28 @@ client.getRecentChanges(false, function (err, data) {
 		// edit size difference
 		pagesItem.diff += diff;
 		usersItem.diff += diff;
-	});
+	} );
 
 	// generate an array of results
-	for (key in pagesStats) {
-		pages.push(pagesStats[ key ]);
+	for ( key in pagesStats ) {
+		pages.push( pagesStats[ key ] );
 	}
 
-	for (key in usersStats) {
-		users.push(usersStats[ key ]);
+	for ( key in usersStats ) {
+		users.push( usersStats[ key ] );
 	}
 
 	// sort them
-	pages.sort((a, b) => b.edits - a.edits);
+	pages.sort( ( a, b ) => b.edits - a.edits );
 
-	users.sort((a, b) => b.diff - a.diff);
+	users.sort( ( a, b ) => b.diff - a.diff );
 
 	// emit results
-	console.log(`Stats for the last ${count} recent changes (from ${from} back to ${to})...`);
+	console.log( `Stats for the last ${count} recent changes (from ${from} back to ${to})...` );
 
 	// console.log('Pages statistcs:');
 	// console.log(pages);
 
-	console.log('Users statistcs:');
-	console.log(users);
-});
+	console.log( 'Users statistcs:' );
+	console.log( users );
+} );
