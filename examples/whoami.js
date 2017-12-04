@@ -4,22 +4,22 @@
  * @see http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui
  */
 
-const bot = require('..'),
-	client = new bot('config.js');
+const Bot = require( '..' ),
+	client = new Bot( 'config.js' );
 
-client.logIn(function(err) {
-	if (err) {
-		console.log(err);
+client.logIn( function ( err ) {
+	if ( err ) {
+		console.log( err );
 		return;
 	}
 
 	// get current account information
-	client.whoami(function(err, userData) {
-		if (err) {
-			console.log(err);
+	client.whoami( function ( err, userData ) {
+		if ( err ) {
+			console.log( err );
 			return;
 		}
 
-		console.log(JSON.stringify(userData, null, '\t'));
-	});
-});
+		console.log( JSON.stringify( userData, null, '\t' ) );
+	} );
+} );

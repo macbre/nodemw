@@ -2,18 +2,17 @@
  * Example script getting contributions done by Pyrabot
  */
 
-const bot = require('..'),
-	client = new bot({
+const Bot = require( '..' ),
+	client = new Bot( {
 		server: 'poznan.wikia.com'
-	});
+	} );
 
-client.getUserContribs({
+client.getUserContribs( {
 	user: 'Pyrabot'
-}, function(err, data) {
-	if (err) {
-		console.error(err);
+}, function ( err, data ) {
+	if ( err ) {
+		console.error( err );
+	} else {
+		console.log( data );
 	}
-	else {
-		console.log(data);
-	}
-});
+} );
