@@ -5,11 +5,6 @@
         "es6": true
     },
     "rules": {
-        "new-cap": "warn",
-        "no-console": "off",
-        "no-underscore-dangle": "warn",
-        "object-curly-spacing": "warn",
-        "one-var": "warn",
-        "space-in-parens": "warn"
+        "no-console": "off"
     }
 }
