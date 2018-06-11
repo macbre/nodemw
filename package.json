@@ -22,19 +22,19 @@
   },
   "dependencies": {
     "ansicolors": "0.3.x",
-    "async": "^2.6.0",
+    "async": "^2.6.1",
     "diff": "^3.5.0",
     "node-version-compare": "^1.0.1",
-    "request": "^2.85.0",
-    "underscore": "1.9.x",
+    "request": "^2.87.0",
+    "underscore": "^1.9.1",
     "winston": "^2.4.2"
   },
   "devDependencies": {
-    "csv-string": "^3.1.2",
+    "csv-string": "^3.1.3",
     "eslint": "^4.19.1",
     "eslint-config-wikimedia": "^0.5.0",
     "esnext": "^3.3.1",
-    "vows": "0.8.x"
+    "vows": "^0.8.2"
   },
   "scripts": {
     "test": "vows --spec",
