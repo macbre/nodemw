@@ -130,8 +130,8 @@ data.getEntities(
 						population: pop,
 						articles: stat.articles,
 						edits: stat.edits,
-						activeUsers: stat.activeusers, // users who had some kind of activity within the last 30 days
-
+						// users who had some kind of activity within the last 30 days
+						activeUsers: stat.activeusers,
 						articlesPerCapita: round( stat.articles / pop ),
 						editsPerCapita: round( stat.edits / pop ),
 						activeUsersPer1KCapita: round( stat.activeusers / pop * 1000 )
