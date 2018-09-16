@@ -25,14 +25,14 @@
     "async": "^2.6.1",
     "diff": "^3.5.0",
     "node-version-compare": "^1.0.1",
-    "request": "^2.87.0",
+    "request": "^2.88.0",
     "underscore": "^1.9.1",
-    "winston": "^2.4.2"
+    "winston": "^2.4.4"
   },
   "devDependencies": {
-    "csv-string": "^3.1.3",
-    "eslint": "^4.19.1",
-    "eslint-config-wikimedia": "^0.5.0",
+    "csv-string": "^3.1.5",
+    "eslint": "^5.6.0",
+    "eslint-config-wikimedia": "^0.8.1",
     "esnext": "^3.3.1",
     "vows": "^0.8.2"
   },
