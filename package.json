@@ -3,7 +3,7 @@
   "version": "0.12.2",
   "author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
   "description": "MediaWiki API client written in node.js",
-  "main": "./lib/bot",
+  "main": "./lib/bot.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/macbre/nodemw.git"
@@ -37,7 +37,7 @@
     "vows": "^0.8.2"
   },
   "scripts": {
-    "test": "vows --spec",
+    "test": "vows --spec && eslint .",
     "lint": "eslint ."
   }
 }
