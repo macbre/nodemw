@@ -18,7 +18,7 @@
   ],
   "license": "BSD",
   "engines": {
-    "node": ">=4.0"
+    "node": ">=10.0"
   },
   "dependencies": {
     "ansicolors": "0.3.x",
