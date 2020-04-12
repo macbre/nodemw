@@ -329,7 +329,7 @@ Sets config entry value
 
 Returns a diff colored using ANSI colors (powered by [diff](https://www.npmjs.com/package/diff))
 
-## [Wikia-specific](http://www.wikia.com/api/v1) bot methods
+## [Wikia-specific](https://community.fandom.com/api/v1) bot methods
 
 > They're grouped in `bot.wikia` "namespace".
 
