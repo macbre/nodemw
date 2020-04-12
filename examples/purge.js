@@ -13,26 +13,34 @@ const Bot = require( '..' ),
 	} );
 
 client.purge( [ 'Pomnik_Bamberki', 'Ratusz' ], function ( err, data ) {
-	if ( err ) { client.log( err ); }
+	if ( err ) {
+		client.log( err );
+	}
 	console.log( data );
 } );
 
 // purge all articles in a given category (note a "Category:" prefix)
 client.purge( 'Category:Ratusz', function ( err, data ) {
-	if ( err ) { client.log( err ); }
+	if ( err ) {
+		client.log( err );
+	}
 	console.log( data );
 } );
 
 // purge all articles in a given category the old way (before MW 1.21)
 client.getPagesInCategory( 'Ratusz', function ( err, pages ) {
-	if ( err ) { return; }
+	if ( err ) {
+		return;
+	}
 
 	const pageIds = pages
 		.filter( ( page ) => page.ns === 0 )
 		.map( ( page ) => page.pageid );
 
 	client.purge( pageIds, function ( err, data ) {
-		if ( err ) { client.log( err ); }
+		if ( err ) {
+			client.log( err );
+		}
 		console.log( data );
 	} );
 } );

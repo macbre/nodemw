@@ -67,7 +67,7 @@ class WikiData {
 	}
 }
 
-const data = new WikiData(); // eslint-disable-line one-var
+const data = new WikiData();
 
 data.getEntities(
 	[

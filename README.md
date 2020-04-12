@@ -1,10 +1,10 @@
 nodemw
 ======
 
-[MediaWiki API](http://www.mediawiki.org/wiki/API:Main_page) client written in node.js
+[MediaWiki API](https://www.mediawiki.org/wiki/API:Main_page) client written in node.js
 
-[![NPM version](https://badge.fury.io/js/nodemw.png)](http://badge.fury.io/js/nodemw)
-[![Build Status](https://api.travis-ci.org/macbre/nodemw.svg?branch=devel)](http://travis-ci.org/macbre/nodemw)
+[![NPM version](https://badge.fury.io/js/nodemw.svg)](https://www.npmjs.com/package/nodemw)
+[![Build Status](https://api.travis-ci.org/macbre/nodemw.svg?branch=devel)](https://travis-ci.org/macbre/nodemw)
 
 [![Download stats](https://nodei.co/npm/nodemw.png?downloads=true&downloadRank=true)](https://nodei.co/npm/nodemw/)
 
