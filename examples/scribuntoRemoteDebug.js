@@ -1,4 +1,4 @@
-var bot = require( 'nodemw' ),
+var Bot = require( 'nodemw' ),
 	readline = require( 'readline' ),
 	fs = require( 'fs' ),
 	rl = readline.createInterface( {
