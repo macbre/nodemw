@@ -15,16 +15,6 @@ var Bot = require( 'nodemw' ),
 		clear: true
 	};
 
-function session( err, content ) {
-	params.content = content;
-	rl.on( 'line', cli );
-}
-
-function cli( input ) {
-	params.question = input;
-	client.api.call( params, call );
-}
-
 function call( err, info, next, data ) {
 	if ( err ) {
 		console.error( err );
@@ -33,6 +23,16 @@ function call( err, info, next, data ) {
 	} else {
 		console.log( data.print );
 	}
+}
+
+function cli( input ) {
+	params.question = input;
+	client.api.call( params, call );
+}
+
+function session( err, content ) {
+	params.content = content;
+	rl.on( 'line', cli );
 }
 
 client.getArticle( params.title, session );
