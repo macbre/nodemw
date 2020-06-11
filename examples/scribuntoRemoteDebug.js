@@ -1,7 +1,7 @@
 var Bot = require( 'nodemw' ),
 	readline = require( 'readline' ),
 	fs = require( 'fs' ),
-	c = require( 'ansi-colors' ),
+	c = require( 'ansicolors' ),
 	rl = readline.createInterface( {
 		input: process.stdin,
 		output: process.stdout
@@ -34,9 +34,9 @@ function cli( input ) {
 
 function session( err, data ) {
 	params.content = data;
-	console.log( c.gray('* The module exports are available as the variable "p", including unsaved modifications.' ) );
-	console.log( c.gray('* Precede a line with "=" to evaluate it as an expression, or use print().' ) );
-	console.log( c.gray('* Use mw.log() in module code to send messages to this console.' ) );
+	console.log( c.green('* The module exports are available as the variable "p", including unsaved modifications.' ) );
+	console.log( c.green('* Precede a line with "=" to evaluate it as an expression, or use print().' ) );
+	console.log( c.green('* Use mw.log() in module code to send messages to this console.' ) );
 	rl.on( 'line', cli );
 }
 
