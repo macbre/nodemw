@@ -13,7 +13,7 @@ var Bot = require( 'nodemw' ),
 	} ),
 	params = {
 		action: 'scribunto-console',
-		title: 'Module:CLI/testcases/title',
+		title: 'Module:Sandbox',
 		clear: true
 	};
 
@@ -34,10 +34,10 @@ function cli( input ) {
 
 function session( err, data ) {
 	params.content = data;
-	console.log( c.green('* The module exports are available as the variable "p", including unsaved modifications.' ) );
-	console.log( c.green('* Precede a line with "=" to evaluate it as an expression, or use print().' ) );
-	console.log( c.green('* Use mw.log() in module code to send messages to this console.' ) );
+	console.log( c.green( '* The module exports are available as the variable "p", including unsaved modifications.' ) );
+	console.log( c.green( '* Precede a line with "=" to evaluate it as an expression, or use print().' ) );
+	console.log( c.green( '* Use mw.log() in module code to send messages to this console.' ) );
 	rl.on( 'line', cli );
 }
 
-fs.readFile( 'title.lua', session );
+fs.readFile( 'helloworld.lua', session );
