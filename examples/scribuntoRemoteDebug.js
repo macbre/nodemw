@@ -13,7 +13,7 @@ var Bot = require( 'nodemw' ),
 	} ),
 	params = {
 		action: 'scribunto-console',
-		title: 'Module:Sandbox',
+		title: 'Module:Sandbox/CLI',
 		clear: true
 	};
 
