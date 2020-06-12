@@ -40,4 +40,4 @@ function session( err, data ) {
 	rl.on( 'line', cli );
 }
 
-fs.readFile( 'helloworld.lua', session );
+fs.readFile( 'helloworld.lua', 'utf8', session );
