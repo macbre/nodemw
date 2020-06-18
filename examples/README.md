@@ -12,7 +12,7 @@ There are two scripts - `scribuntoConsole.js` and `scribuntoRemoteDebug.js` - th
 
 The `scribuntoConsole.js` script will query the Scribunto console for a wiki module.
 
-The `scribuntoRemoteDebug.js` will query the console for staging or debugging of a local file. A simple Scribunto module is provided at `'helloworld.lua'` for convenience and configuration testing.
+The `scribuntoRemoteDebug.js` script will query the console for staging or debugging of a local file. A simple Scribunto module is provided at `'helloworld.lua'` for convenience and configuration testing.
 
 Script usage:
 1. Set the `title` value in the API query parameters (the `params` variable) to the module's current or future page name.
