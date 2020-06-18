@@ -2,6 +2,7 @@
 /**
  * Example script that parser given wikitext
  */
+'use strict';
 
 const Bot = require( '..' ),
 	client = new Bot( {

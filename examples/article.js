@@ -2,6 +2,7 @@
 /**
  * Example script getting MW version
  */
+'use strict';
 
 const Bot = require( '..' ),
 	wikipedia = new Bot( {

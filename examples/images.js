@@ -3,6 +3,7 @@
  *
  * @see http://www.mediawiki.org/wiki/API:Query
  */
+'use strict';
 
 const Bot = require( '..' ),
 	client = new Bot( 'config.js' );

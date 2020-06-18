@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+'use strict';
 
-var Bot = require( '..' ),
+let Bot = require( '..' ),
 	client = new Bot( '../config.js' ),
 	title = 'User:Pyrabot/brudnopis';
 

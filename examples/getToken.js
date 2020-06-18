@@ -1,6 +1,7 @@
 /**
  * Example script getting the edit token
  */
+'use strict';
 
 const Bot = require( '..' ),
 	wikia = new Bot( {
