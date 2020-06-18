@@ -1,6 +1,7 @@
 /**
  * Example script getting the list of all pages
  */
+'use strict';
 
 const Bot = require( '..' ),
 	client = new Bot( {

@@ -1,3 +1,5 @@
+'use strict';
+
 const Bot = require( '..' ),
 	client = new Bot( 'config.js' );
 

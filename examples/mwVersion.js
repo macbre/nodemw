@@ -1,6 +1,7 @@
 /**
  * Example script getting MW version
  */
+'use strict';
 
 const Bot = require( '..' ),
 	wikia = new Bot( {
@@ -17,7 +18,7 @@ const Bot = require( '..' ),
 /**
  * info:    Wikipedia: MediaWiki 1.27.0-wmf.19 -> 1.27.0
  * info:    Wikia: MediaWiki 1.19.24 -> 1.19.24
-*/
+ */
 wikia.getMediaWikiVersion( function ( err, version ) {
 	wikia.log( 'Wikia:', version );
 } );

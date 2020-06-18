@@ -1,6 +1,7 @@
 /**
  * Example script getting contributions done by Pyrabot
  */
+'use strict';
 
 const Bot = require( '..' ),
 	client = new Bot( {

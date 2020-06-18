@@ -1,6 +1,6 @@
 'use strict';
 
-var vows = require( 'vows' ),
+let vows = require( 'vows' ),
 	assert = require( 'assert' ),
 	Bot = require( '../lib/bot' );
 
@@ -68,7 +68,7 @@ vows.describe( 'bot class' ).addBatch( {
 	},
 	'dry run mode': {
 		topic: function () {
-			var client = new Bot( {
+			let client = new Bot( {
 				server: 'pl.wikipedia.org',
 				path: '/w',
 				dryRun: true
@@ -85,7 +85,7 @@ vows.describe( 'bot class' ).addBatch( {
 	},
 	'client.diff': {
 		topic: function () {
-			var client = new Bot( __dirname + '/config.json' ),
+			let client = new Bot( __dirname + '/config.json' ),
 				prev = 'foo 123 bar',
 				current = '[[foo]] bar';
 

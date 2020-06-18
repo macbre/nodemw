@@ -1,6 +1,7 @@
 /**
  * Example script getting wiki information
  */
+'use strict';
 
 const Bot = require( '..' ),
 	client = new Bot( {

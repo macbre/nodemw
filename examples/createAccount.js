@@ -3,6 +3,7 @@
  *
  * @see https://www.mediawiki.org/wiki/API:Account_creation
  */
+'use strict';
 
 const Bot = require( '..' ),
 	client = new Bot( 'config.js' );

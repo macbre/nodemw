@@ -1,6 +1,6 @@
 'use strict';
 
-var vows = require( 'vows' ),
+let vows = require( 'vows' ),
 	assert = require( 'assert' ),
 	Bot = require( '..' ),
 	client = new Bot( {
@@ -13,7 +13,7 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 	'client.api.call()': {
 		topic: function () {
 			// http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json
-			var params = {
+			let params = {
 				action: 'query',
 				meta: 'siteinfo',
 				siprop: 'namespaces'
@@ -41,7 +41,7 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 	'client,api.call() fails': {
 		topic: function () {
 			// http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json
-			var params = {
+			let params = {
 				action: 'foo'
 			};
 
@@ -93,7 +93,7 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 			assert.isArray( res );
 		},
 		'valid list of images is passed to callback': function ( e, res ) {
-			var firstItem = res[ 0 ];
+			let firstItem = res[ 0 ];
 
 			assert.isTrue( firstItem.ns === 6 );
 			assert.isTrue( firstItem.title.indexOf( 'File:' ) === 0 );
@@ -107,7 +107,7 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 			assert.isArray( res );
 		},
 		'valid list of external links is passed to callback': function ( e, res ) {
-			var firstItem = res[ 0 ];
+			let firstItem = res[ 0 ];
 
 			assert.isString( firstItem[ '*' ] );
 		}
@@ -120,7 +120,7 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 			assert.isArray( res );
 		},
 		'the required item is in th results': function ( e, res ) {
-			var firstItem = res[ 0 ];
+			let firstItem = res[ 0 ];
 
 			assert.isTrue( firstItem.ns === 0 );
 			assert.isTrue( firstItem.title.indexOf( 'Albert Einstein' ) > -1 );

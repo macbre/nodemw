@@ -1,6 +1,6 @@
 'use strict';
 
-var vows = require( 'vows' ),
+let vows = require( 'vows' ),
 	assert = require( 'assert' ),
 	Bot = require( '../lib/bot' ),
 	client = new Bot( {

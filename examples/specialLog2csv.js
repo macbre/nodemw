@@ -4,6 +4,8 @@
  *
  * @see https://pl.wikipedia.org/w/api.php?action=help&modules=query%2Blogevents
  */
+'use strict';
+
 const async = require( 'async' ),
 	Bot = require( '..' ),
 	csv = require( 'csv-string' ),
@@ -16,7 +18,7 @@ const async = require( 'async' ),
 	logType = 'review/approve';
 
 // @see https://github.com/caolan/async#whilsttest-fn-callback
-var start = '';
+let start = '';
 
 // @see https://www.npmjs.com/package/csv-string#stringifyinput--object-separator--string--string
 function writeCsvLine( data ) {

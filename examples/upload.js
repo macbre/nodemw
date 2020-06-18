@@ -3,6 +3,7 @@
  *
  * @see http://www.mediawiki.org/wiki/API:Upload
  */
+'use strict';
 
 const Bot = require( '..' ),
 	client = new Bot( 'config.js' ),
