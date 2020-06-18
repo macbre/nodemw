@@ -1,4 +1,5 @@
-var Bot = require( 'nodemw' ),
+'use strict';
+const Bot = require( '..' ),
 	readline = require( 'readline' ),
 	fs = require( 'fs' ),
 	c = require( 'ansicolors' ),
