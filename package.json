@@ -27,7 +27,7 @@
     "node-version-compare": "^1.0.1",
     "request": "^2.88.0",
     "underscore": "^1.9.1",
-    "winston": "^2.4.4",
+    "winston": "^3.3.3",
     "snyk": "^1.317.0"
   },
   "devDependencies": {
