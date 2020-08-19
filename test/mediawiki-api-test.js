@@ -108,7 +108,7 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 			assert.isTrue( res.length === 11 );
 		},
 		'valid list of images is passed to callback': function ( e, res ) {
-			var firstItem = res[ 0 ];
+			let firstItem = res[ 0 ];
 
 			assert.isTrue( firstItem.ns === 6 );
 			assert.isTrue( firstItem.title.indexOf( 'File:' ) === 0 );
