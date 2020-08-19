@@ -38,9 +38,9 @@ client.getPagesInCategory( 'Ratusz', function ( err, pages ) {
 		.filter( ( page ) => page.ns === 0 )
 		.map( ( page ) => page.pageid );
 
-	client.purge( pageIds, function ( err, data ) {
-		if ( err ) {
-			client.log( err );
+	client.purge( pageIds, function ( _err, data ) {
+		if ( _err ) {
+			client.log( _err );
 		}
 		console.log( data );
 	} );

@@ -10,7 +10,7 @@ client.logIn( function () {
 	function changeNameWithNumber( filename, title, extension, number ) {
 		const title1 = title + ' ' + number;
 		console.log( title1 );
-		client.getArticle( `Plik:${title1}${extension}`, function ( err, content ) {
+		client.getArticle( `Plik:${title1}${extension}`, function ( _, content ) {
 			if ( content === null ) {
 				client.move(
 					`Plik:${filename}`,
@@ -58,7 +58,7 @@ client.logIn( function () {
 	}
 
 	function rename( filename ) {
-		client.getImageUsage( `Plik:${filename}`, function ( err, img ) {
+		client.getImageUsage( `Plik:${filename}`, function ( _, img ) {
 			if ( img[ 0 ] !== null ) {
 				let extension = filename.match( /\.\D+$/i )[ 0 ];
 				extension = extension.toLowerCase();

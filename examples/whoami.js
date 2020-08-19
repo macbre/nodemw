@@ -15,9 +15,9 @@ client.logIn( function ( err ) {
 	}
 
 	// get current account information
-	client.whoami( function ( err, userData ) {
-		if ( err ) {
-			console.log( err );
+	client.whoami( function ( _err, userData ) {
+		if ( _err ) {
+			console.log( _err );
 			return;
 		}
 

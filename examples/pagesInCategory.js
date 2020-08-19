@@ -12,7 +12,7 @@ const Bot = require( '..' ),
 		path: '/w'
 	} );
 
-client.getPagesInCategory( 'Sports_cars', function ( err, pages ) {
+client.getPagesInCategory( 'Sports_cars', function ( _, pages ) {
 	client.log( 'Pages in category: %d', pages.length );
 	client.logData( pages );
 
