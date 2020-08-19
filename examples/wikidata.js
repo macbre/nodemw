@@ -86,12 +86,12 @@ data.getEntities(
 		'Sweden',
 		'Switzerland'
 	],
-	( err, claims ) => {
+	( _err, claims ) => {
 		// console.log(claims);
 
 		let tld = claims
 				.map( ( item ) => item.get( 'P297' ) )
-				.map( ( tld ) => tld.toLowerCase() ),
+				.map( ( _tld ) => _tld.toLowerCase() ),
 			population = claims
 				.map( ( item ) => item.get( 'P1082' ) && item.get( 'P1082' ).amount || '' )
 				.map( ( amount ) => parseInt( amount.replace( /^\+/, '' ), 10 ) );
@@ -102,16 +102,14 @@ data.getEntities(
 		// get wikis stats
 		async.map(
 			tld,
-			( tld, callback ) => {
+			( _, callback ) => {
 				let client = new Bot( {
 					server: `${tld}.wikipedia.org`,
 					path: '/w',
 					debug: true
 				} );
 
-				client.getSiteStats( ( err, data ) => {
-					callback( err, data );
-				} );
+				client.getSiteStats( callback );
 			},
 			( err, stats ) => {
 				// console.log(stats);

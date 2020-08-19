@@ -10,7 +10,7 @@ const Bot = require( '..' ),
 		debug: true
 	} );
 
-client.getAllPages( function ( err, pages ) {
+client.getAllPages( function ( _, pages ) {
 	console.log( 'All pages: %d', pages.length );
 	console.log( JSON.stringify( pages.slice( 0, 50 ) ) );
 
