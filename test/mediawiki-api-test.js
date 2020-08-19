@@ -99,6 +99,21 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 			assert.isTrue( firstItem.title.indexOf( 'File:' ) === 0 );
 		}
 	},
+	'getImagesFromArticleWithOptions()': {
+		topic: function () {
+			client.getImagesFromArticleWithOptions( ARTICLE, { imlimit: 11 }, this.callback );
+		},
+		'array with certain length is passed to callback': function ( e, res ) {
+			assert.isArray( res );
+			assert.isTrue( res.length === 11 );
+		},
+		'valid list of images is passed to callback': function ( e, res ) {
+			var firstItem = res[ 0 ];
+
+			assert.isTrue( firstItem.ns === 6 );
+			assert.isTrue( firstItem.title.indexOf( 'File:' ) === 0 );
+		}
+	},
 	'getExternalLinks()': {
 		topic: function () {
 			client.getExternalLinks( ARTICLE, this.callback );
