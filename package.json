@@ -1,41 +1,41 @@
 {
-  "name": "nodemw",
-  "version": "0.13.0",
-  "author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
-  "description": "MediaWiki API client written in node.js",
-  "main": "./lib/bot.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/macbre/nodemw.git"
-  },
-  "keywords": [
-    "mediawiki",
-    "wiki",
-    "api",
-    "nodejs",
-    "wikia",
-    "fandom"
-  ],
-  "license": "BSD",
-  "engines": {
-    "node": ">=12.0"
-  },
-  "dependencies": {
-    "ansicolors": "0.3.x",
-    "async": "^3.2.0",
-    "diff": "^5.0.0",
-    "node-version-compare": "^1.0.1",
-    "request": "^2.88.0",
-    "underscore": "^1.9.1",
-    "winston": "^3.3.3"
-  },
-  "devDependencies": {
-    "csv-string": "^4.0.1",
-    "eslint-config-wikimedia": "^0.18.0",
-    "vows": "^0.8.2"
-  },
-  "scripts": {
-    "test": "vows --spec && eslint .",
-    "lint": "eslint ."
-  }
+	"name": "nodemw",
+	"version": "0.13.0",
+	"author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
+	"description": "MediaWiki API client written in node.js",
+	"main": "./lib/bot.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/macbre/nodemw.git"
+	},
+	"keywords": [
+		"mediawiki",
+		"wiki",
+		"api",
+		"nodejs",
+		"wikia",
+		"fandom"
+	],
+	"license": "BSD",
+	"engines": {
+		"node": ">=12.0"
+	},
+	"dependencies": {
+		"ansicolors": "0.3.x",
+		"async": "^3.2.0",
+		"diff": "^5.0.0",
+		"node-version-compare": "^1.0.1",
+		"request": "^2.88.0",
+		"underscore": "^1.9.1",
+		"winston": "^3.3.3"
+	},
+	"devDependencies": {
+		"csv-string": "^4.0.1",
+		"eslint-config-wikimedia": "^0.18.0",
+		"vows": "^0.8.2"
+	},
+	"scripts": {
+		"test": "vows --spec && eslint .",
+		"lint": "eslint ."
+	}
 }
