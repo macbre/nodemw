@@ -27,8 +27,7 @@
     "node-version-compare": "^1.0.1",
     "request": "^2.88.0",
     "underscore": "^1.9.1",
-    "winston": "^3.3.3",
-    "snyk": "^1.317.0"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "csv-string": "^4.0.1",
@@ -37,9 +36,6 @@
   },
   "scripts": {
     "test": "vows --spec && eslint .",
-    "lint": "eslint .",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
-  },
-  "snyk": true
+    "lint": "eslint ."
+  }
 }
