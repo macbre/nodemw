@@ -1,12 +1,12 @@
 {
-	"name": "nodeMwApi",
-	"version": "0.15.0",
-	"author": "Technical-13 <Technical_13@yahoo.com> (https://magentarv.info/technical-13)",
+	"name": "nodemw",
+	"version": "0.14.1",
+	"author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
 	"description": "MediaWiki API client written in node.js",
 	"main": "./lib/bot.js",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/Technical-13/nodemw.git"
+		"url": "git://github.com/macbre/nodemw.git"
 	},
 	"keywords": [
 		"mediawiki",
