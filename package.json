@@ -31,7 +31,7 @@
 	},
 	"devDependencies": {
 		"csv-string": "^4.0.1",
-		"eslint-config-wikimedia": "^0.20.0",
+		"eslint-config-wikimedia": "^0.22.0",
 		"vows": "^0.8.2"
 	},
 	"scripts": {
