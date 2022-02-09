@@ -18,7 +18,7 @@ client.getPagesInCategory( 'Sports_cars', function ( _, pages ) {
 
 	pages.forEach( function ( page ) {
 		client.getArticle( page.title, function ( err, content ) {
-			console.log( '%s: %s', page.title, content.substr( 0, 75 ).replace( /\n/g, ' ' ) );
+			console.log( '%s: %s', page.title, content.slice( 0, 75 ).replace( /\n/g, ' ' ) );
 		} );
 	} );
 } );

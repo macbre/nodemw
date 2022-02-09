@@ -15,7 +15,7 @@ vows.describe( 'URL fetching' ).addBatch( {
 		},
 		'should pass page content to a callback': function ( e, res ) {
 			assert.isString( res );
-			assert.isTrue( res.indexOf( '<h1>Example Domain</h1>' ) > -1 );
+			assert.isTrue( res.includes( '<h1>Example Domain</h1>' ) );
 		}
 	},
 	'client.fetchUrl() when not found': {
@@ -28,7 +28,7 @@ vows.describe( 'URL fetching' ).addBatch( {
 			assert.isTrue( err instanceof Error );
 		},
 		'should pass error details': function ( fake, err ) {
-			assert.isTrue( err.message.indexOf( 'HTTP status 404' ) > -1 );
+			assert.isTrue( err.message.includes( 'HTTP status 404' ) );
 		}
 	},
 	'client.fetchUrl() when failed': {
@@ -41,7 +41,7 @@ vows.describe( 'URL fetching' ).addBatch( {
 			assert.isTrue( err instanceof Error );
 		},
 		'should pass error details': function ( fake, err ) {
-			assert.isTrue( err.message.indexOf( 'Invalid protocol' ) > -1 );
+			assert.isTrue( err.message.includes( 'Invalid protocol' ) );
 		}
 	},
 	'binary data': {

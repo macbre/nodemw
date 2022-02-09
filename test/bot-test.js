@@ -92,8 +92,8 @@ vows.describe( 'bot class' ).addBatch( {
 			return client.diff( prev, current );
 		},
 		'is correctly generated': function ( diff ) {
-			assert.equal( true, diff.indexOf( 'foo' ) > -1 );
-			assert.equal( true, diff.indexOf( 'bar' ) > -1 );
+			assert.equal( true, diff.includes( 'foo' ) );
+			assert.equal( true, diff.includes( 'bar' ) );
 		}
 	}
 } ).export( module );
