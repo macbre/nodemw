@@ -55,7 +55,7 @@ client.getRecentChanges( false, function ( err, data ) {
 
 		pagesItem.edits++;
 
-		if ( pagesItem.editors.indexOf( entry.user ) === -1 ) {
+		if ( !pagesItem.editors.contains( entry.user ) ) {
 			pagesItem.editors.push( entry.user );
 		}
 
