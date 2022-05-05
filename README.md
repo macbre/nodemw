@@ -212,6 +212,22 @@ Purge a given list of articles (titles or page IDs can be provided) - [read more
 
 > By providing `Category:Foo` as `titles` argument you can purge all pages in a given category (available since [MW 1.21](https://github.com/wikimedia/mediawiki/commit/62216932c197f1c248ca2d95bc230f87a79ccd71))
 
+### bot.protect(title, protections, options, callback)
+
+Protect a page (A title or page ID can be provided) - [read more](https://www.mediawiki.org/wiki/API:Protect)
+
+The `protections` value is an Array of protection information in the format:
+
+```
+{
+    action: string,
+    level?: string = 'all',
+    expiry?: string | number = 'never'
+}
+```
+
+Calls to the Protect endpoint are not additive. Each call must include a list of _all_ intended protections, including any already in place. Each call will _replace_ all existing protections.
+
 ### bot.sendEmail(username, subject, text, callback)
 
 Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
