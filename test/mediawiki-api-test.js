@@ -85,6 +85,21 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 			assert.equal( redirectInfo.from, 'Einstein' );
 		}
 	},
+	'getArticleInfo()': {
+		topic: function () {
+			client.getArticleInfo( ARTICLE, this.callback );
+		},
+		'valid content is passed to callback': function ( e, res ) {
+			assert.isArray( res );
+			assert.isTrue( res.length === 1 );
+
+			const data = res[ 0 ];
+			assert.isNumber( data.pageid );
+			assert.isString( data.title );
+			assert.isArray( data.protection );
+			assert.isTrue( data.title.includes( 'Albert Einstein' ) );
+		}
+	},
 	'getImagesFromArticle()': {
 		topic: function () {
 			client.getImagesFromArticle( ARTICLE, this.callback );
