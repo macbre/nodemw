@@ -155,5 +155,32 @@ vows.describe( 'Mediawiki API' ).addBatch( {
 			assert.isTrue( firstItem.ns === 0 );
 			assert.isTrue( firstItem.title.includes( 'Albert Einstein' ) );
 		}
+	},
+	'protect()': {
+		'Command cannot run in dry-run mode.': {
+			topic: function () {
+				client.dryRun = true;
+				client.protect(
+					ARTICLE,
+					[ { type: 'edit', level: 'sysop' } ],
+					this.callback
+				);
+			},
+			'Command not available in dry-run mode': function ( e, res ) {
+				assert.isTrue( res !== null );
+			}
+		},
+		'When no action type is provided, no error is thrown': {
+			topic: function () {
+				client.protect(
+					ARTICLE,
+					[ { level: 'all' } ],
+					this.callback
+				);
+			},
+			'Missing action throws an Error': function ( e, res ) {
+				assert.isTrue( res !== null );
+			}
+		}
 	}
 } ).export( module );
