@@ -14,12 +14,12 @@ const client = new Bot( {
 	path: '/w'
 } );
 
-client.getPagesInCategory( 'Sports_cars', function ( _, pages ) {
+client.getPagesInCategory( 'Sports_cars', ( _, pages ) => {
 	client.log( 'Pages in category: %d', pages.length );
 	console.log( '%j', pages );
 
-	pages.forEach( function ( page ) {
-		client.getArticle( page.title, function ( err, content ) {
+	pages.forEach( ( page ) => {
+		client.getArticle( page.title, ( __, content ) => {
 			console.log( '%s: %s', page.title, content.slice( 0, 75 ).replace( /\n/g, ' ' ) );
 		} );
 	} );
