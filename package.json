@@ -1,6 +1,6 @@
 {
 	"name": "nodemw",
-	"version": "0.17.0",
+	"version": "0.18.0",
 	"author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
 	"description": "MediaWiki API client written in node.js",
 	"main": "./lib/bot.js",
