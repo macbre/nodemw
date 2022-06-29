@@ -23,9 +23,9 @@ const wikipedia = new Bot( {
  * info:    Wikia: MediaWiki 1.19.24 -> 1.19.24
  */
 wikia.getMediaWikiVersion( function ( _, version ) {
-	wikia.log( 'Wikia:', version );
+	wikia.log( `Wikia: ${version}` );
 } );
 
 wikipedia.getMediaWikiVersion( function ( _, version ) {
-	wikipedia.log( 'Wikipedia:', version );
+	wikipedia.log( `Wikipedia: ${version}` );
 } );
