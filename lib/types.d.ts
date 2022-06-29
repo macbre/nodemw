@@ -10,8 +10,8 @@ export interface BotOptions {
 }
 
 // Node.js style callbacks
-export interface Callback<T> {
-    (err: Error | null, arg?: T)
+export interface NodeJSCallback<T> {
+    (err: Error | null, arg?: T): void
 }
 
 // {"pageid":5282710,"ns":0,"title":"Westfield XTR2"}
