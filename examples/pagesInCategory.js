@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Example script getting pages from "Bosons" category on English Wikipedia
  *
@@ -6,11 +7,12 @@
  */
 'use strict';
 
-const Bot = require( '..' ),
-	client = new Bot( {
-		server: 'en.wikipedia.org',
-		path: '/w'
-	} );
+const Bot = require( '..' );
+
+const client = new Bot( {
+	server: 'en.wikipedia.org',
+	path: '/w'
+} );
 
 client.getPagesInCategory( 'Sports_cars', function ( _, pages ) {
 	client.log( 'Pages in category: %d', pages.length );

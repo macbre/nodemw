@@ -4,13 +4,14 @@
  */
 'use strict';
 
-const Bot = require( '..' ),
-	wikipedia = new Bot( {
-		protocol: 'https',
-		server: 'pl.wikipedia.org',
-		path: '/w',
-		debug: true
-	} );
+const Bot = require( '..' );
+
+const wikipedia = new Bot( {
+	protocol: 'https',
+	server: 'pl.wikipedia.org',
+	path: '/w',
+	debug: true
+} );
 
 wikipedia.getArticleRevisions( 'Tórshavna', ( err, data ) => {
 	if ( err ) {
