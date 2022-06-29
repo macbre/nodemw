@@ -4,16 +4,7 @@
  * 
  * @see https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html
  */
-declare interface BotOptions {
-    server: string;
-    protocol?: string;
-    port?: number;
-    path?: string;
-    proxy?: string;
-    userAgent?: string;
-    concurrency?: number;
-    debug?: boolean;
-}
+import { BotOptions } from './bot.options';
 
 // @see https://stackoverflow.com/questions/42603810/typescript-error-first-callback-typing-noimplicitany-strictnullchecks
 interface Callback<T> {

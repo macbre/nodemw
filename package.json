@@ -41,6 +41,6 @@
 		"test": "vows --spec && eslint .",
 		"lint": "eslint --cache .",
 		"lint:fix": "eslint --fix .",
-		"check-dts": "npx check-dts lib/bot.d.ts"
+		"check-dts": "npx check-dts lib/*.d.ts"
 	}
 }
