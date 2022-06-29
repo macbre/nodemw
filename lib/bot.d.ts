@@ -18,6 +18,6 @@ declare class BotInstance {
 }
 
 /**
- * The main entry-point to analyze a given css
+ * The main entry-point
  */
 export function Bot (params: string | BotOptions): BotInstance;

@@ -38,7 +38,8 @@
 	},
 	"scripts": {
 		"test": "vows --spec && eslint .",
-		"lint": "eslint .",
+		"lint": "eslint --cache .",
+		"lint:fix": "eslint --fix .",
 		"check-dts": "npx check-dts lib/bot.d.ts"
 	}
 }
