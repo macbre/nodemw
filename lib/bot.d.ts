@@ -11,6 +11,9 @@ declare class Bot {
 
     log(...args: any[]): void;
 
+    logIn( callback: NodeJSCallback<any>): void;
+    logIn( username: string, password: string, callback: NodeJSCallback<any>): void;
+
     getPagesInCategory( category: string, callback: NodeJSCallback<PageInCategory[]>): void;
     getMediaWikiVersion( callback: NodeJSCallback<string> ): void;
     getArticle( article: string, callback: NodeJSCallback<string> ): void;
