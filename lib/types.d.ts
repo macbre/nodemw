@@ -30,3 +30,15 @@ export declare interface PageEditedResult {
     newrevid: number;
     newtimestamp: string;
 }
+
+export declare interface UserInfo {
+    userid: number;
+    name: string;
+    editcount: number;
+    registration: string;
+    groups: string[];
+    implicitgroups: string[];
+    rights: string[];
+    emailable: string;
+    gender: string;
+}
