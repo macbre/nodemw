@@ -20,3 +20,13 @@ export declare interface PageInCategory {
     ns: number;
     title: string;
 }
+
+export declare interface PageEditedResult {
+    result: string;
+    pageid: number;
+    title: string;
+    contentmodel: string;
+    oldrevid: number;
+    newrevid: number;
+    newtimestamp: string;
+}

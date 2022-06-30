@@ -4,7 +4,7 @@
  * 
  * @see https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html
  */
-import { BotOptions, NodeJSCallback, PageInCategory } from './types';
+import { BotOptions, NodeJSCallback, PageEditedResult, PageInCategory } from './types';
 
 declare class Bot {
     constructor(params: string | BotOptions);
@@ -13,6 +13,8 @@ declare class Bot {
 
     logIn( callback: NodeJSCallback<any>): void;
     logIn( username: string, password: string, callback: NodeJSCallback<any>): void;
+
+    append( title: string, content: string, summary: string, callback: NodeJSCallback<PageEditedResult> ): void;
 
     getPagesInCategory( category: string, callback: NodeJSCallback<PageInCategory[]>): void;
     getMediaWikiVersion( callback: NodeJSCallback<string> ): void;

@@ -1,21 +1,24 @@
 #!/usr/bin/env node
+// @ts-check
 'use strict';
 
-const Bot = require( '..' ),
-	client = new Bot( {
-		protocol: 'https',
-		server: 'www.mediawiki.org',
-		path: '/w',
-		debug: true
-	} ),
-	// text = 'nodemw test';
-	text = 'nodemw test http://clicky.pk/foo'; // https://github.com/macbre/nodemw/issues/131
+// This example makes an edit tp https://test.wikipedia.org/wiki/Test
+const Bot = require( '..' );
+const client = new Bot( {
+	protocol: 'https',
+	server: 'test.wikipedia.org',
+	path: '/w',
+	debug: true
+} );
 
-client.append( 'Project:Sandbox', '\n\n' + text + ' --~~~~', 'nodemw test edit', function ( err, res ) {
+const text = 'nodemw test';
+
+client.append( 'Test', '\n\n' + text + ' --~~~~', 'nodemw test edit', function ( err, res ) {
 	if ( err ) {
 		client.log( 'Sandbox edit failed: ' + JSON.stringify( err ) );
 	} else {
-		client.log( 'Sandbox edited' );
-		client.log( res );
+		client.log( `Edited "${res.title}" as revision #${res.newrevid} on ${res.newtimestamp}.` );
+
+		// console.log( Object.keys(res).map( key => `${key}: ${typeof res[key]};`).join('\n') );
 	}
 } );
