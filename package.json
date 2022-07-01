@@ -34,8 +34,8 @@
 		"check-dts": "^0.6.7",
 		"csv-string": "^4.0.1",
 		"eslint-config-wikimedia": "^0.22.1",
-		"typescript": "^4.7.4",
-		"vows": "^0.8.2"
+		"jest": "^28.1.2",
+		"typescript": "^4.7.4"
 	},
 	"scripts": {
 		"test": "vows --spec && eslint .",
