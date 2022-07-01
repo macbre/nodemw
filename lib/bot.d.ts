@@ -4,20 +4,32 @@
  * 
  * @see https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html
  */
-import { BotOptions, NodeJSCallback, PageEditedResult, PageInCategory, UserInfo } from './types';
+import {
+    BotOptions,
+    NodeJSCallback,
+    PageEditedResult,
+    PageInCategory,
+    SiteInfo,
+    SiteStatistics,
+    UserInfo,
+    WikiaUserInfo,
+    WikiaWikiVariables,
+} from './types';
 
 declare interface Wikia {
     // TODO: add proper types
-    call( path: any, params: any, callback: any ) : void;
-    getWikiVariables( callback: any ) : void;
-    getUser( ids: any, callback: any ) : void;
-    getUsers( ids: any, callback: any ) : void;
+    call( path: any, params: any, callback: NodeJSCallback<any> ) : void;
+    getWikiVariables( callback: NodeJSCallback<WikiaWikiVariables> ) : void;
+    getUser( ids: any, callback: NodeJSCallback<WikiaUserInfo> ) : void;
+    getUsers( ids: any, callback: NodeJSCallback<WikiaUserInfo[]> ) : void;
 }
 
 declare class Bot {
     constructor(params: string | BotOptions);
 
+    getConfig( key: any, def: any ) : void;
     log(...args: any[]): void;
+    error() : void;
 
     append( title: string, content: string, summary: string, callback: NodeJSCallback<PageEditedResult> ): void;
     doEdit( action: string, title: string, summary: string, params: Object, callback: NodeJSCallback<PageEditedResult> ): void;
@@ -33,51 +45,49 @@ declare class Bot {
 
     // TODO: add proper types for the rest of the methods
     // egrep '^\t[a-z]' bot.js  | sed 's/{/: void;/g' | sed 's/,/: any,/g' | sed 's/ )/: any )/g'
-	addFlowTopic( title: any, subject: any, content: any, callback: any ) : void;
-	createAccount( username: any, password: any, callback: any ) : void;
+	addFlowTopic( title: any, subject: any, content: any, callback: NodeJSCallback<any> ) : void;
+	createAccount( username: any, password: any, callback: NodeJSCallback<any> ) : void;
 	diff( prev: any, current: any ) : void;
-	error() : void;
-	expandTemplates( text: any, title: any, callback: any ) : void;
-	fetchUrl( url: any, callback: any, encoding: any ) : void;
-	getAll( params: any, key: any, callback: any ) : void;
-	getAllPages( callback: any ) : void;
-	getArticleCategories( title: any, callback: any ) : void;
-	getArticleInfo( title: any, options: any, callback: any ) : void;
-	getArticleRevisions( title: any, callback: any ) : void;
-	getBacklinks( title: any, callback: any ) : void;
-	getCategories( prefix: any, callback: any ) : void;
-	getConfig( key: any, def: any ) : void;
-	getExternalLinks( title: any, callback: any ) : void;
-	getImageInfo( filename: any, callback: any ) : void;
-	getImageUsage( filename: any, callback: any ) : void;
-	getImages( start: any, callback: any ) : void;
-	getImagesFromArticle( title: any, callback: any ) : void;
-	getImagesFromArticleWithOptions( title: any, options: any, callback: any ) : void;
-	getLog( type: any, start: any, callback: any ) : void;
-	getPagesByPrefix( prefix: any, callback: any ) : void;
-	getPagesInNamespace( namespace: any, callback: any ) : void;
-	getPagesTranscluding( template: any, callback: any ) : void;
-	getQueryPage( queryPage: any, callback: any ) : void;
+	expandTemplates( text: any, title: any, callback: NodeJSCallback<any> ) : void;
+	fetchUrl( url: any, callback: NodeJSCallback<any>, encoding: any ) : void;
+	getAll( params: any, key: any, callback: NodeJSCallback<any> ) : void;
+	getAllPages( callback: NodeJSCallback<any> ) : void;
+	getArticleCategories( title: any, callback: NodeJSCallback<any> ) : void;
+	getArticleInfo( title: any, options: any, callback: NodeJSCallback<any> ) : void;
+	getArticleRevisions( title: any, callback: NodeJSCallback<any> ) : void;
+	getBacklinks( title: any, callback: NodeJSCallback<any> ) : void;
+	getCategories( prefix: any, callback: NodeJSCallback<any> ) : void;
+	getExternalLinks( title: any, callback: NodeJSCallback<any> ) : void;
+	getImageInfo( filename: any, callback: NodeJSCallback<any> ) : void;
+	getImageUsage( filename: any, callback: NodeJSCallback<any> ) : void;
+	getImages( start: any, callback: NodeJSCallback<any> ) : void;
+	getImagesFromArticle( title: any, callback: NodeJSCallback<any> ) : void;
+	getImagesFromArticleWithOptions( title: any, options: any, callback: NodeJSCallback<any> ) : void;
+	getLog( type: any, start: any, callback: NodeJSCallback<any> ) : void;
+	getPagesByPrefix( prefix: any, callback: NodeJSCallback<any> ) : void;
+	getPagesInNamespace( namespace: any, callback: NodeJSCallback<any> ) : void;
+	getPagesTranscluding( template: any, callback: NodeJSCallback<any> ) : void;
+	getQueryPage( queryPage: any, callback: NodeJSCallback<any> ) : void;
 	getRand() : void;
-	getRecentChanges( start: any, callback: any ) : void;
-	getSiteInfo( props: any, callback: any ) : void;
-	getSiteStats( callback: any ) : void;
+	getRecentChanges( start: any, callback: NodeJSCallback<any> ) : void;
+	getSiteInfo( props: string[], callback: NodeJSCallback<SiteInfo> ) : void;
+	getSiteStats( callback: NodeJSCallback<SiteStatistics> ) : void;
 	getTemplateParamFromXml( tmplXml: any, paramName: any ) : void;
-	getToken( title: any, action: any, callback: any ) : void;
-	getUserContribs( options: any, callback: any ) : void;
-	getUsers( data: any, callback: any ) : void;
-	move( from: any, to: any, summary: any, callback: any ) : void;
-	parse( text: any, title: any, callback: any ) : void;
-	protect( title: any, protections: any, options: any, callback: any ) : void;
-	purge( titles: any, callback: any ) : void;
-	search( keyword: any, callback: any ) : void;
-	sendEmail( username: any, subject: any, text: any, callback: any ) : void;
+	getToken( title: any, action: any, callback: NodeJSCallback<any> ) : void;
+	getUserContribs( options: any, callback: NodeJSCallback<any> ) : void;
+	getUsers( data: any, callback: NodeJSCallback<any> ) : void;
+	move( from: any, to: any, summary: any, callback: NodeJSCallback<any> ) : void;
+	parse( text: any, title: any, callback: NodeJSCallback<any> ) : void;
+	protect( title: any, protections: any, options: any, callback: NodeJSCallback<any> ) : void;
+	purge( titles: any, callback: NodeJSCallback<any> ) : void;
+	search( keyword: any, callback: NodeJSCallback<any> ) : void;
+	sendEmail( username: any, subject: any, text: any, callback: NodeJSCallback<any> ) : void;
 	setConfig( key: any, val: any ) : void;
-	upload( filename: any, content: any, extraParams: any, callback: any ) : void;
-	uploadByUrl( filename: any, url: any, summary: any, callback: any ) : void;
-	uploadVideo( fileName: any, url: any, callback: any ) : void;
-	whoami( callback: any ) : void;
-	whoare( usernames: any, callback: any ) : void;
+	upload( filename: any, content: any, extraParams: any, callback: NodeJSCallback<any> ) : void;
+	uploadByUrl( filename: any, url: any, summary: any, callback: NodeJSCallback<any> ) : void;
+	uploadVideo( fileName: any, url: any, callback: NodeJSCallback<any> ) : void;
+	whoami( callback: NodeJSCallback<any> ) : void;
+	whoare( usernames: any, callback: NodeJSCallback<any> ) : void;
     logData( obj: any ) : void;
 
     wikia: Wikia
