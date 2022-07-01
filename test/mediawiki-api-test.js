@@ -56,7 +56,14 @@ describe( 'MediaWiki API', () => {
 	}, 5000 );
 } );
 
+// FIXME: use a proxy when running on CI
 describe( 'Bot on test.wikipedia.org', () => {
+
+	if ( process.env.CI === 'true' ) {
+		it.skip( 'GitHub Actions are blocked by Wikipedia for anon traffic', it.todo );
+		return;
+	}
+
 	const client = new Bot( {
 		protocol: 'https',
 		server: 'test.wikipedia.org',
