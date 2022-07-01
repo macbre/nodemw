@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Example script getting user information on a specific user
  *
@@ -5,8 +6,8 @@
  */
 'use strict';
 
-const Bot = require( '..' ),
-	client = new Bot( 'config.js' );
+const Bot = require( '..' );
+const client = new Bot( __dirname + '/config.wikipedia.json' );
 
 // get current account information
 client.whois( 'Jimbo Wales', function ( err, userData ) {
@@ -15,5 +16,9 @@ client.whois( 'Jimbo Wales', function ( err, userData ) {
 		return;
 	}
 
-	console.log( JSON.stringify( userData, null, '\t' ) );
+	console.log(
+		`${userData.name} made ${userData.editcount} edits since registering on ${userData.registration}.`
+	);
+
+	// console.log( JSON.stringify( userData, null, '\t' ) );
 } );

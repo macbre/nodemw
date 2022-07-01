@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Example script getting pages from "Bosons" category on English Wikipedia
  *
@@ -6,18 +7,19 @@
  */
 'use strict';
 
-const Bot = require( '..' ),
-	client = new Bot( {
-		server: 'en.wikipedia.org',
-		path: '/w'
-	} );
+const Bot = require( '..' );
 
-client.getPagesInCategory( 'Sports_cars', function ( _, pages ) {
+const client = new Bot( {
+	server: 'en.wikipedia.org',
+	path: '/w'
+} );
+
+client.getPagesInCategory( 'Sports_cars', ( _, pages ) => {
 	client.log( 'Pages in category: %d', pages.length );
-	client.logData( pages );
+	console.log( '%j', pages );
 
-	pages.forEach( function ( page ) {
-		client.getArticle( page.title, function ( err, content ) {
+	pages.forEach( ( page ) => {
+		client.getArticle( page.title, ( __, content ) => {
 			console.log( '%s: %s', page.title, content.slice( 0, 75 ).replace( /\n/g, ' ' ) );
 		} );
 	} );
