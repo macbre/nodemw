@@ -24,5 +24,5 @@ describe( 'parseVideoUrl', () => {
 
 	it.each( cases )( '$url is properly parsed', ( { url, expected } ) => {
 		expect( parseVideoUrl( url ) ).toStrictEqual( expected );
-	  } );
+	} );
 } );
