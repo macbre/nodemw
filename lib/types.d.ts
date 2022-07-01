@@ -14,6 +14,10 @@ export interface NodeJSCallback<T> {
     (err: Error | null, arg?: T): void
 }
 
+export interface NodeJSCallbackDouble<T1, T2> {
+    (err: Error | null, arg?: T1, arg2?: T2): void
+}
+
 // {"pageid":5282710,"ns":0,"title":"Westfield XTR2"}
 export declare interface PageInCategory {
     pageid: number;
@@ -149,4 +153,32 @@ export interface WikiaUserInfo {
 	numberofedits: number;
 	is_subject_to_ccpa: boolean | null;
 	avatar: string;
+}
+
+export interface RedirectInfo {
+	from: string;
+	to: string;
+}
+
+export interface ArticleInfo {
+	pageid: number;
+	ns: number;
+	title: string;
+	contentmodel: string;
+	pagelanguage: string;
+	pagelanguagehtmlcode: string;
+	pagelanguagedir: string;
+	touched: string;
+	lastrevid: number;
+	length: number;
+	protection: string[];
+	restrictiontypes: string[];
+	notificationtimestamp: string;
+	associatedpage: string;
+	fullurl: string;
+	editurl: string;
+	canonicalurl: string;
+	preload: string;
+	displaytitle: string;
+	varianttitles: Map<string, string>;
 }

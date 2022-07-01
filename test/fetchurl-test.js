@@ -1,56 +1,50 @@
 'use strict';
+const { describe, it, expect } = require( '@jest/globals' );
 
-let vows = require( 'vows' ),
-	assert = require( 'assert' ),
-	Bot = require( '../lib/bot' ),
-	client = new Bot( {
+const Bot = require( '../lib/bot' );
+
+describe( 'fetchUrl', () => {
+	const client = new Bot( {
 		server: 'en.wikipedia.org',
 		path: '/w'
 	} );
 
-vows.describe( 'URL fetching' ).addBatch( {
-	'client.fetchUrl()': {
-		topic: function () {
-			client.fetchUrl( 'http://example.com', this.callback );
-		},
-		'should pass page content to a callback': function ( e, res ) {
-			assert.isString( res );
-			assert.isTrue( res.includes( '<h1>Example Domain</h1>' ) );
-		}
-	},
-	'client.fetchUrl() when not found': {
-		topic: function () {
-			client.fetchUrl( 'http://google.com/404', function ( e ) {
-				this.callback( null, e );
-			}.bind( this ) );
-		},
-		'should pass an Error to the callback': function ( fake, err ) {
-			assert.isTrue( err instanceof Error );
-		},
-		'should pass error details': function ( fake, err ) {
-			assert.isTrue( err.message.includes( 'HTTP status 404' ) );
-		}
-	},
-	'client.fetchUrl() when failed': {
-		topic: function () {
-			client.fetchUrl( 'foo://bar', function ( e ) {
-				this.callback( null, e );
-			}.bind( this ) );
-		},
-		'should pass an Error to the callback': function ( fake, err ) {
-			assert.isTrue( err instanceof Error );
-		},
-		'should pass error details': function ( fake, err ) {
-			assert.isTrue( err.message.includes( 'Invalid protocol' ) );
-		}
-	},
-	'binary data': {
-		topic: function () {
-			client.fetchUrl( 'http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png', this.callback, 'binary' );
-		},
-		'should be passed to a callback in raw form': function ( e, res ) {
-			assert.isTrue( res instanceof Buffer );
-			assert.equal( 19670, res.length );
-		}
-	}
-} ).export( module );
+	it( 'passes page content to a callback', ( done ) => {
+		client.fetchUrl( 'http://example.com', ( err, res ) => {
+			expect( err ).toBeNull();
+			expect( res ).toContain( '<h1>Example Domain</h1>' );
+
+			done();
+		} );
+	} );
+
+	it( 'passes binary data to a callback', ( done ) => {
+		client.fetchUrl( 'http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png', ( err, res ) => {
+			expect( err ).toBeNull();
+			expect( res ).toBeInstanceOf( Buffer );
+			expect( res.length ).toEqual( 19670 );
+
+			done();
+		}, 'binary' );
+	} );
+
+	it( 'handles 404 errors properly', ( done ) => {
+		client.fetchUrl( 'https://google.com/404', ( err, res ) => {
+			expect( res ).toContain( '<title>Error 404' );
+			expect( err ).toBeInstanceOf( Error );
+			expect( err.message ).toContain( 'HTTP status 404' );
+
+			done();
+		} );
+	} );
+
+	it( 'handles invalid protocol properly', ( done ) => {
+		client.fetchUrl( 'foo://bar', ( err, res ) => {
+			expect( res ).toBeUndefined();
+			expect( err ).toBeInstanceOf( Error );
+			expect( err.message ).toContain( 'Invalid protocol' );
+
+			done();
+		} );
+	} );
+} );

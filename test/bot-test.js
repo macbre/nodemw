@@ -1,99 +1,83 @@
 'use strict';
 
-let vows = require( 'vows' ),
-	assert = require( 'assert' ),
-	Bot = require( '../lib/bot' );
+const { describe, it, expect } = require( '@jest/globals' );
+const Bot = require( '..' );
 
-vows.describe( 'bot class' ).addBatch( {
-	'supports config object': {
-		topic: function () {
-			return new Bot( {
-				server: 'pl.wikipedia.org',
-				path: '/w'
-			} );
-		},
-		'server is properly passed': function ( client ) {
-			assert.equal( client.api.server, 'pl.wikipedia.org' );
-		},
-		'path is properly passed': function ( client ) {
-			assert.equal( client.api.path, '/w' );
-		}
-	},
-	'supports config file': {
-		topic: function () {
-			return new Bot( __dirname + '/config.json' );
-		},
-		'server is properly passed': function ( client ) {
-			assert.equal( client.api.server, 'pl.wikipedia.org' );
-		},
-		'path is properly passed': function ( client ) {
-			assert.equal( client.api.path, '/w' );
-		}
-	},
-	'getConfig()': {
-		topic: function () {
-			return new Bot( __dirname + '/config.json' );
-		},
-		'gets a correct value': function ( client ) {
-			assert.equal( client.getConfig( 'server' ), 'pl.wikipedia.org' );
-			assert.equal( client.getConfig( 'goo' ), 123 );
-		},
-		'gets a default value': function ( client ) {
-			assert.isUndefined( client.getConfig( 'foo' ) );
-			assert.equal( client.getConfig( 'foo', 'bar' ), 'bar' );
-		}
-	},
-	'setConfig()': {
-		topic: function () {
-			return new Bot( __dirname + '/config.json' );
-		},
-		'sets a value': function ( client ) {
-			assert.isUndefined( client.getConfig( 'foo' ) );
+describe( 'Bot', () => {
 
-			client.setConfig( 'foo', 'bar' );
+	it( 'supports passing config object and applies defaults', () => {
+		const client = new Bot( {
+			server: 'fo.wikipedia.org',
+			path: '/w'
+		} );
 
-			assert.equal( client.getConfig( 'foo' ), 'bar' );
-			assert.equal( client.getConfig( 'foo', 123 ), 'bar' );
-		}
-	},
-	'user agent': {
-		topic: function () {
-			return new Bot( {
-				userAgent: 'Custom UA'
-			} );
-		},
-		'can be customized': function ( client ) {
-			assert.equal( client.api.userAgent, 'Custom UA' );
-		}
-	},
-	'dry run mode': {
-		topic: function () {
-			let client = new Bot( {
-				server: 'pl.wikipedia.org',
-				path: '/w',
-				dryRun: true
-			} );
+		expect( client.api.server ).toEqual( 'fo.wikipedia.org' );
+		expect( client.api.path ).toEqual( '/w' );
 
-			client.edit( 'Page', 'Content', 'Summary', false, function ( e ) {
-				this.callback( null, e );
-			}.bind( this ) );
-		},
-		'is correctly handled by edit()': function ( fake, err ) {
-			assert.isTrue( err instanceof Error );
-			assert.equal( 'In dry-run mode', err.message );
-		}
-	},
-	'client.diff': {
-		topic: function () {
-			let client = new Bot( __dirname + '/config.json' ),
-				prev = 'foo 123 bar',
-				current = '[[foo]] bar';
+		// and some defaults
+		expect( client.api.protocol ).toEqual( 'http' );
+	} );
 
-			return client.diff( prev, current );
-		},
-		'is correctly generated': function ( diff ) {
-			assert.equal( true, diff.includes( 'foo' ) );
-			assert.equal( true, diff.includes( 'bar' ) );
-		}
-	}
-} ).export( module );
+	it( 'supports passing a config file', () => {
+		const client = new Bot( __dirname + '/config.json' );
+
+		expect( client.api.server ).toEqual( 'pl.wikipedia.org' );
+		expect( client.api.path ).toEqual( '/w' );
+
+		// and some defaults
+		expect( client.api.protocol ).toEqual( 'http' );
+	} );
+
+	it( 'supports a custom user agent', () => {
+		const client = new Bot( {
+			userAgent: 'foo/bar 1.2.3'
+		} );
+
+		expect( client.api.userAgent ).toEqual( 'foo/bar 1.2.3' );
+	} );
+} );
+
+describe( 'Bot.config', () => {
+	const client = new Bot( __dirname + '/config.json' );
+
+	it( 'gets correct values', () => {
+		expect( client.getConfig( 'server' ) ).toEqual( 'pl.wikipedia.org' );
+		expect( client.getConfig( 'goo' ) ).toEqual( 123 );
+	} );
+
+	it( 'gets a default value', () => {
+		expect( client.getConfig( 'foo' ) ).toBeUndefined();
+		expect( client.getConfig( 'foo', 'default-value' ) ).toEqual( 'default-value' );
+	} );
+} );
+
+describe( 'Bot\'s dry run mode', () => {
+
+	it( 'is expected', ( done ) => {
+		const client = new Bot( {
+			server: 'foo.bar', // we should not even connect here
+			path: '/w',
+			dryRun: true
+		} );
+
+		client.edit( 'Main Page', 'foo', 'test', ( err, res ) => {
+			expect( res ).toBeUndefined();
+			expect( err ).toBeInstanceOf( Error );
+			expect( err.message ).toEqual( 'In dry-run mode' );
+			done();
+		} );
+	} );
+} );
+
+describe( 'Bot.diff', () => {
+	const client = new Bot( __dirname + '/config.json' );
+
+	it( 'returns a proper diff', () => {
+		const prev = 'foo 123 bar';
+		const current = '[[foo]] bar';
+		const diff = client.diff( prev, current );
+
+		expect( diff ).toContain( 'foo' );
+		expect( diff ).toContain( 'bar' );
+	} );
+} );

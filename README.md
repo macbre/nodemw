@@ -2,6 +2,8 @@ nodemw
 ======
 ![Node.js CI](https://github.com/macbre/nodemw/workflows/Node.js%20CI/badge.svg)
 
+[![Coverage Status](https://coveralls.io/repos/github/macbre/nodemw/badge.svg?branch=devel)](https://coveralls.io/github/macbre/nodemw?branch=devel)
+
 [MediaWiki API](https://www.mediawiki.org/wiki/API:Main_page) client written in node.js
 
 [![Download stats](https://nodei.co/npm/nodemw.png?downloads=true&downloadRank=true)](https://nodei.co/npm/nodemw/)
