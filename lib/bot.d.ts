@@ -12,6 +12,7 @@ import {
 
 	// responses typing
 	ArticleInfo,
+	ArticleProperties,
     PageEditedResult,
     PageInCategory,
 	RedirectInfo,
@@ -43,6 +44,7 @@ declare class Bot {
     edit( title: string, content: string, summary: string, minor: boolean, callback: NodeJSCallback<PageEditedResult> ): void;
     getArticle( article: string, callback: NodeJSCallback<string> ): void;
 	getArticle( article: string, followRedirect: boolean, callback: NodeJSCallbackDouble<string, RedirectInfo> ): void;
+	getArticleProperties(title: string, callback: NodeJSCallback<ArticleProperties>): void;
     getMediaWikiVersion( callback: NodeJSCallback<string> ): void;
     getPagesInCategory( category: string, callback: NodeJSCallback<PageInCategory[]>): void;
     logIn( callback: NodeJSCallback<any>): void;

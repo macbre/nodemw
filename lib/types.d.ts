@@ -182,3 +182,9 @@ export interface ArticleInfo {
 	displaytitle: string;
 	varianttitles: Map<string, string>;
 }
+
+export interface ArticleProperties {
+	page_image_free: string;
+	'wikibase-shortdesc': string;
+	wikibase_item: string;
+}
