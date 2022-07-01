@@ -20,15 +20,8 @@ jobs:
         - "17.x"
         - '18.x'
 
-    env:
-      HTTP_PROXY: ${{ secrets.HTTP_PROXY }}
-      HTTPS_PROXY: ${{ secrets.HTTP_PROXY }}
-
     steps:
     - uses: actions/checkout@v3
-    
-    - name: What's my IP?
-      run: curl 'https://api64.ipify.org?format=json'
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@master
@@ -39,8 +32,15 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Run the tests
-      run: npm test
+    - name: Run the tests    
+      env:
+        HTTP_PROXY: ${{ secrets.HTTP_PROXY }}
+        HTTPS_PROXY: ${{ secrets.HTTP_PROXY }}
+
+      run: |
+        echo "My IP is $( curl -s 'https://api.ipify.org?format=json' | jq -r .ip )"
+
+        npm test
 
     # https://github.com/marketplace/actions/coveralls-github-action
     # upload coverage report for just one of Node.js version matrix runs
