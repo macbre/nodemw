@@ -20,8 +20,15 @@ jobs:
         - "17.x"
         - '18.x'
 
+    env:
+      HTTP_PROXY: $${ secrets.HTTP_PROXY }}
+      HTTPS_PROXY: $${ secrets.HTTP_PROXY }}
+
     steps:
     - uses: actions/checkout@v3
+    
+    - name: What's my IP?
+      run: curl 'https://api64.ipify.org?format=json'
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@master
