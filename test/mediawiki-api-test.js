@@ -54,6 +54,16 @@ describe( 'MediaWiki API', () => {
 			done();
 		} );
 	}, 5000 );
+
+	it( 'getArticleProperties() returns article properties', ( done ) => {
+		client.getArticleProperties( TEST_ARTICLE, ( err, props ) => {
+			expect( err ).toBeNull();
+			expect( props.wikibase_item ).toEqual( 'Q937' );
+			expect( props[ 'wikibase-shortdesc' ] ).toContain( 'scientist' );
+
+			done();
+		} );
+	}, 5000 );
 } );
 
 // FIXME: use a proxy when running on CI
