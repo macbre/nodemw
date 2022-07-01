@@ -38,7 +38,7 @@
 		"typescript": "^4.7.4"
 	},
 	"scripts": {
-		"test": "vows --spec && eslint .",
+		"test": "jest",
 		"lint": "eslint --cache .",
 		"lint:fix": "eslint --fix .",
 		"check-dts": "npx check-dts lib/*.d.ts"

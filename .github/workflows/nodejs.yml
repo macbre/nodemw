@@ -33,5 +33,7 @@ jobs:
       run: npm ci
     - name: Run the tests
       run: npm test
+    - name: Lint the code
+      run: npm run lint
     - name: Check types definition
       run: npm run check-dts
