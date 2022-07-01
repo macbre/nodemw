@@ -30,13 +30,14 @@ describe( 'fetchUrl', () => {
 
 	it( 'handles JSON responses', ( done ) => {
 		client.fetchUrl( 'https://api.ipify.org/?format=json', ( err, res ) => {
-			const parsed = JSON.parse(res); console.log('ipify.org response: %j', parsed);
+			const parsed = JSON.parse( res );
+			console.log( 'ipify.org response: %j', parsed );
 
 			expect( err ).toBeNull();
 			expect( parsed.ip ).toMatch( /^\d+\./ );
 
 			done();
-		});
+		} );
 	} );
 
 	it( 'handles 404 errors properly', ( done ) => {
