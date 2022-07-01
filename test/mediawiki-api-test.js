@@ -1,186 +1,97 @@
 'use strict';
 
-let vows = require( 'vows' ),
-	assert = require( 'assert' ),
-	Bot = require( '..' ),
-	client = new Bot( {
+const { describe, it, expect } = require( '@jest/globals' );
+const Bot = require( '..' );
+
+describe( 'MediaWiki API', () => {
+	const client = new Bot( {
 		server: 'en.wikipedia.org',
+		path: '/w',
+		userAgent: 'nodemw/tests'
+	} );
+	const TEST_ARTICLE = 'Albert Einstein';
+	const TEST_ARTICLE_REDIRECT = 'Einstein';
+
+	it( 'siteinfo()', ( done ) => {
+		client.getSiteInfo( [ 'general' ], ( err, info ) => {
+			expect( err ).toBeNull();
+			expect( info.general ).toBeDefined();
+			expect( info.general.lang ).toEqual( 'en' );
+			done();
+		} );
+	}, 5000 );
+
+	it( 'getArticle()', ( done ) => {
+		client.getArticle( TEST_ARTICLE, ( err, article ) => {
+			expect( err ).toBeNull();
+			expect( article ).toContain( "''Albert Einstein''" );
+
+			done();
+		} );
+	}, 5000 );
+
+	it( 'getArticle() handles a redirects', ( done ) => {
+		client.getArticle( TEST_ARTICLE_REDIRECT, ( err, article, redirectInfo ) => {
+			expect( err ).toBeNull();
+			expect( redirectInfo ).toBeUndefined();
+			expect( article ).toContain( '#REDIRECT [[Albert Einstein]]' );
+
+			done();
+		} );
+	}, 5000 );
+
+	it( 'getArticle() follows a redirects', ( done ) => {
+		const followRedirects = true;
+
+		client.getArticle( TEST_ARTICLE_REDIRECT, followRedirects, ( err, article, redirectInfo ) => {
+			expect( err ).toBeNull();
+			expect( redirectInfo ).toStrictEqual( {
+				from: 'Einstein',
+				to: 'Albert Einstein'
+			} );
+			expect( article ).toContain( "''Albert Einstein''" );
+
+			done();
+		} );
+	}, 5000 );
+} );
+
+describe( 'Bot on test.wikipedia.org', () => {
+	const client = new Bot( {
+		protocol: 'https',
+		server: 'test.wikipedia.org',
 		path: '/w'
-	} ),
-	ARTICLE = 'Albert Einstein';
+	} );
 
-vows.describe( 'Mediawiki API' ).addBatch( {
-	'client.api.call()': {
-		topic: function () {
-			// http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json
-			let params = {
-				action: 'query',
-				meta: 'siteinfo',
-				siprop: 'namespaces'
-			};
+	const TEST_ARTICLE = 'NodeMW client';
+	const TEST_CONTENT = `Test Content ${Math.random().toFixed( 5 ).slice( 2 )} --~~~~`;
 
-			client.api.call( params, this.callback );
-		},
-		'correct arguments are passed to callback': function ( e, info /* processed query result */, next, data /* raw data */ ) {
-			assert.isObject( info );
-			assert.isUndefined( next ); // no more pages
-			assert.isObject( data );
-		},
-		'valid processed data is passed to callback': function ( e, info /* processed query result */ ) {
-			// processed data
-			assert.isObject( info.namespaces );
-			assert.isObject( info.namespaces[ 0 ] );
-		},
-		'valid raw data is passed to callback': function ( e, info /* processed query result */, next, data /* raw data */ ) {
-			// raw data
-			assert.isObject( data.query );
-			assert.isObject( data.query.namespaces );
-			assert.isObject( data.query.namespaces[ 0 ] );
-		}
-	},
-	'client,api.call() fails': {
-		topic: function () {
-			// http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json
-			let params = {
-				action: 'foo'
-			};
+	let lastRevisionId;
 
-			// we need to push the "real" error one position to the right
-			// to satisfy vows
-			client.api.call( params, function ( err ) {
-				this.callback( null, err );
-			}.bind( this ) );
-		},
-		'raise an error': function ( _fake, err ) {
-			assert.isTrue( err !== null );
-		}
-	},
-	'getArticle()': {
-		topic: function () {
-			client.getArticle( ARTICLE, this.callback );
-		},
-		'string is passed to callback': function ( e, res ) {
-			assert.isString( res );
-		},
-		'valid content is passed to callback': function ( e, res ) {
-			assert.isTrue( res.includes( '\'\'\'Albert Einstein\'\'\'' ) );
-		}
-	},
-	'getArticle() with a redirect': {
-		topic: function () {
-			client.getArticle( 'Einstein', true, this.callback );
-		},
-		'string is passed to callback': function ( e, res ) {
-			assert.isString( res );
-		},
-		'valid content is passed to callback': function ( e, res ) {
-			assert.isTrue( res.includes( '\'\'\'Albert Einstein\'\'\'' ) );
-		},
-		'redirect info is passed to callback': function ( e, res, redirectInfo ) {
-			assert.isObject( redirectInfo );
-			assert.isString( redirectInfo.to );
-			assert.isString( redirectInfo.from );
+	it( 'can make edits to <https://test.wikipedia.org/wiki/NodeMW_client>', ( done ) => {
+		client.edit( TEST_ARTICLE, TEST_CONTENT, 'Testing nodemw client', ( err, res ) => {
+			expect( err ).toBeNull();
+			expect( res.title ).toEqual( TEST_ARTICLE );
 
-			assert.equal( redirectInfo.to, 'Albert Einstein' );
-			assert.equal( redirectInfo.from, 'Einstein' );
-		}
-	},
-	'getArticleInfo()': {
-		topic: function () {
-			client.getArticleInfo( ARTICLE, this.callback );
-		},
-		'valid content is passed to callback': function ( e, res ) {
-			assert.isArray( res );
-			assert.isTrue( res.length === 1 );
+			lastRevisionId = res.newrevid;
 
-			const data = res[ 0 ];
-			assert.isNumber( data.pageid );
-			assert.isString( data.title );
-			assert.isArray( data.protection );
-			assert.isTrue( data.title.includes( 'Albert Einstein' ) );
-		}
-	},
-	'getImagesFromArticle()': {
-		topic: function () {
-			client.getImagesFromArticle( ARTICLE, this.callback );
-		},
-		'array is passed to callback': function ( e, res ) {
-			assert.isArray( res );
-		},
-		'valid list of images is passed to callback': function ( e, res ) {
-			let firstItem = res[ 0 ];
+			done();
+		} );
+	}, 5000 );
 
-			assert.isTrue( firstItem.ns === 6 );
-			assert.isTrue( firstItem.title.startsWith( 'File:' ) );
-		}
-	},
-	'getImagesFromArticleWithOptions()': {
-		topic: function () {
-			client.getImagesFromArticleWithOptions( ARTICLE, { imlimit: 11 }, this.callback );
-		},
-		'array with certain length is passed to callback': function ( e, res ) {
-			assert.isArray( res );
-			assert.isTrue( res.length === 11 );
-		},
-		'valid list of images is passed to callback': function ( e, res ) {
-			let firstItem = res[ 0 ];
+	it( 'verify that the edit has been made', ( done ) => {
+		client.getArticleInfo( TEST_ARTICLE, {}, ( err, pages ) => {
+			const res = pages[ 0 ];
+			expect( err ).toBeNull();
+			expect( res.title ).toEqual( TEST_ARTICLE );
+			expect( res.varianttitles.en ).toEqual( TEST_ARTICLE );
+			expect( res.contentmodel ).toEqual( 'wikitext' );
+			expect( res.lastrevid ).toEqual( lastRevisionId );
 
-			assert.isTrue( firstItem.ns === 6 );
-			assert.isTrue( firstItem.title.startsWith( 'File:' ) );
-		}
-	},
-	'getExternalLinks()': {
-		topic: function () {
-			client.getExternalLinks( ARTICLE, this.callback );
-		},
-		'array is passed to callback': function ( e, res ) {
-			assert.isArray( res );
-		},
-		'valid list of external links is passed to callback': function ( e, res ) {
-			let firstItem = res[ 0 ];
+			// const { dumpObjectTypes } = require('../lib/utils');
+			// dumpObjectTypes('ArticleInfo', res);
 
-			assert.isString( firstItem[ '*' ] );
-		}
-	},
-	'search()': {
-		topic: function () {
-			client.search( ARTICLE, this.callback );
-		},
-		'array is passed to callback': function ( e, res ) {
-			assert.isArray( res );
-		},
-		'the required item is in th results': function ( e, res ) {
-			let firstItem = res[ 0 ];
-
-			assert.isTrue( firstItem.ns === 0 );
-			assert.isTrue( firstItem.title.includes( 'Albert Einstein' ) );
-		}
-	},
-	'protect()': {
-		'Command cannot run in dry-run mode.': {
-			topic: function () {
-				client.dryRun = true;
-				client.protect(
-					ARTICLE,
-					[ { type: 'edit', level: 'sysop' } ],
-					this.callback
-				);
-			},
-			'Command not available in dry-run mode': function ( e, res ) {
-				assert.isTrue( res !== null );
-			}
-		},
-		'When no action type is provided, no error is thrown': {
-			topic: function () {
-				client.protect(
-					ARTICLE,
-					[ { level: 'all' } ],
-					this.callback
-				);
-			},
-			'Missing action throws an Error': function ( e, res ) {
-				assert.isTrue( res !== null );
-			}
-		}
-	}
-} ).export( module );
+			done();
+		} );
+	} );
+} );

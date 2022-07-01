@@ -9,5 +9,5 @@ module.exports = {
 	coverageThreshold: {
 		lines: 80
 	},
-	testTimeout: 1000 // one sec
+	testTimeout: 2000 // one sec
 };

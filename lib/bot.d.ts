@@ -5,10 +5,16 @@
  * @see https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html
  */
 import {
+	// code API types
     BotOptions,
     NodeJSCallback,
+	NodeJSCallbackDouble,
+
+	// responses typing
+	ArticleInfo,
     PageEditedResult,
     PageInCategory,
+	RedirectInfo,
     SiteInfo,
     SiteStatistics,
     UserInfo,
@@ -33,9 +39,10 @@ declare class Bot {
 
     append( title: string, content: string, summary: string, callback: NodeJSCallback<PageEditedResult> ): void;
     doEdit( action: string, title: string, summary: string, params: Object, callback: NodeJSCallback<PageEditedResult> ): void;
-    edit( title: string, content: string, summary: string, minor: NodeJSCallback<PageEditedResult> ): void;
+    edit( title: string, content: string, summary: string, callback: NodeJSCallback<PageEditedResult> ): void;
     edit( title: string, content: string, summary: string, minor: boolean, callback: NodeJSCallback<PageEditedResult> ): void;
     getArticle( article: string, callback: NodeJSCallback<string> ): void;
+	getArticle( article: string, followRedirect: boolean, callback: NodeJSCallbackDouble<string, RedirectInfo> ): void;
     getMediaWikiVersion( callback: NodeJSCallback<string> ): void;
     getPagesInCategory( category: string, callback: NodeJSCallback<PageInCategory[]>): void;
     logIn( callback: NodeJSCallback<any>): void;
@@ -53,7 +60,7 @@ declare class Bot {
 	getAll( params: any, key: any, callback: NodeJSCallback<any> ) : void;
 	getAllPages( callback: NodeJSCallback<any> ) : void;
 	getArticleCategories( title: any, callback: NodeJSCallback<any> ) : void;
-	getArticleInfo( title: any, options: any, callback: NodeJSCallback<any> ) : void;
+	getArticleInfo( title: any, options: any, callback: NodeJSCallback<ArticleInfo[]> ) : void;
 	getArticleRevisions( title: any, callback: NodeJSCallback<any> ) : void;
 	getBacklinks( title: any, callback: NodeJSCallback<any> ) : void;
 	getCategories( prefix: any, callback: NodeJSCallback<any> ) : void;
