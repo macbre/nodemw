@@ -28,6 +28,17 @@ describe( 'fetchUrl', () => {
 		}, 'binary' );
 	} );
 
+	it( 'handles JSON responses', ( done ) => {
+		client.fetchUrl( 'https://api.ipify.org/?format=json', ( err, res ) => {
+			const parsed = JSON.parse(res); console.log('ipify.org response: %j', parsed);
+
+			expect( err ).toBeNull();
+			expect( parsed.ip ).toMatch( /^\d+\./ );
+
+			done();
+		});
+	} );
+
 	it( 'handles 404 errors properly', ( done ) => {
 		client.fetchUrl( 'https://google.com/404', ( err, res ) => {
 			expect( res ).toContain( '<title>Error 404' );

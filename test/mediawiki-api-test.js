@@ -100,5 +100,5 @@ describe( 'Bot on test.wikipedia.org', () => {
 
 			done();
 		} );
-	} );
+	}, 5000 );
 } );
