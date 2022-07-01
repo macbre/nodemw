@@ -8,5 +8,6 @@ module.exports = {
 	reporters: [ 'default', 'github-actions' /* https://jestjs.io/blog/2022/04/25/jest-28#github-actions-reporter */],
 	coverageThreshold: {
 		lines: 80
-	}
+	},
+	testTimeout: 1000 // one sec
 };
