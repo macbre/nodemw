@@ -1,46 +1,47 @@
 {
-	"name": "nodemw",
-	"version": "0.18.0",
-	"author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
-	"description": "MediaWiki API client written in node.js",
-	"main": "./lib/bot.js",
-	"types": "./lib/bot.d.ts",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/macbre/nodemw.git"
-	},
-	"keywords": [
-		"mediawiki",
-		"wiki",
-		"api",
-		"nodejs",
-		"wikia",
-		"fandom"
-	],
-	"license": "BSD",
-	"engines": {
-		"node": ">=14.0"
-	},
-	"dependencies": {
-		"ansicolors": "0.3.x",
-		"async": "^3.2.0",
-		"diff": "^5.0.0",
-		"node-version-compare": "^1.0.1",
-		"request": "^2.88.0",
-		"underscore": "^1.9.1",
-		"winston": "^3.3.3"
-	},
-	"devDependencies": {
-		"check-dts": "^0.6.7",
-		"csv-string": "^4.0.1",
-		"eslint-config-wikimedia": "^0.22.1",
-		"jest": "^28.1.2",
-		"typescript": "^4.7.4"
-	},
-	"scripts": {
-		"test": "jest",
-		"lint": "eslint --cache .",
-		"lint:fix": "eslint --fix .",
-		"check-dts": "npx check-dts lib/*.d.ts"
-	}
+  "name": "nodemw",
+  "version": "0.18.0",
+  "author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
+  "description": "MediaWiki API client written in node.js",
+  "main": "./lib/bot.js",
+  "types": "./lib/bot.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/macbre/nodemw.git"
+  },
+  "keywords": [
+    "mediawiki",
+    "wiki",
+    "api",
+    "nodejs",
+    "wikia",
+    "fandom"
+  ],
+  "license": "BSD",
+  "engines": {
+    "node": ">=14.0"
+  },
+  "dependencies": {
+    "ansicolors": "0.3.x",
+    "async": "^3.2.0",
+    "diff": "^5.0.0",
+    "node-version-compare": "^1.0.1",
+    "request": "^2.88.0",
+    "underscore": "^1.9.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "check-dts": "^0.6.7",
+    "csv-string": "^4.0.1",
+    "eslint-config-wikimedia": "^0.22.1",
+    "jest": "^28.1.2",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint --fix .",
+    "check-dts": "npx check-dts lib/*.d.ts",
+    "prettier": "npx prettier --write ."
+  }
 }
