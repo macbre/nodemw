@@ -18,6 +18,7 @@ import {
 	RedirectInfo,
     SiteInfo,
     SiteStatistics,
+	UserContribution,
     UserInfo,
     WikiaUserInfo,
     WikiaWikiVariables,
@@ -47,6 +48,7 @@ declare class Bot {
 	getArticleProperties(title: string, callback: NodeJSCallback<ArticleProperties>): void;
     getMediaWikiVersion( callback: NodeJSCallback<string> ): void;
     getPagesInCategory( category: string, callback: NodeJSCallback<PageInCategory[]>): void;
+	getUserContribs( options: {user: string}, callback: NodeJSCallback<UserContribution[]> ) : void;
     logIn( callback: NodeJSCallback<any>): void;
     logIn( username: string, password: string, callback: NodeJSCallback<any>): void;
     prepend( title: string, content: string, summary: string, callback: NodeJSCallback<PageEditedResult> ): void;
@@ -83,7 +85,6 @@ declare class Bot {
 	getSiteStats( callback: NodeJSCallback<SiteStatistics> ) : void;
 	getTemplateParamFromXml( tmplXml: any, paramName: any ) : void;
 	getToken( title: any, action: any, callback: NodeJSCallback<any> ) : void;
-	getUserContribs( options: any, callback: NodeJSCallback<any> ) : void;
 	getUsers( data: any, callback: NodeJSCallback<any> ) : void;
 	move( from: any, to: any, summary: any, callback: NodeJSCallback<any> ) : void;
 	parse( text: any, title: any, callback: NodeJSCallback<any> ) : void;

@@ -188,3 +188,17 @@ export interface ArticleProperties {
 	'wikibase-shortdesc': string;
 	wikibase_item: string;
 }
+
+export interface UserContribution {
+	userid: number;
+	user: string;
+	pageid: number;
+	revid: number;
+	parentid: number;
+	ns: number;
+	title: string;
+	timestamp: string;
+	top: string;
+	comment: string;
+	size: number;
+}

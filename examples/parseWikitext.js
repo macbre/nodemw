@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Example script that parser given wikitext
+ * Example script that parses given wikitext
  */
 'use strict';
 
