@@ -46,6 +46,7 @@ declare class Bot {
     edit( title: string, content: string, summary: string, minor: boolean, callback: NodeJSCallback<PageEditedResult> ): void;
     getArticle( article: string, callback: NodeJSCallback<string> ): void;
 	getArticle( article: string, followRedirect: boolean, callback: NodeJSCallbackDouble<string, RedirectInfo> ): void;
+	getArticleInfo( title: any, options: any, callback: NodeJSCallback<ArticleInfo[]> ) : void;
 	getArticleProperties(title: string, callback: NodeJSCallback<ArticleProperties>): void;
     getMediaWikiVersion( callback: NodeJSCallback<string> ): void;
     getPagesInCategory( category: string, callback: NodeJSCallback<PageInCategory[]>): void;
@@ -68,7 +69,6 @@ declare class Bot {
 	getAll( params: any, key: any, callback: NodeJSCallback<any> ) : void;
 	getAllPages( callback: NodeJSCallback<any> ) : void;
 	getArticleCategories( title: any, callback: NodeJSCallback<any> ) : void;
-	getArticleInfo( title: any, options: any, callback: NodeJSCallback<ArticleInfo[]> ) : void;
 	getArticleRevisions( title: any, callback: NodeJSCallback<any> ) : void;
 	getBacklinks( title: any, callback: NodeJSCallback<any> ) : void;
 	getCategories( prefix: any, callback: NodeJSCallback<any> ) : void;
