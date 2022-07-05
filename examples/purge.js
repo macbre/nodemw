@@ -4,44 +4,44 @@
  *
  * @see http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui
  */
-'use strict';
+"use strict";
 
-const Bot = require( '..' ),
-	client = new Bot( {
-		server: 'poznan.wikia.com',
-		path: '',
-		debug: true
-	} );
+const Bot = require(".."),
+  client = new Bot({
+    server: "poznan.wikia.com",
+    path: "",
+    debug: true,
+  });
 
-client.purge( [ 'Pomnik_Bamberki', 'Ratusz' ], function ( err, data ) {
-	if ( err ) {
-		client.log( err );
-	}
-	console.log( data );
-} );
+client.purge(["Pomnik_Bamberki", "Ratusz"], function (err, data) {
+  if (err) {
+    client.log(err);
+  }
+  console.log(data);
+});
 
 // purge all articles in a given category (note a "Category:" prefix)
-client.purge( 'Category:Ratusz', function ( err, data ) {
-	if ( err ) {
-		client.log( err );
-	}
-	console.log( data );
-} );
+client.purge("Category:Ratusz", function (err, data) {
+  if (err) {
+    client.log(err);
+  }
+  console.log(data);
+});
 
 // purge all articles in a given category the old way (before MW 1.21)
-client.getPagesInCategory( 'Ratusz', function ( err, pages ) {
-	if ( err ) {
-		return;
-	}
+client.getPagesInCategory("Ratusz", function (err, pages) {
+  if (err) {
+    return;
+  }
 
-	const pageIds = pages
-		.filter( ( page ) => page.ns === 0 )
-		.map( ( page ) => page.pageid );
+  const pageIds = pages
+    .filter((page) => page.ns === 0)
+    .map((page) => page.pageid);
 
-	client.purge( pageIds, function ( _err, data ) {
-		if ( _err ) {
-			client.log( _err );
-		}
-		console.log( data );
-	} );
-} );
+  client.purge(pageIds, function (_err, data) {
+    if (_err) {
+      client.log(_err);
+    }
+    console.log(data);
+  });
+});

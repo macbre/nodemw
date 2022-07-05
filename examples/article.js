@@ -2,23 +2,23 @@
 /**
  * Example script getting MW version
  */
-'use strict';
+"use strict";
 
-const Bot = require( '..' );
+const Bot = require("..");
 
-const wikipedia = new Bot( {
-	protocol: 'https',
-	server: 'pl.wikipedia.org',
-	path: '/w',
-	debug: true
-} );
+const wikipedia = new Bot({
+  protocol: "https",
+  server: "pl.wikipedia.org",
+  path: "/w",
+  debug: true,
+});
 
-wikipedia.getArticleRevisions( 'Tórshavna', ( err, data ) => {
-	if ( err ) {
-		wikipedia.log( 'An error occured!' );
-		wikipedia.log( err );
-		return;
-	}
+wikipedia.getArticleRevisions("Tórshavna", (err, data) => {
+  if (err) {
+    wikipedia.log("An error occured!");
+    wikipedia.log(err);
+    return;
+  }
 
-	wikipedia.log( 'Article metadata:', data );
-} );
+  wikipedia.log("Article metadata:", data);
+});
