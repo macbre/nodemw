@@ -1,5 +1,5 @@
-nodemw
-======
+# nodemw
+
 ![Node.js CI](https://github.com/macbre/nodemw/workflows/Node.js%20CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/macbre/nodemw/badge.svg?branch=devel)](https://coveralls.io/github/macbre/nodemw?branch=devel)
 
@@ -9,13 +9,13 @@ nodemw
 
 ## Requirements
 
-* Node.js 14+
+- Node.js 14+
 
 ## Installation
 
 ### Using npm
 
-``` bash
+```bash
 npm install nodemw
 ```
 
@@ -23,28 +23,28 @@ Or [Download the latest stable version](https://github.com/macbre/nodemw/release
 
 ### Development version
 
-``` bash
+```bash
 git clone https://github.com/macbre/nodemw.git
 ```
 
 ## Features
 
-* HTTP requests are stored in the queue and performed in parallel with limited number of "threads" (i.e. there's no risk of flooding the server)
-* articles creation / edit / move / delete
-* file uploads (using given content or via provided URL)
-* Special:Log processing
-* listing articles in categories
-* and much more
+- HTTP requests are stored in the queue and performed in parallel with limited number of "threads" (i.e. there's no risk of flooding the server)
+- articles creation / edit / move / delete
+- file uploads (using given content or via provided URL)
+- Special:Log processing
+- listing articles in categories
+- and much more
 
 ## Where it's used
 
-* Over 10k edits on [Poznań Wiki](http://poznan.wikia.com) as [Pyrabot](http://poznan.wikia.com/wiki/Specjalna:Wkład/Pyrabot) - [scripts repository](https://github.com/macbre/pyrabot)
+- Over 10k edits on [Poznań Wiki](http://poznan.wikia.com) as [Pyrabot](http://poznan.wikia.com/wiki/Specjalna:Wkład/Pyrabot) - [scripts repository](https://github.com/macbre/pyrabot)
 
 ## First script
 
 An example script can be found in `/examples` directory.
 
-``` bash
+```bash
 cd examples
 node pagesInCategory.js
 ```
@@ -71,40 +71,40 @@ npm test
 
 ### Creating a bot instance
 
-``` js
-  var bot = require('nodemw');
+```js
+var bot = require("nodemw");
 
-  // pass configuration object
-  var client = new bot({
-    protocol: 'https',           // Wikipedia now enforces HTTPS
-    server: 'en.wikipedia.org',  // host name of MediaWiki-powered site
-    path: '/w',                  // path to api.php script
-    debug: false                 // is more verbose when set to true
-  });
+// pass configuration object
+var client = new bot({
+  protocol: "https", // Wikipedia now enforces HTTPS
+  server: "en.wikipedia.org", // host name of MediaWiki-powered site
+  path: "/w", // path to api.php script
+  debug: false, // is more verbose when set to true
+});
 
-  client.getArticle('foo', function(err, data) {
-    // error handling
-    if (err) {
-      console.error(err);
-      return;
-    }
+client.getArticle("foo", function (err, data) {
+  // error handling
+  if (err) {
+    console.error(err);
+    return;
+  }
 
-    // ...
-  });
+  // ...
+});
 ```
 
 #### Config file
 
-nodemw can use config files as well as objects directly provided to ``bot`` object constructor.
+nodemw can use config files as well as objects directly provided to `bot` object constructor.
 
-``` js
- // read config from external file
- var client = new bot('config.js');
+```js
+// read config from external file
+var client = new bot("config.js");
 ```
 
-Config file is a JSON-encoded object with the following fields (see ``/examples/config-DIST.js`` file):
+Config file is a JSON-encoded object with the following fields (see `/examples/config-DIST.js` file):
 
-``` js
+```js
 {
       "protocol": "https",  // default to 'http'
       "server": "en.wikipedia.org",  // host name of MediaWiki-powered site
@@ -117,31 +117,41 @@ Config file is a JSON-encoded object with the following fields (see ``/examples/
       "concurrency": 5               // how many API requests can be run in parallel (defaults to 3)
 }
 ```
+
 ## Making direct API calls
 
 nodemw allows you make direct calls to MediaWiki API ([example querying Semantic MediaWiki API](https://github.com/macbre/nodemw/blob/master/examples/smw.js)):
 
-``` js
-var bot = require('nodemw'),
+```js
+var bot = require("nodemw"),
   client = new bot({
-		server: 'semantic-mediawiki.org',
-		path: '/w'
-	}),
-	params = {
-		action: 'ask',
-		query: '[[Modification date::+]]|?Modification date|sort=Modification date|order=desc'
-	};
+    server: "semantic-mediawiki.org",
+    path: "/w",
+  }),
+  params = {
+    action: "ask",
+    query:
+      "[[Modification date::+]]|?Modification date|sort=Modification date|order=desc",
+  };
 
-client.api.call(params /* api.php parameters */, function(err /* Error instance or null */, info /* processed query result */, next /* more results? */, data /* raw data */) {
-	console.log(data && data.query && data.query.results);
-});
+client.api.call(
+  params /* api.php parameters */,
+  function (
+    err /* Error instance or null */,
+    info /* processed query result */,
+    next /* more results? */,
+    data /* raw data */
+  ) {
+    console.log(data && data.query && data.query.results);
+  }
+);
 ```
 
 ## Bot methods
 
 The last parameter of each function in nodemw API is a callback which will be fired when the requested action is done.
 
-**Callbacks use node.js style** - ``err`` is always passed as the first argument.
+**Callbacks use node.js style** - `err` is always passed as the first argument.
 
 ### bot.logIn(username, password, callback)
 
@@ -189,7 +199,7 @@ Gets all info of a given article - [read more](https://www.mediawiki.org/wiki/AP
 
 ### bot.edit(title, content, summary, minor, callback)
 
-Creates / edits an article (and mark the edit as minor if *minor* is set to true) - [read more](http://www.mediawiki.org/wiki/API:Edit)
+Creates / edits an article (and mark the edit as minor if _minor_ is set to true) - [read more](http://www.mediawiki.org/wiki/API:Edit)
 
 ### bot.append(title, content, summary, callback)
 
@@ -235,7 +245,7 @@ Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
 
 ### bot.getToken(title, action, callback)
 
-Returns token required for a number of MediaWiki API operations - [read more](https://www.mediawiki.org/wiki/API:Tokens_(action)) / [for MW 1.24+](https://www.mediawiki.org/wiki/API:Tokens)
+Returns token required for a number of MediaWiki API operations - [read more](<https://www.mediawiki.org/wiki/API:Tokens_(action)>) / [for MW 1.24+](https://www.mediawiki.org/wiki/API:Tokens)
 
 ### bot.whoami(callback)
 
@@ -341,7 +351,7 @@ Performs a search
 
 ### bot.getConfig(key, def)
 
-Gets config entry value (returns ``def`` value if not found)
+Gets config entry value (returns `def` value if not found)
 
 ### bot.setConfig(key, val)
 

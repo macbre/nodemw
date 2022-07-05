@@ -1,11 +1,7 @@
 {
-	"extends": [
-		"wikimedia",
-		"wikimedia/node",
-		"wikimedia/language/es2016"
-	],
-	"rules": {
-		"prefer-const": "off",
-		"no-console": "off"
-	}
+  "extends": ["wikimedia", "wikimedia/node", "wikimedia/language/es2016"],
+  "rules": {
+    "prefer-const": "off",
+    "no-console": "off"
+  }
 }

@@ -3,17 +3,17 @@
  *
  * @see https://www.mediawiki.org/wiki/API:Account_creation
  */
-'use strict';
+"use strict";
 
-const Bot = require( '..' ),
-	client = new Bot( 'config.js' );
+const Bot = require(".."),
+  client = new Bot("config.js");
 
 // create account
-client.createAccount( 'user123', 'password123', function ( err, userData ) {
-	if ( err ) {
-		console.log( err );
-		return;
-	}
+client.createAccount("user123", "password123", function (err, userData) {
+  if (err) {
+    console.log(err);
+    return;
+  }
 
-	console.log( JSON.stringify( userData, null, '\t' ) );
-} );
+  console.log(JSON.stringify(userData, null, "\t"));
+});

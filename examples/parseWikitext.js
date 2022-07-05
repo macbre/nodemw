@@ -2,27 +2,22 @@
 /**
  * Example script that parses given wikitext
  */
-'use strict';
+"use strict";
 
-const Bot = require( '..' ),
-	client = new Bot( {
-		server: 'en.wikipedia.org',
-		path: '/w',
-		debug: true
-	} ),
-	wikitext = [
-		'== Foo ==',
-		'123 456',
-		'* abc',
-		'* {{SITENAME}}'
-	].join( '\n' );
+const Bot = require(".."),
+  client = new Bot({
+    server: "en.wikipedia.org",
+    path: "/w",
+    debug: true,
+  }),
+  wikitext = ["== Foo ==", "123 456", "* abc", "* {{SITENAME}}"].join("\n");
 
-client.parse( wikitext, 'Foo', function ( err, html, images ) {
-	if ( err ) {
-		console.error( err );
-		return;
-	}
+client.parse(wikitext, "Foo", function (err, html, images) {
+  if (err) {
+    console.error(err);
+    return;
+  }
 
-	client.log( 'HTML', html );
-	client.log( 'Images', images );
-} );
+  client.log("HTML", html);
+  client.log("Images", images);
+});
