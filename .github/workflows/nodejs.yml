@@ -32,6 +32,12 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: Lint the code
+      run: npm run lint
+
+    - name: Run prettier
+      run: npx prettier --check .
+
     - name: Run the tests
       run: npm test
 
@@ -43,12 +49,6 @@ jobs:
       continue-on-error: true
       with:
         github-token: ${{ github.token }}
-
-    - name: Lint the code
-      run: npm run lint
-
-    - name: Run prettier
-      run: npx prettier --check .
 
     - name: Check types definition
       run: npm run check-dts
