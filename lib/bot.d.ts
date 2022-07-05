@@ -49,6 +49,8 @@ declare class Bot {
 	getArticleProperties(title: string, callback: NodeJSCallback<ArticleProperties>): void;
     getMediaWikiVersion( callback: NodeJSCallback<string> ): void;
     getPagesInCategory( category: string, callback: NodeJSCallback<PageInCategory[]>): void;
+	getSiteInfo( props: string[], callback: NodeJSCallback<SiteInfo> ) : void;
+	getSiteStats( callback: NodeJSCallback<SiteStatistics> ) : void;
 	getUserContribs( options: {user: string}, callback: NodeJSCallback<UserContribution[]> ) : void;
     logIn( callback: NodeJSCallback<any>): void;
     logIn( username: string, password: string, callback: NodeJSCallback<any>): void;
@@ -83,8 +85,6 @@ declare class Bot {
 	getQueryPage( queryPage: any, callback: NodeJSCallback<any> ) : void;
 	getRand() : void;
 	getRecentChanges( start: any, callback: NodeJSCallback<any> ) : void;
-	getSiteInfo( props: string[], callback: NodeJSCallback<SiteInfo> ) : void;
-	getSiteStats( callback: NodeJSCallback<SiteStatistics> ) : void;
 	getTemplateParamFromXml( tmplXml: any, paramName: any ) : void;
 	getToken( title: any, action: any, callback: NodeJSCallback<any> ) : void;
 	getUsers( data: any, callback: NodeJSCallback<any> ) : void;
