@@ -52,3 +52,6 @@ jobs:
 
     - name: Check types definition
       run: npm run check-dts
+
+    - name: Check dependencies
+      run: npx depcheck
