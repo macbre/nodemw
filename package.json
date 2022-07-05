@@ -33,6 +33,7 @@
   "devDependencies": {
     "check-dts": "^0.6.7",
     "csv-string": "^4.0.1",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-wikimedia": "^0.22.1",
     "jest": "^28.1.2",
     "typescript": "^4.7.4"
