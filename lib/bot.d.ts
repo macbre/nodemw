@@ -16,6 +16,7 @@ import {
     PageEditedResult,
     PageInCategory,
 	RedirectInfo,
+	SearchResult,
     SiteInfo,
     SiteStatistics,
 	UserContribution,
@@ -52,6 +53,7 @@ declare class Bot {
     logIn( callback: NodeJSCallback<any>): void;
     logIn( username: string, password: string, callback: NodeJSCallback<any>): void;
     prepend( title: string, content: string, summary: string, callback: NodeJSCallback<PageEditedResult> ): void;
+	search( keyword: string, callback: NodeJSCallback<SearchResult[]> ) : void;
     whois( username: string, callback: NodeJSCallback<UserInfo> ): void;
 
     // TODO: add proper types for the rest of the methods
@@ -90,7 +92,6 @@ declare class Bot {
 	parse( text: any, title: any, callback: NodeJSCallback<any> ) : void;
 	protect( title: any, protections: any, options: any, callback: NodeJSCallback<any> ) : void;
 	purge( titles: any, callback: NodeJSCallback<any> ) : void;
-	search( keyword: any, callback: NodeJSCallback<any> ) : void;
 	sendEmail( username: any, subject: any, text: any, callback: NodeJSCallback<any> ) : void;
 	setConfig( key: any, val: any ) : void;
 	upload( filename: any, content: any, extraParams: any, callback: NodeJSCallback<any> ) : void;

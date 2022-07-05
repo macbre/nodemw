@@ -202,3 +202,10 @@ export interface UserContribution {
 	comment: string;
 	size: number;
 }
+
+export interface SearchResult {
+	ns: number;
+	title: string;
+	pageid: number;
+	timestamp: string;
+}
