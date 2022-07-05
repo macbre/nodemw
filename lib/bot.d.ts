@@ -16,8 +16,10 @@ import {
     PageEditedResult,
     PageInCategory,
 	RedirectInfo,
+	SearchResult,
     SiteInfo,
     SiteStatistics,
+	UserContribution,
     UserInfo,
     WikiaUserInfo,
     WikiaWikiVariables,
@@ -44,12 +46,17 @@ declare class Bot {
     edit( title: string, content: string, summary: string, minor: boolean, callback: NodeJSCallback<PageEditedResult> ): void;
     getArticle( article: string, callback: NodeJSCallback<string> ): void;
 	getArticle( article: string, followRedirect: boolean, callback: NodeJSCallbackDouble<string, RedirectInfo> ): void;
+	getArticleInfo( title: any, options: any, callback: NodeJSCallback<ArticleInfo[]> ) : void;
 	getArticleProperties(title: string, callback: NodeJSCallback<ArticleProperties>): void;
     getMediaWikiVersion( callback: NodeJSCallback<string> ): void;
     getPagesInCategory( category: string, callback: NodeJSCallback<PageInCategory[]>): void;
+	getSiteInfo( props: string[], callback: NodeJSCallback<SiteInfo> ) : void;
+	getSiteStats( callback: NodeJSCallback<SiteStatistics> ) : void;
+	getUserContribs( options: {user: string}, callback: NodeJSCallback<UserContribution[]> ) : void;
     logIn( callback: NodeJSCallback<any>): void;
     logIn( username: string, password: string, callback: NodeJSCallback<any>): void;
     prepend( title: string, content: string, summary: string, callback: NodeJSCallback<PageEditedResult> ): void;
+	search( keyword: string, callback: NodeJSCallback<SearchResult[]> ) : void;
     whois( username: string, callback: NodeJSCallback<UserInfo> ): void;
 
     // TODO: add proper types for the rest of the methods
@@ -62,7 +69,6 @@ declare class Bot {
 	getAll( params: any, key: any, callback: NodeJSCallback<any> ) : void;
 	getAllPages( callback: NodeJSCallback<any> ) : void;
 	getArticleCategories( title: any, callback: NodeJSCallback<any> ) : void;
-	getArticleInfo( title: any, options: any, callback: NodeJSCallback<ArticleInfo[]> ) : void;
 	getArticleRevisions( title: any, callback: NodeJSCallback<any> ) : void;
 	getBacklinks( title: any, callback: NodeJSCallback<any> ) : void;
 	getCategories( prefix: any, callback: NodeJSCallback<any> ) : void;
@@ -79,17 +85,13 @@ declare class Bot {
 	getQueryPage( queryPage: any, callback: NodeJSCallback<any> ) : void;
 	getRand() : void;
 	getRecentChanges( start: any, callback: NodeJSCallback<any> ) : void;
-	getSiteInfo( props: string[], callback: NodeJSCallback<SiteInfo> ) : void;
-	getSiteStats( callback: NodeJSCallback<SiteStatistics> ) : void;
 	getTemplateParamFromXml( tmplXml: any, paramName: any ) : void;
 	getToken( title: any, action: any, callback: NodeJSCallback<any> ) : void;
-	getUserContribs( options: any, callback: NodeJSCallback<any> ) : void;
 	getUsers( data: any, callback: NodeJSCallback<any> ) : void;
 	move( from: any, to: any, summary: any, callback: NodeJSCallback<any> ) : void;
 	parse( text: any, title: any, callback: NodeJSCallback<any> ) : void;
 	protect( title: any, protections: any, options: any, callback: NodeJSCallback<any> ) : void;
 	purge( titles: any, callback: NodeJSCallback<any> ) : void;
-	search( keyword: any, callback: NodeJSCallback<any> ) : void;
 	sendEmail( username: any, subject: any, text: any, callback: NodeJSCallback<any> ) : void;
 	setConfig( key: any, val: any ) : void;
 	upload( filename: any, content: any, extraParams: any, callback: NodeJSCallback<any> ) : void;
