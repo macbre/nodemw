@@ -375,3 +375,7 @@ Get information (avatar, number of edits) about a given user
 ### bot.wikia.getUsers(userIds, callback)
 
 Get information (avatar, number of edits) about a given set of users (by their IDs)
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/macbre/nodemw.svg)](https://starchart.cc/macbre/nodemw)
