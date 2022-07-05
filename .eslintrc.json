@@ -1,5 +1,10 @@
 {
-  "extends": ["wikimedia", "wikimedia/node", "wikimedia/language/es2016", "prettier"],
+  "extends": [
+    "wikimedia",
+    "wikimedia/node",
+    "wikimedia/language/es2016",
+    "prettier"
+  ],
   "rules": {
     "prefer-const": "off",
     "no-console": "off"
