@@ -31,7 +31,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@jest/globals": "^28.1.2",
+    "@jest/globals": "^29.0.0",
     "check-dts": "^0.6.7",
     "csv-string": "^4.0.1",
     "eslint-config-prettier": "^8.5.0",
