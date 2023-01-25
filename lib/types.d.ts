@@ -220,3 +220,20 @@ export interface ArticleSitelinks {
 export type ArticleSitelinksMap = {
   [wikiname: string]: ArticleSitelinks;
 };
+
+export type ClaimEntry = {
+  mainsnak: {
+    datavalue: {
+      value: any;
+    };
+    datatype: string;
+    snaktype: string;
+  };
+  type: string;
+  id: string;
+  rank: string;
+};
+
+export type ClaimsMap = {
+  [claim: string]: ClaimEntry[];
+};

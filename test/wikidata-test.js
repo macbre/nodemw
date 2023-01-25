@@ -7,6 +7,9 @@ const WikiData = require("../lib/wikidata");
 describe("WikiData API", () => {
   const TEST_ARTICLE = "Albert Einstein";
   const NOT_EXISTING_ARTICLE = "FooBar39786123";
+  const TEST_ENTITY = "Q928875"; // Saksun
+  const NOT_EXISTING_ENTITY = "Q3976321987569386512312";
+
   const client = new WikiData();
 
   describe("getArticleSitelinks()", () => {
@@ -30,5 +33,28 @@ describe("WikiData API", () => {
       const res = await client.getArticleSitelinks(NOT_EXISTING_ARTICLE);
       expect(res).toBeNull();
     }, 5000);
+  });
+
+  describe("getEntityClaims", () => {
+    it(`returns claims for "${TEST_ENTITY}" entity`, async () => {
+      const res = await client.getEntityClaims(TEST_ENTITY);
+
+      expect(Object.keys(res)).toContain("P373");
+      expect(Object.keys(res)).toContain("P17");
+
+      const geo = res.P625;
+
+      expect(geo[0].mainsnak.datavalue.value).toMatchObject({
+        latitude: 62.248888888889,
+        longitude: -7.1758333333333,
+      });
+    });
+
+    it.skip(`rejects for not existing entity`, async () => {
+      // https://jestjs.io/docs/tutorial-async#rejects
+      await expect(
+        await client.getEntityClaims(NOT_EXISTING_ENTITY)
+      ).rejects.toMatch(/Error returned by API/);
+    });
   });
 });
