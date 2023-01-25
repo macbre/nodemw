@@ -57,4 +57,15 @@ describe("WikiData API", () => {
       ).rejects.toMatch(/Error returned by API/);
     });
   });
+
+  describe("getEntityClaim", () => {
+    it(`returns a claim for ${TEST_ENTITY} entity`, async () => {
+      const geo = await client.getEntityClaim(TEST_ENTITY, "P625");
+
+      expect(geo[0].mainsnak.datavalue.value).toMatchObject({
+        latitude: 62.248888888889,
+        longitude: -7.1758333333333,
+      });
+    });
+  });
 });
