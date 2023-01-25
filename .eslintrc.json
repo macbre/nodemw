@@ -1,8 +1,10 @@
 {
+  "env": {
+    "node": true,
+    "es2022": true
+  },
   "extends": [
     "wikimedia",
-    "wikimedia/node",
-    "wikimedia/language/es2016",
     "prettier"
   ],
   "rules": {
