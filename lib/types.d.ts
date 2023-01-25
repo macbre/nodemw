@@ -209,3 +209,14 @@ export interface SearchResult {
   pageid: number;
   timestamp: string;
 }
+
+// WikiData
+export interface ArticleSitelinks {
+  site: string;
+  title: string;
+  badges: string[];
+}
+
+export type ArticleSitelinksMap = {
+  [wikiname: string]: ArticleSitelinks;
+};
