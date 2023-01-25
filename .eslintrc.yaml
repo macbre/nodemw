@@ -1,4 +1,5 @@
 env:
+  # https://eslint.org/docs/latest/use/configure/language-options
   node: true
   es2022: true
 
