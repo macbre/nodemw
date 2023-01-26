@@ -5,7 +5,7 @@ const { describe, it, expect } = require("@jest/globals");
 const WikiData = require("../lib/wikidata");
 
 describe("WikiData API", () => {
-  const TEST_ARTICLE = "Albert Einstein";
+  const TEST_ARTICLE = "Albert Einstein"; // https://www.wikidata.org/wiki/Q937
   const NOT_EXISTING_ARTICLE = "FooBar39786123";
   const TEST_ENTITY = "Q928875"; // Saksun
   const NOT_EXISTING_ENTITY = "Q3976321987569386512312";
@@ -45,6 +45,28 @@ describe("WikiData API", () => {
 
     it(`gives null for not existing article`, async () => {
       const res = await client.getArticleClaims(NOT_EXISTING_ARTICLE);
+      expect(res).toBeNull();
+    }, 5000);
+  });
+
+  describe("getArticleDescriptions", () => {
+    it(`returns descriptions for "${TEST_ARTICLE}" article`, async () => {
+      const res = await client.getArticleDescriptions(TEST_ARTICLE);
+
+      expect(res.en).toEqual({
+        language: "en",
+        value:
+          "German-born theoretical physicist; developer of the theory of relativity (1879–1955)",
+      });
+
+      expect(res.pl).toEqual({
+        language: "pl",
+        value: "fizyk teoretyczny, noblista",
+      });
+    }, 5000);
+
+    it(`gives null for not existing article`, async () => {
+      const res = await client.getArticleDescriptions(NOT_EXISTING_ARTICLE);
       expect(res).toBeNull();
     }, 5000);
   });
