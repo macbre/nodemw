@@ -27,12 +27,12 @@ describe("WikiData API", () => {
           badges: [],
         },
       });
-    }, 5000);
+    });
 
     it(`gives null for not existing article`, async () => {
       const res = await client.getArticleSitelinks(NOT_EXISTING_ARTICLE);
       expect(res).toBeNull();
-    }, 5000);
+    });
   });
 
   describe("getArticleClaims", () => {
@@ -41,12 +41,19 @@ describe("WikiData API", () => {
 
       expect(Object.keys(res)).toContain("P1280");
       expect(Object.keys(res)).toContain("P1412");
-    }, 5000);
+
+      // "+1879-03-14T00:00:00Z"
+      const dateOfBirth = res.P569[0].mainsnak.datavalue.value;
+      expect(dateOfBirth.time).toMatch(/1879-03-14/);
+
+      const dateOfDeath = res.P570[0].mainsnak.datavalue.value;
+      expect(dateOfDeath.time).toMatch(/1955-04-18/);
+    });
 
     it(`gives null for not existing article`, async () => {
       const res = await client.getArticleClaims(NOT_EXISTING_ARTICLE);
       expect(res).toBeNull();
-    }, 5000);
+    });
   });
 
   describe("getArticleDescriptions", () => {
@@ -63,12 +70,12 @@ describe("WikiData API", () => {
         language: "pl",
         value: "fizyk teoretyczny, noblista",
       });
-    }, 5000);
+    });
 
     it(`gives null for not existing article`, async () => {
       const res = await client.getArticleDescriptions(NOT_EXISTING_ARTICLE);
       expect(res).toBeNull();
-    }, 5000);
+    });
   });
 
   describe("getEntityClaims", () => {
