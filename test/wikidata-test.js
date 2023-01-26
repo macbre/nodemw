@@ -41,7 +41,12 @@ describe("WikiData API", () => {
 
       expect(Object.keys(res)).toContain("P1280");
       expect(Object.keys(res)).toContain("P1412");
-    });
+    }, 5000);
+
+    it(`gives null for not existing article`, async () => {
+      const res = await client.getArticleClaims(NOT_EXISTING_ARTICLE);
+      expect(res).toBeNull();
+    }, 5000);
   });
 
   describe("getEntityClaims", () => {
