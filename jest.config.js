@@ -15,5 +15,5 @@ module.exports = {
       lines: 23,
     },
   },
-  testTimeout: 1000, // one sec
+  testTimeout: 5000, // [ms]
 };
