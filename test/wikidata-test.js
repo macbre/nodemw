@@ -35,6 +35,15 @@ describe("WikiData API", () => {
     }, 5000);
   });
 
+  describe("getArticleClaims", () => {
+    it(`returns claims for "${TEST_ARTICLE}" article`, async () => {
+      const res = await client.getArticleClaims(TEST_ARTICLE);
+
+      expect(Object.keys(res)).toContain("P1280");
+      expect(Object.keys(res)).toContain("P1412");
+    });
+  });
+
   describe("getEntityClaims", () => {
     it(`returns claims for "${TEST_ENTITY}" entity`, async () => {
       const res = await client.getEntityClaims(TEST_ENTITY);
