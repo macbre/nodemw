@@ -67,5 +67,10 @@ describe("WikiData API", () => {
         longitude: -7.1758333333333,
       });
     });
+
+    it(`returns null for not existing claim`, async () => {
+      const geo = await client.getEntityClaim(TEST_ENTITY, "P1");
+      expect(geo).toBeNull();
+    });
   });
 });
