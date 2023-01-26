@@ -237,3 +237,10 @@ export type ClaimEntry = {
 export type ClaimsMap = {
   [claim: string]: ClaimEntry[];
 };
+
+export type DescriptionsMap = {
+  [lang: string]: {
+    language: string;
+    value: string;
+  };
+};
