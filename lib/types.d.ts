@@ -209,3 +209,38 @@ export interface SearchResult {
   pageid: number;
   timestamp: string;
 }
+
+// WikiData
+export interface ArticleSitelinks {
+  site: string;
+  title: string;
+  badges: string[];
+}
+
+export type ArticleSitelinksMap = {
+  [wikiname: string]: ArticleSitelinks;
+};
+
+export type ClaimEntry = {
+  mainsnak: {
+    datavalue: {
+      value: any;
+    };
+    datatype: string;
+    snaktype: string;
+  };
+  type: string;
+  id: string;
+  rank: string;
+};
+
+export type ClaimsMap = {
+  [claim: string]: ClaimEntry[];
+};
+
+export type DescriptionsMap = {
+  [lang: string]: {
+    language: string;
+    value: string;
+  };
+};
