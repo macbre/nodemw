@@ -34,6 +34,7 @@ git clone https://github.com/macbre/nodemw.git
 - Special:Log processing
 - listing articles in categories
 - and much more
+- getting claims from [WikiData](https://www.wikidata.org/wiki/Wikidata:Introduction)
 
 ## Where it's used
 
@@ -375,6 +376,46 @@ Get information (avatar, number of edits) about a given user
 ### bot.wikia.getUsers(userIds, callback)
 
 Get information (avatar, number of edits) about a given set of users (by their IDs)
+
+## [WikiData](https://www.wikidata.org/wiki/Wikidata:Introduction)
+
+This API is Promise-based, use `await` keyword.
+
+Examples:
+
+```js
+const wikidata = require("nodemw/lib/wikidata");
+const client = new wikidata();
+
+// Where is Saksun, Faroe Islands located?
+const geo = await client.getEntityClaim(
+  "Q928875" /* Saksun */,
+  "P625" /* place location */
+);
+
+// will give you the geolocation of the place
+expect(geo[0].mainsnak.datavalue.value).toMatchObject({
+  latitude: 62.248888888889,
+  longitude: -7.1758333333333,
+});
+
+// When was Albert Einstein born?
+const res = await client.getArticleClaims("Albert Einstein");
+
+const dateOfBirth = res.P569[0].mainsnak.datavalue.value;
+expect(dateOfBirth.time).toMatch(/1879-03-14/);
+
+const dateOfDeath = res.P570[0].mainsnak.datavalue.value;
+expect(dateOfDeath.time).toMatch(/1955-04-18/);
+
+// interwiki links for a given artlice
+const links = await client.getArticleSitelinks("Albert Einstein");
+console.log(links.enwiki); // {site: "enwiki", title: "Albert Einstein", badges: ["Q17437798"]}
+```
+
+##
+
+##
 
 ## Stargazers over time
 
