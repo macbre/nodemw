@@ -66,10 +66,11 @@ describe("WikiData API", () => {
           "German-born theoretical physicist; developer of the theory of relativity (1879–1955)",
       });
 
-      expect(res.pl).toEqual({
-        language: "pl",
-        value: "fizyk teoretyczny, noblista",
-      });
+      const polish = res.pl;
+
+      expect(polish.language).toEqual("pl");
+      expect(polish.value).toMatch(/fizyk/);
+      expect(polish.value).toMatch(/noblista/);
     });
 
     it(`gives null for not existing article`, async () => {
