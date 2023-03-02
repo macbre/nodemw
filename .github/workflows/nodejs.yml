@@ -14,11 +14,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # https://github.com/nodejs/release#release-schedule
         node-version:
-        - "14.x"
-        - "16.x"
-        - "17.x"
-        - '18.x'
+        - "14.x"  # maintenance
+        - "16.x"  # maintenance
+        - '18.x'  # LTS
+        - '19.x'  # current
 
     steps:
     - uses: actions/checkout@v3
