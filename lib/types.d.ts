@@ -7,6 +7,9 @@ export interface BotOptions {
   userAgent?: string;
   concurrency?: number;
   debug?: boolean;
+  username?: string;
+  password?: string;
+  domain?: string;
 }
 
 // Node.js style callbacks
