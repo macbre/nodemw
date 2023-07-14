@@ -16,6 +16,6 @@ client.logIn(function () {
     "test summary",
     function (userData) {
       console.log(JSON.stringify(userData, null, "\t"));
-    }
+    },
   );
 });

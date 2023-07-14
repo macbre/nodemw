@@ -97,7 +97,7 @@ describe("WikiData API", () => {
     it.skip(`rejects for not existing entity`, async () => {
       // https://jestjs.io/docs/tutorial-async#rejects
       await expect(
-        await client.getEntityClaims(NOT_EXISTING_ENTITY)
+        await client.getEntityClaims(NOT_EXISTING_ENTITY),
       ).rejects.toMatch(/Error returned by API/);
     });
   });

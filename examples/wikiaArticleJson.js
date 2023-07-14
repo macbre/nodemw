@@ -26,7 +26,7 @@ client.wikia.call("/Articles/AsSimpleJson", { id: PAGE_ID }, (err, data) => {
   let excerpt = data.sections
       // get content entries of type "paragraph"
       .map((section) =>
-        section.content.filter((content) => content.type === "paragraph")
+        section.content.filter((content) => content.type === "paragraph"),
       )
       // filter out empty sections
       .filter((section) => section.length > 0)

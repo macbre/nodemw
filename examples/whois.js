@@ -17,7 +17,7 @@ client.whois("Jimbo Wales", function (err, userData) {
   }
 
   console.log(
-    `${userData.name} made ${userData.editcount} edits since registering on ${userData.registration}.`
+    `${userData.name} made ${userData.editcount} edits since registering on ${userData.registration}.`,
   );
 
   // console.log( JSON.stringify( userData, null, '\t' ) );

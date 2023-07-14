@@ -48,7 +48,7 @@ class WikiData {
         claims.set("name", titles[idx]);
 
         this.bot.log(
-          `Found entity for ${titles[idx]}: <https://www.wikidata.org/wiki/${key}>`
+          `Found entity for ${titles[idx]}: <https://www.wikidata.org/wiki/${key}>`,
         );
 
         Object.keys(raw.entities[key].claims).forEach((propertyId) => {
@@ -148,12 +148,12 @@ data.getEntities(
             fd,
             Object.keys(itemStats)
               .map((key) => itemStats[key])
-              .join("\t") + "\n"
+              .join("\t") + "\n",
           );
         });
 
         fs.closeSync(fd);
-      }
+      },
     );
-  }
+  },
 );

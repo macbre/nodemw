@@ -22,10 +22,10 @@ client.append(
       client.log("Sandbox edit failed: " + JSON.stringify(err));
     } else {
       client.log(
-        `Edited "${res.title}" as revision #${res.newrevid} on ${res.newtimestamp}.`
+        `Edited "${res.title}" as revision #${res.newrevid} on ${res.newtimestamp}.`,
       );
 
       // console.log( Object.keys(res).map( key => `${key}: ${typeof res[key]};`).join('\n') );
     }
-  }
+  },
 );

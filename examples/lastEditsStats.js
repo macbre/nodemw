@@ -105,7 +105,7 @@ client.getRecentChanges(false, function (err, data) {
 
   // emit results
   console.log(
-    `Stats for the last ${count} recent changes (from ${from} back to ${to})...`
+    `Stats for the last ${count} recent changes (from ${from} back to ${to})...`,
   );
 
   // console.log('Pages statistcs:');

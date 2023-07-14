@@ -28,7 +28,7 @@ describe("fetchUrl", () => {
 
         done();
       },
-      "binary"
+      "binary",
     );
   });
 

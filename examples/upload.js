@@ -28,7 +28,7 @@ client.logIn((_, res) => {
       (___, editRes) => {
         console.log("File description edited");
         console.log(editRes);
-      }
+      },
     );
   });
 });
