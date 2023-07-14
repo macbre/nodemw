@@ -56,5 +56,5 @@ async.whilst(
     }
 
     client.log("Done");
-  }
+  },
 );

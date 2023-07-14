@@ -23,7 +23,7 @@ client.getSiteInfo(["general", "namespaces", "dbrepllag"], function (_, info) {
 
   // e.g. This site uses PHP v7.3.33 and mysql v8.0.25-15
   console.log(
-    `This site uses PHP v${info.general.phpversion} and ${info.general.dbtype} v${info.general.dbversion}`
+    `This site uses PHP v${info.general.phpversion} and ${info.general.dbtype} v${info.general.dbversion}`,
   );
 });
 
@@ -32,7 +32,7 @@ client.getSiteStats(function (_, stats) {
 
   // e.g. This wiki has 179 articles with 30886001 users that made 1917 edits.
   console.log(
-    `This wiki has ${stats.articles} articles with ${stats.users} users that made ${stats.edits} edits.`
+    `This wiki has ${stats.articles} articles with ${stats.users} users that made ${stats.edits} edits.`,
   );
 });
 
@@ -42,7 +42,7 @@ client.wikia.getWikiVariables(function (_, vars) {
 
   // e.g. This wiki has ID 443275 (DB name pl8bit) and is a part of lifestyle vertical.
   console.log(
-    `This wiki has ID ${vars.id} (DB name ${vars.dbName}) and is a part of ${vars.vertical} vertical.`
+    `This wiki has ID ${vars.id} (DB name ${vars.dbName}) and is a part of ${vars.vertical} vertical.`,
   );
 });
 
@@ -54,6 +54,6 @@ client.wikia.getUsers([2, 1, 16], function (_, users) {
 client.wikia.getUser(119245, function (_, userInfo) {
   // e.g. Hi, I'm Macbre and I've made 15541 edits
   console.log(
-    `Hi, I'm ${userInfo.name} and I've made ${userInfo.numberofedits} edits`
+    `Hi, I'm ${userInfo.name} and I've made ${userInfo.numberofedits} edits`,
   );
 });

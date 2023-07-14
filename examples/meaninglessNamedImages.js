@@ -27,13 +27,13 @@ client.logIn(function () {
                   `[[Użytkownik:OzgaBot|OzgaBot]] dodaje plik do kategorii ${title}`,
                   function () {
                     console.log(
-                      title1 + extension + " another one bites the dust xD"
+                      title1 + extension + " another one bites the dust xD",
                     );
-                  }
+                  },
                 );
-              }
+              },
             );
-          }
+          },
         );
       } else {
         console.log(`plik ${title1}${extension} już istnieje `);
@@ -60,12 +60,12 @@ client.logIn(function () {
                 `[[Użytkownik:OzgaBot|OzgaBot]] dodaje plik do kategorii ${title}`,
                 function () {
                   console.log(
-                    title + extension + " another one bites the dust xD"
+                    title + extension + " another one bites the dust xD",
                   );
-                }
+                },
               );
             });
-          }
+          },
         );
       } else {
         console.log(`plik ${title}${extension} już istnieje `);
@@ -90,7 +90,7 @@ client.logIn(function () {
               "[[Użytkownik:OzgaBot|OzgaBot]] wstawia szablon 'Obraz sierota'",
               function () {
                 console.log(filename + " został oznaczony jako obraz sierota");
-              }
+              },
             );
           }
         });

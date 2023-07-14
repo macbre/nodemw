@@ -140,10 +140,10 @@ client.api.call(
     err /* Error instance or null */,
     info /* processed query result */,
     next /* more results? */,
-    data /* raw data */
+    data /* raw data */,
   ) {
     console.log(data && data.query && data.query.results);
-  }
+  },
 );
 ```
 
@@ -390,7 +390,7 @@ const client = new wikidata();
 // Where is Saksun, Faroe Islands located?
 const geo = await client.getEntityClaim(
   "Q928875" /* Saksun */,
-  "P625" /* place location */
+  "P625" /* place location */,
 );
 
 // will give you the geolocation of the place

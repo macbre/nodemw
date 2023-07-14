@@ -23,7 +23,7 @@ client.getPagesInCategory("Sports_cars", (_, pages) => {
       console.log(
         "%s: %s",
         page.title,
-        content.slice(0, 75).replace(/\n/g, " ")
+        content.slice(0, 75).replace(/\n/g, " "),
       );
     });
   });

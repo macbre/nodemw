@@ -19,8 +19,8 @@ client.getUserContribs(
     } else {
       const contrib = data[0];
       console.log(
-        `${contrib.user} made an edit to ${contrib.title} on ${contrib.timestamp} (${contrib.comment}).`
+        `${contrib.user} made an edit to ${contrib.title} on ${contrib.timestamp} (${contrib.comment}).`,
       );
     }
-  }
+  },
 );
