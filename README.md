@@ -8,7 +8,7 @@
 
 ## Requirements
 
-- Node.js 14+
+- At minimum [Node.js at the maintenance version](https://github.com/nodejs/release#release-schedule)
 
 ## Installation
 
