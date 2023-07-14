@@ -55,7 +55,7 @@ describe("MediaWiki API", () => {
         expect(article).toContain("''Albert Einstein''");
 
         done();
-      }
+      },
     );
   }, 5000);
 
@@ -75,7 +75,7 @@ describe("Bot on test.wikipedia.org", () => {
   if (process.env.CI === "true") {
     it.skip(
       "GitHub Actions are blocked by Wikipedia for anon traffic",
-      it.todo
+      it.todo,
     );
     return;
   }
@@ -105,7 +105,7 @@ describe("Bot on test.wikipedia.org", () => {
         lastRevisionId = res.newrevid;
 
         done();
-      }
+      },
     );
   }, 5000);
 

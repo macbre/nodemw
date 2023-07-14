@@ -44,65 +44,65 @@ declare class Bot {
     title: string,
     content: string,
     summary: string,
-    callback: NodeJSCallback<PageEditedResult>
+    callback: NodeJSCallback<PageEditedResult>,
   ): void;
   doEdit(
     action: string,
     title: string,
     summary: string,
     params: Object,
-    callback: NodeJSCallback<PageEditedResult>
+    callback: NodeJSCallback<PageEditedResult>,
   ): void;
   edit(
     title: string,
     content: string,
     summary: string,
-    callback: NodeJSCallback<PageEditedResult>
+    callback: NodeJSCallback<PageEditedResult>,
   ): void;
   edit(
     title: string,
     content: string,
     summary: string,
     minor: boolean,
-    callback: NodeJSCallback<PageEditedResult>
+    callback: NodeJSCallback<PageEditedResult>,
   ): void;
   getArticle(article: string, callback: NodeJSCallback<string>): void;
   getArticle(
     article: string,
     followRedirect: boolean,
-    callback: NodeJSCallbackDouble<string, RedirectInfo>
+    callback: NodeJSCallbackDouble<string, RedirectInfo>,
   ): void;
   getArticleInfo(
     title: any,
     options: any,
-    callback: NodeJSCallback<ArticleInfo[]>
+    callback: NodeJSCallback<ArticleInfo[]>,
   ): void;
   getArticleProperties(
     title: string,
-    callback: NodeJSCallback<ArticleProperties>
+    callback: NodeJSCallback<ArticleProperties>,
   ): void;
   getMediaWikiVersion(callback: NodeJSCallback<string>): void;
   getPagesInCategory(
     category: string,
-    callback: NodeJSCallback<PageInCategory[]>
+    callback: NodeJSCallback<PageInCategory[]>,
   ): void;
   getSiteInfo(props: string[], callback: NodeJSCallback<SiteInfo>): void;
   getSiteStats(callback: NodeJSCallback<SiteStatistics>): void;
   getUserContribs(
     options: { user: string },
-    callback: NodeJSCallback<UserContribution[]>
+    callback: NodeJSCallback<UserContribution[]>,
   ): void;
   logIn(callback: NodeJSCallback<any>): void;
   logIn(
     username: string,
     password: string,
-    callback: NodeJSCallback<any>
+    callback: NodeJSCallback<any>,
   ): void;
   prepend(
     title: string,
     content: string,
     summary: string,
-    callback: NodeJSCallback<PageEditedResult>
+    callback: NodeJSCallback<PageEditedResult>,
   ): void;
   search(keyword: string, callback: NodeJSCallback<SearchResult[]>): void;
   whois(username: string, callback: NodeJSCallback<UserInfo>): void;
@@ -113,12 +113,12 @@ declare class Bot {
     title: any,
     subject: any,
     content: any,
-    callback: NodeJSCallback<any>
+    callback: NodeJSCallback<any>,
   ): void;
   createAccount(
     username: any,
     password: any,
-    callback: NodeJSCallback<any>
+    callback: NodeJSCallback<any>,
   ): void;
   diff(prev: any, current: any): void;
   expandTemplates(text: any, title: any, callback: NodeJSCallback<any>): void;
@@ -137,7 +137,7 @@ declare class Bot {
   getImagesFromArticleWithOptions(
     title: any,
     options: any,
-    callback: NodeJSCallback<any>
+    callback: NodeJSCallback<any>,
   ): void;
   getLog(type: any, start: any, callback: NodeJSCallback<any>): void;
   getPagesByPrefix(prefix: any, callback: NodeJSCallback<any>): void;
@@ -155,27 +155,27 @@ declare class Bot {
     title: any,
     protections: any,
     options: any,
-    callback: NodeJSCallback<any>
+    callback: NodeJSCallback<any>,
   ): void;
   purge(titles: any, callback: NodeJSCallback<any>): void;
   sendEmail(
     username: any,
     subject: any,
     text: any,
-    callback: NodeJSCallback<any>
+    callback: NodeJSCallback<any>,
   ): void;
   setConfig(key: any, val: any): void;
   upload(
     filename: any,
     content: any,
     extraParams: any,
-    callback: NodeJSCallback<any>
+    callback: NodeJSCallback<any>,
   ): void;
   uploadByUrl(
     filename: any,
     url: any,
     summary: any,
-    callback: NodeJSCallback<any>
+    callback: NodeJSCallback<any>,
   ): void;
   uploadVideo(fileName: any, url: any, callback: NodeJSCallback<any>): void;
   whoami(callback: NodeJSCallback<any>): void;
