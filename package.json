@@ -28,7 +28,7 @@
     "async": "^3.2.0",
     "diff": "^5.0.0",
     "node-version-compare": "^1.0.1",
-    "request": "^2.88.0",
+    "request": "npm:postman-request@^2.88.1-postman.33",
     "underscore": "^1.9.1",
     "winston": "^3.3.3"
   },
