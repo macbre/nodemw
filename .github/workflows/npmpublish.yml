@@ -13,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # https://github.com/actions/setup-node
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: current
           registry-url: https://registry.npmjs.org/
+
       - run: npm ci
       - run: npm publish
         env:
