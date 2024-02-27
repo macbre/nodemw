@@ -63,7 +63,7 @@ describe("MediaWiki API", () => {
     client.getArticleProperties(TEST_ARTICLE, (err, props) => {
       expect(err).toBeNull();
       expect(props.wikibase_item).toEqual("Q937");
-      expect(props["wikibase-shortdesc"]).toContain("scientist");
+      expect(props["wikibase-shortdesc"]).toContain("physicist");
 
       done();
     });
