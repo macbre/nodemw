@@ -37,7 +37,7 @@
     "check-dts": "^0.7.0",
     "csv-string": "^4.0.1",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-config-wikimedia": "^0.26.0",
+    "eslint-config-wikimedia": "^0.27.0",
     "jest": "^29.0.0",
     "prettier": "^3.0.0",
     "typescript": "^5.0.2",
