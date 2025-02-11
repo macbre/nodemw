@@ -14,7 +14,7 @@ describe("Bot", () => {
     expect(client.api.path).toEqual("/w");
 
     // and some defaults
-    expect(client.api.protocol).toEqual("http");
+    expect(client.api.protocol).toEqual("https");
   });
 
   it("supports passing a config file", () => {
@@ -24,7 +24,7 @@ describe("Bot", () => {
     expect(client.api.path).toEqual("/w");
 
     // and some defaults
-    expect(client.api.protocol).toEqual("http");
+    expect(client.api.protocol).toEqual("https");
   });
 
   it("supports a custom user agent", () => {

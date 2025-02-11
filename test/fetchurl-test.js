@@ -10,7 +10,7 @@ describe("fetchUrl", () => {
   });
 
   it("passes page content to a callback", (done) => {
-    client.fetchUrl("http://example.com", (err, res) => {
+    client.fetchUrl("https://example.com", (err, res) => {
       expect(err).toBeNull();
       expect(res).toContain("<h1>Example Domain</h1>");
 
@@ -20,7 +20,7 @@ describe("fetchUrl", () => {
 
   it("passes binary data to a callback", (done) => {
     client.fetchUrl(
-      "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
+      "https://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
       (err, res) => {
         expect(err).toBeNull();
         expect(res).toBeInstanceOf(Buffer);
