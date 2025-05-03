@@ -146,7 +146,10 @@ declare class Bot {
   getQueryPage(queryPage: any, callback: NodeJSCallback<any>): void;
   getRand(): void;
   getRecentChanges(start: any, callback: NodeJSCallback<any>): void;
-  getTemplateParamFromXml(tmplXml: any, paramName: any): void;
+  getTemplateParamFromXml(
+    tmplXml: string,
+    paramName: string,
+  ): string | undefined;
   getToken(title: any, action: any, callback: NodeJSCallback<any>): void;
   getUsers(data: any, callback: NodeJSCallback<any>): void;
   move(from: any, to: any, summary: any, callback: NodeJSCallback<any>): void;
