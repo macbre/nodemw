@@ -79,3 +79,29 @@ describe("Bot.diff", () => {
     expect(diff).toContain("bar");
   });
 });
+
+describe("Bot.getTemplateParamFromXml", () => {
+  const client = new Bot(__dirname + "/config.json");
+
+  it("returns arguments", () => {
+    const templateXml = `
+<template lineStart="1"><title>Place
+</title><part><name>lat</name><equals>=</equals><value>52.3162771
+</value></part><part><name>lon</name><equals>=</equals><value>16.8823280
+</value></part><part><name>width</name><equals>=</equals><value>300
+</value></part><part><name>zoom</name><equals>=</equals><value>13
+</value></part><part><name>name</name><equals>=</equals><value>ąęófoo
+</value></part></template>`;
+
+    expect(client.getTemplateParamFromXml(templateXml, "foo")).toBeUndefined();
+    expect(client.getTemplateParamFromXml(templateXml, "lat")).toStrictEqual(
+      "52.3162771",
+    );
+    expect(client.getTemplateParamFromXml(templateXml, "zoom")).toStrictEqual(
+      "13",
+    );
+    expect(client.getTemplateParamFromXml(templateXml, "name")).toStrictEqual(
+      "ąęófoo",
+    );
+  });
+});
