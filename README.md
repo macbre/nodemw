@@ -38,7 +38,7 @@ git clone https://github.com/macbre/nodemw.git
 
 ## Where it's used
 
-- Over 10k edits on [Poznań Wiki](http://poznan.wikia.com) as [Pyrabot](http://poznan.wikia.com/wiki/Specjalna:Wkład/Pyrabot) - [scripts repository](https://github.com/macbre/pyrabot)
+- Over 25k edits on [Poznań Wiki](http://poznan.wikia.com) as [Pyrabot](http://poznan.wikia.com/wiki/Specjalna:Wkład/Pyrabot) - [scripts repository](https://github.com/macbre/pyrabot)
 
 ## First script
 
