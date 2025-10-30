@@ -35,14 +35,13 @@ describe("Bot", () => {
     expect(client.api.userAgent).toEqual("foo/bar 1.2.3");
   });
 
-  it("supports a custom referer", () =>{
+  it("supports a custom referer", () => {
     const client = new Bot({
-      referer: "https://wiki.example.com/"
+      referer: "https://wiki.example.com/",
     });
 
     expect(client.api.referer).toEqual("https://wiki.example.com/");
   });
-
 });
 
 describe("Bot.config", () => {
