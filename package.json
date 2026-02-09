@@ -38,7 +38,7 @@
     "check-dts": "^0.9.0",
     "csv-string": "^4.0.1",
     "depcheck": "^1.4.7",
-    "eslint": "^9.1.1",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.0.1",
     "globals": "^17.0.0",
     "jest": "^30.0.0",
