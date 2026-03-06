@@ -20,7 +20,8 @@ jobs:
           node-version: current
           registry-url: https://registry.npmjs.org/
 
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Publish to npm
+        run: |
+          # Ensure npm 11.5.1 or later is installed
+          npm install -g npm@latest
+          npm publish --access public
