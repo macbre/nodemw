@@ -1,6 +1,7 @@
 {
   "include": ["./lib/**/*"],
   "compilerOptions": {
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "ignoreDeprecations": "6.0"
   }
 }
