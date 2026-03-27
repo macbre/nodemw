@@ -35,7 +35,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@jest/globals": "^30.0.0",
-    "check-dts": "^0.9.0",
+    "check-dts": "^1.0.0",
     "csv-string": "^4.0.1",
     "depcheck": "^1.4.7",
     "eslint": "^10.0.0",
