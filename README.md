@@ -271,11 +271,11 @@ Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
 
 Returns token required for a number of MediaWiki API operations - [read more](<https://www.mediawiki.org/wiki/API:Tokens_(action)>) / [for MW 1.24+](https://www.mediawiki.org/wiki/API:Tokens)
 
-### bot.upload(filename, content, summary /* or extraParams */, callback)
+### bot.upload(filename, content, summary /_ or extraParams _/, callback)
 
 Uploads a given raw content as a File:[filename] - [read more](http://www.mediawiki.org/wiki/API:Upload)
 
-### bot.uploadByUrl(filename, url, summary /* or extraParams */, callback)
+### bot.uploadByUrl(filename, url, summary /_ or extraParams _/, callback)
 
 Uploads a given external resource as a File:[filename]
 
