@@ -42,6 +42,9 @@ jobs:
       run: npx prettier --check .
 
     - name: Run the tests
+      env:
+        TEST_BOT_USERNAME: ${{ secrets.TEST_BOT_USERNAME }}
+        TEST_BOT_PASSWORD: ${{ secrets.TEST_BOT_PASSWORD }}
       run: npm test
 
     # https://github.com/marketplace/actions/coveralls-github-action

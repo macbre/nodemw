@@ -1,8 +1,15 @@
 // @ts-check
 "use strict";
 
-const { describe, it, expect } = require("@jest/globals");
+const { describe, it, expect, beforeAll } = require("@jest/globals");
 const WikiData = require("../lib/wikidata");
+const { env } = require("node:process");
+
+// Create your own bot account at https://test.wikipedia.org/wiki/Special:BotPasswords
+// Add set these env variables when running tests.
+// Otherwise, we're getting rate-limited (HTTP 429 responses).
+const TEST_BOT_USERNAME = env["TEST_BOT_USERNAME"];
+const TEST_BOT_PASSWORD = env["TEST_BOT_PASSWORD"];
 
 describe("WikiData API", () => {
   const TEST_ARTICLE = "Albert Einstein"; // https://www.wikidata.org/wiki/Q937
@@ -11,6 +18,15 @@ describe("WikiData API", () => {
   const NOT_EXISTING_ENTITY = "Q3976321987569386512312";
 
   const client = new WikiData();
+
+  if (!TEST_BOT_USERNAME) {
+    it.skip("Suite skipped as it requires a test account", () => {});
+    return;
+  }
+
+  beforeAll(async () => {
+    await client.logIn(TEST_BOT_USERNAME, TEST_BOT_PASSWORD);
+  });
 
   describe("getArticleSitelinks()", () => {
     it(`returns sitelinks for "${TEST_ARTICLE}" article`, async () => {
