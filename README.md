@@ -26,6 +26,15 @@ Or [Download the latest stable version](https://github.com/macbre/nodemw/release
 git clone https://github.com/macbre/nodemw.git
 ```
 
+> [!NOTE]
+> To run integration tests against production Wikipedia and WikiData servers,
+> you first need to reate your own bot account at <https://test.wikipedia.org/wiki/Special:BotPasswords>.
+>
+> And then set the `TEST_BOT_USERNAME` and `TEST_BOT_PASSWORD` env variables when running tests.
+> Otherwise, we're getting rate-limited (HTTP 429 responses).
+>
+> CI checks are already set up.
+
 ## Features
 
 - HTTP requests are stored in the queue and performed in parallel with limited number of "threads" (i.e. there's no risk of flooding the server)
