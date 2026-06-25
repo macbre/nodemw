@@ -115,15 +115,19 @@ Config file is a JSON-encoded object with the following fields (see `/examples/c
 
 ```js
 {
-      "protocol": "https",  // default to 'http'
+      "protocol": "https",           // protocol to use (defaults to 'https')
       "server": "en.wikipedia.org",  // host name of MediaWiki-powered site
+      "port": 443,                   // port to use (optional, defaults to protocol default)
       "path": "/w",                  // path to api.php script
       "debug": false,                // is more verbose when set to true
       "username": "foo",             // account to be used when logIn is called (optional)
       "password": "bar",             // password to be used when logIn is called (optional)
       "domain" : "auth.bar.net",     // domain to be used when logIn is called (optional)
       "userAgent": "Custom UA",      // define custom bot's user agent
-      "concurrency": 5               // how many API requests can be run in parallel (defaults to 3)
+      "concurrency": 5,              // how many API requests can be run in parallel (defaults to 3)
+      "proxy": "http://proxy:8080",  // HTTP proxy to use (optional)
+      "referer": "https://example.com", // referer header to send (optional)
+      "dryRun": false                // dry-run mode - disables write operations (optional)
 }
 ```
 
@@ -166,7 +170,13 @@ The last parameter of each function in nodemw API is a callback which will be fi
 
 Log-in using given credentials - [read more](http://www.mediawiki.org/wiki/API:Login)
 
+> You can also call `logIn(callback)` without arguments to use credentials from config file.
+
 ### bot.getCategories(prefix, callback)
+
+Gets the list of all categories on a wiki (optionally filtered by prefix)
+
+### bot.getAllCategories(callback)
 
 Gets the list of all categories on a wiki
 
@@ -177,6 +187,8 @@ Gets the list of all pages from the main namespace (excludes redirects) - [read 
 ### bot.getPagesInCategory(category, callback)
 
 Gets the list of pages in a given category - [read more](http://www.mediawiki.org/wiki/API:Properties#revisions_.2F_rv)
+
+> By providing `Category:Foo` as `titles` argument to `bot.purge` you can purge all pages in a given category (available since [MW 1.21](https://github.com/wikimedia/mediawiki/commit/62216932c197f1c248ca2d95bc230f87a79ccd71))
 
 ### bot.getPagesInNamespace(namespace, callback)
 
@@ -189,6 +201,14 @@ Gets the list of pages by a given prefix - [read more](https://www.mediawiki.org
 ### bot.getPagesTranscluding(page, callback)
 
 Gets the list of pages that transclude the given pages - [read more](https://www.mediawiki.org/wiki/API:Transcludedin)
+
+### bot.getPagesBySearch(query, callback)
+
+Performs a search and returns matching pages
+
+### bot.getPagesBySearchSorted(query, sort, callback)
+
+Performs a search with specified sort order
 
 ### bot.getArticle(title, [redirect,] callback)
 
@@ -206,6 +226,18 @@ Gets all categories a given article is in - [read more](http://www.mediawiki.org
 
 Gets all info of a given article - [read more](https://www.mediawiki.org/wiki/API:Info)
 
+### bot.getArticlePages(title, callback)
+
+Gets list of all pages that are used on a given page
+
+### bot.expandTemplates(content, title, callback)
+
+Returns XML with preprocessed wikitext (expanded templates) - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#expandtemplates)
+
+### bot.parse(content, title, callback)
+
+Returns parsed wikitext (HTML output) - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#parse)
+
 ### bot.edit(title, content, summary, minor, callback)
 
 Creates / edits an article (and mark the edit as minor if _minor_ is set to true) - [read more](http://www.mediawiki.org/wiki/API:Edit)
@@ -222,31 +254,23 @@ Adds given content to the beginning of the page - [read more](http://www.mediawi
 
 Add a Flow topic - [read more](http://www.mediawiki.org/wiki/API:Flow)
 
+### bot.move(from, to, summary, callback)
+
+Moves (aka renames) given article - [read more](http://www.mediawiki.org/wiki/API:Move)
+
 ### bot.delete(title, reason, callback)
 
 Deletes an article - [read more](http://www.mediawiki.org/wiki/API:Delete)
+
+### bot.undelete(title, reason, callback)
+
+Undeletes an article (restores all revisions) - [read more](https://www.mediawiki.org/wiki/API:Undelete)
 
 ### bot.purge(titles, callback)
 
 Purge a given list of articles (titles or page IDs can be provided) - [read more](https://www.mediawiki.org/wiki/API:Purge)
 
 > By providing `Category:Foo` as `titles` argument you can purge all pages in a given category (available since [MW 1.21](https://github.com/wikimedia/mediawiki/commit/62216932c197f1c248ca2d95bc230f87a79ccd71))
-
-### bot.protect(title, protections, options, callback)
-
-Protect a page (A title or page ID can be provided) - [read more](https://www.mediawiki.org/wiki/API:Protect)
-
-The `protections` value is an Array of protection information in the format:
-
-```
-{
-    action: string,
-    level?: string = 'all',
-    expiry?: string | number = 'never'
-}
-```
-
-Calls to the Protect endpoint are not additive. Each call must include a list of _all_ intended protections, including any already in place. Each call will _replace_ all existing protections.
 
 ### bot.sendEmail(username, subject, text, callback)
 
@@ -255,6 +279,18 @@ Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
 ### bot.getToken(title, action, callback)
 
 Returns token required for a number of MediaWiki API operations - [read more](<https://www.mediawiki.org/wiki/API:Tokens_(action)>) / [for MW 1.24+](https://www.mediawiki.org/wiki/API:Tokens)
+
+### bot.upload(filename, content, summary /_ or extraParams _/, callback)
+
+Uploads a given raw content as a File:[filename] - [read more](http://www.mediawiki.org/wiki/API:Upload)
+
+### bot.uploadByUrl(filename, url, summary /_ or extraParams _/, callback)
+
+Uploads a given external resource as a File:[filename]
+
+### bot.uploadVideo(fileName, url, callback)
+
+Uploads a given video as a File:[filename] (Wikia-specific API)
 
 ### bot.whoami(callback)
 
@@ -271,6 +307,22 @@ Gets information about specific users (including rights, current block, groups) 
 ### bot.createAccount(username, password, callback)
 
 Create account using given credentials - [read more](https://www.mediawiki.org/wiki/API:Account_creation)
+
+### bot.sendEmail(username, subject, text, callback)
+
+Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
+
+### bot.whoami(callback)
+
+Gets information about current bot's user (including rights and rate limits) - [read more](http://www.mediawiki.org/wiki/API:Meta#userinfo_.2F_ui)
+
+### bot.whois(username, callback)
+
+Gets information about a specific user (including rights, current block, groups) - [read more](https://www.mediawiki.org/wiki/API:Users)
+
+### bot.whoare(usernames, callback)
+
+Gets information about specific users (including rights, current block, groups) - [read more](https://www.mediawiki.org/wiki/API:Users)
 
 ### bot.move(from, to, summary, callback)
 
@@ -296,6 +348,10 @@ Gets metadata (including uploader, size, dimensions and EXIF data) of given imag
 
 Get entries form Special:Log - [read more](http://www.mediawiki.org/wiki/API:Logevents)
 
+### bot.getLogByType(type, start, callback)
+
+Get log entries of a specific type from Special:Log
+
 ### bot.expandTemplates(content, title, callback)
 
 Returns XML with preprocessed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing_wikitext#expandtemplates)
@@ -307,6 +363,22 @@ Returns parsed wikitext - [read more](https://www.mediawiki.org/wiki/API:Parsing
 ### bot.fetchUrl(url, callback)
 
 Makes a GET request to provided resource and returns its content.
+
+### bot.getImages(callback)
+
+Gets list of all images on a wiki
+
+### bot.getImageUsage(filename, callback)
+
+Gets list of all articles using given image
+
+### bot.getImagesFromArticle(title, callback)
+
+Get list of all images that are used on a given page - [read more](http://www.mediawiki.org/wiki/API:Properties#images_.2F_im)
+
+### bot.getImageInfo(filename, callback)
+
+Gets metadata (including uploader, size, dimensions and EXIF data) of given image
 
 ### bot.getRecentChanges(start, callback)
 
@@ -320,13 +392,17 @@ Returns site information entries - [read more](http://www.mediawiki.org/wiki/API
 
 Returns site statistics (number of articles, edits etc) - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
 
+### bot.getQueryPage(queryPage, callback)
+
+Returns entries from [QueryPage-based special pages](http://www.mediawiki.org/wiki/API:Querypage)
+
 ### bot.getMediaWikiVersion(callback)
 
 Returns the version of MediaWiki given site uses - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
 
-### client.getQueryPage(queryPage, callback)
+### bot.getToken(title, action, callback)
 
-Returns entries from [QueryPage-based special pages](http://www.mediawiki.org/wiki/API:Querypage)
+Returns token required for a number of MediaWiki API operations - [read more](<https://www.mediawiki.org/wiki/API:Tokens_(action)>) / [for MW 1.24+](https://www.mediawiki.org/wiki/API:Tokens)
 
 ### bot.upload(filename, content, summary _/* or extraParams */_, callback)
 
@@ -356,7 +432,51 @@ Gets all articles that links to given article
 
 Performs a search
 
+### bot.searchByTitle(query, callback)
+
+Performs a search limited to page titles
+
+### bot.getSiteInfo(props, callback)
+
+Returns site information entries - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
+
+### bot.getSiteStats(props, callback)
+
+Returns site statistics (number of articles, edits etc) - [read more](http://www.mediawiki.org/wiki/API:Siteinfo)
+
+### bot.getQueryPage(queryPage, callback)
+
+Returns entries from [QueryPage-based special pages](http://www.mediawiki.org/wiki/API:Querypage)
+
+### bot.getUserContribs(username, callback)
+
+Gets contributions of a given user
+
+### bot.getRecentChanges(start, callback)
+
+Returns entries from recent changes (starting from a given point)
+
+### bot.sendEmail(username, subject, text, callback)
+
+Send an email to an user - [read more](http://www.mediawiki.org/wiki/API:Email)
+
 ## Helpers
+
+### bot.log(msg)
+
+Log a message using the bot's logger
+
+### bot.logData(obj)
+
+Log a JSON object to the console
+
+### bot.error(msg)
+
+Log an error message
+
+### bot.getRand()
+
+Returns a random string (useful for generating unique edit summaries or tokens)
 
 ### bot.getConfig(key, def)
 
@@ -369,6 +489,14 @@ Sets config entry value
 ### bot.diff(old, current)
 
 Returns a diff colored using ANSI colors (powered by [diff](https://www.npmjs.com/package/diff))
+
+### bot.fetchUrl(url, callback, encoding)
+
+Makes a GET request to provided resource and returns its content. Optional encoding parameter (defaults to 'utf-8', use 'binary' for binary data)
+
+### bot.getTemplateParamFromXml(tmplXml, paramName)
+
+Gets a value of a given template parameter from article's preparsed content (see expandTemplates)
 
 ## [Wikia-specific](https://community.fandom.com/api/v1) bot methods
 
