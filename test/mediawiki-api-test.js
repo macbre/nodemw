@@ -1,7 +1,14 @@
 "use strict";
 
-const { describe, it, expect } = require("@jest/globals");
+const { beforeAll, describe, it, expect } = require("@jest/globals");
 const Bot = require("..");
+const { env } = require("node:process");
+
+// Create your own bot account at https://test.wikipedia.org/wiki/Special:BotPasswords
+// Add set these env variables when running tests.
+// Otherwise, we're getting rate-limited (HTTP 429 responses).
+const TEST_BOT_USERNAME = env["TEST_BOT_USERNAME"];
+const TEST_BOT_PASSWORD = env["TEST_BOT_PASSWORD"];
 
 describe("MediaWiki API", () => {
   const client = new Bot({
@@ -11,6 +18,16 @@ describe("MediaWiki API", () => {
   });
   const TEST_ARTICLE = "Albert Einstein";
   const TEST_ARTICLE_REDIRECT = "Einstein";
+
+  if (!TEST_BOT_USERNAME) {
+    it.skip("Suite skipped as it requires a test account", () => {});
+    return;
+  }
+
+  beforeAll((done) => {
+    client.log("Logging in using a test account " + TEST_BOT_USERNAME);
+    client.logIn(TEST_BOT_USERNAME, TEST_BOT_PASSWORD, done);
+  });
 
   it("siteinfo()", (done) => {
     client.getSiteInfo(["general"], (err, info) => {
@@ -70,16 +87,7 @@ describe("MediaWiki API", () => {
   }, 5000);
 });
 
-// FIXME: use a proxy when running on CI
 describe("Bot on test.wikipedia.org", () => {
-  if (process.env.CI === "true") {
-    it.skip(
-      "GitHub Actions are blocked by Wikipedia for anon traffic",
-      it.todo,
-    );
-    return;
-  }
-
   const client = new Bot({
     protocol: "https",
     server: "test.wikipedia.org",
@@ -92,6 +100,16 @@ describe("Bot on test.wikipedia.org", () => {
     .slice(2)} --~~~~`;
 
   let lastRevisionId;
+
+  if (!TEST_BOT_USERNAME) {
+    it.skip("Suite skipped as it requires a test account", () => {});
+    return;
+  }
+
+  beforeAll((done) => {
+    client.log("Logging in using a test account " + TEST_BOT_USERNAME);
+    client.logIn(TEST_BOT_USERNAME, TEST_BOT_PASSWORD, done);
+  });
 
   it("can make edits to <https://test.wikipedia.org/wiki/NodeMW_client>", (done) => {
     client.edit(
