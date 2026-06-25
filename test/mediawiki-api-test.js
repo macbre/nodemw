@@ -88,6 +88,12 @@ describe("MediaWiki API", () => {
 });
 
 describe("Bot on test.wikipedia.org", () => {
+  if (process.env.CI === "true") {
+    // Your IP address is in a range that has been [[m:Special:MyLanguage/Global blocks|blocked on all Wikimedia Foundation wikis]].
+    it.skip("GitHub Actions traffic is blocked by Wikipedia", () => {});
+    return;
+  }
+
   const client = new Bot({
     protocol: "https",
     server: "test.wikipedia.org",
