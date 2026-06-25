@@ -37,11 +37,11 @@
     "@jest/globals": "^30.0.0",
     "check-dts": "^1.0.0",
     "csv-string": "^4.0.1",
-    "depcheck": "^1.4.7",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.0.1",
     "globals": "^17.0.0",
     "jest": "^30.0.0",
+    "knip": "^6.20.0",
     "prettier": "^3.0.0",
     "typescript": "^6.0.2"
   },
@@ -51,6 +51,6 @@
     "lint:fix": "eslint --fix .",
     "check-dts": "npx check-dts lib/*.d.ts",
     "prettier": "npx prettier --write .",
-    "check-dependencies": "npx depcheck"
+    "check-dependencies": "knip"
   }
 }
