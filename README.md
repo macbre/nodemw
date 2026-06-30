@@ -404,11 +404,11 @@ Returns the version of MediaWiki given site uses - [read more](http://www.mediaw
 
 Returns token required for a number of MediaWiki API operations - [read more](<https://www.mediawiki.org/wiki/API:Tokens_(action)>) / [for MW 1.24+](https://www.mediawiki.org/wiki/API:Tokens)
 
-### bot.upload(filename, content, summary _/* or extraParams */_, callback)
+### bot.upload(filename, content, summary _/\* or extraParams \*/_, callback)
 
 Uploads a given raw content as a File:[filename] - [read more](http://www.mediawiki.org/wiki/API:Upload)
 
-### bot.uploadByUrl(filename, url, summary _/* or extraParams */_, callback)
+### bot.uploadByUrl(filename, url, summary _/\* or extraParams \*/_, callback)
 
 Uploads a given external resource as a File:[filename]
 
