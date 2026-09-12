@@ -10,9 +10,9 @@ describe("fetchUrl", () => {
   });
 
   it("passes page content to a callback", (done) => {
-    client.fetchUrl("https://github.com/macbre/nodemw", (err, res) => {
+    client.fetchUrl("https://example.com", (err, res) => {
       expect(err).toBeNull();
-      expect(res).toContain("macbre/nodemw</h1>");
+      expect(res).toContain("Example Domain");
 
       done();
     });
