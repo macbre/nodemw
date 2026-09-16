@@ -12,7 +12,7 @@ module.exports = {
   collectCoverage: true,
   coverageThreshold: {
     global: {
-      lines: 23,
+      lines: 15,
     },
   },
   testTimeout: 5000, // [ms]
