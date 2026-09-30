@@ -113,3 +113,22 @@ describe("Bot.getTemplateParamFromXml", () => {
     );
   });
 });
+
+describe("Bot.getRecentChanges", () => {
+  it("asks for the edit summary with a valid rcprop value", (done) => {
+    const client = new Bot(__dirname + "/config.json");
+    let params;
+
+    client.api.call = (callParams, callback) => {
+      params = callParams;
+      callback(null, { recentchanges: [] });
+    };
+
+    client.getRecentChanges(false, (err) => {
+      expect(err).toBeNull();
+      expect(params.rcprop.split("|")).toContain("comment");
+      expect(params.rcprop.split("|")).not.toContain("comments");
+      done();
+    });
+  });
+});
