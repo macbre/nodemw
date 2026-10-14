@@ -83,7 +83,7 @@ describe("WikiData API", () => {
 
       expect(polish.language).toEqual("pl");
       expect(polish.value).toMatch(/fizyk/);
-      expect(polish.value).toMatch(/noblista/);
+      expect(polish.value).toMatch(/twórca teorii względności/);
     });
 
     it(`gives null for not existing article`, async () => {
