@@ -58,7 +58,7 @@ cd examples
 node pagesInCategory.js
 ```
 
-You can enter **debug mode** by setting `DEBUG` enviromental variable:
+You can enter **debug mode** by setting `DEBUG` environment variable:
 
 ```bash
 DEBUG=1 node examples/pagesInCategory.js
